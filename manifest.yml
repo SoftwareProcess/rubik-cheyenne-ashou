@@ -2,6 +2,7 @@ applications:
 - path: .
   memory: 256M
   instances: 1
-  name: umphrda-rubik 
+  name: caa0037-rubik 
   disk_quota: 1024M
-  buildpack: python_buildpack  
+  buildpack:
+  - python_buildpack  
