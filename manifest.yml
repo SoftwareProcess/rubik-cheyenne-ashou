@@ -4,5 +4,5 @@ applications:
   instances: 1
   name: caa0037-rubik 
   disk_quota: 1024M
-  buildpack:
+  buildpacks:
   - python_buildpack  
