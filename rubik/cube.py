@@ -16,6 +16,7 @@ class Cube:
         # Populate a 2d array with each piece of the cube
         for piece in content:
             cubearray[faceindex].append(piece)
+            pieceindex += 1
             if(pieceindex % 9 == 0):
                 faceindex += 1
                 pieceindex = 0
