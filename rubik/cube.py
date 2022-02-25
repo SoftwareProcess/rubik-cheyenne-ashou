@@ -22,6 +22,7 @@ class Cube:
         for piece in content:
             cubearray[faceindex][row].append(piece)
             pieceindex += 1
+            col += 1
             if(col % 3 == 0):
                 col = 0
                 row += 1
