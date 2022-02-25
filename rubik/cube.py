@@ -7,7 +7,11 @@ class Cube:
         self._content = content
 
     def _load(self, content):
-        cubearray=[[],[],[],[],[],[]]
+        cubearray=[
+            [[], [], []],
+            [[], [], []]
+            [[], [], []]
+            ]
         totalpieces = 54
         faceindex, pieceindex = 0, 0
         row, col = 0, 0
