@@ -11,10 +11,13 @@ def _solve(parms):
     result['status'] = 'ok'
     return result
 
-def clockwise(face):
+def _movecontroller():
     pass
 
-def counterclockwise(face):
+def _clockwise(face):
+    pass
+
+def _counterclockwise(face):
     pass
 # dev strategy
 #    validate parms

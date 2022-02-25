@@ -47,7 +47,7 @@ class SolveTest(unittest.TestCase):
 #        test 910: missing cube
 #        test 920: valid cube, invalid rotation (i.e 'w')
 #        test 930: all the other invalid inputs
-    @unittest.skip("skip while working on cube model")
+    @unittest.skip("skip while working on methods required for solve to work")
     def test_solve_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
@@ -62,4 +62,14 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_movecontroller_020_ShouldReturnStringOfFaceNumbers(self):
+        inputDict = {}
+        inputDict['rotate'] = 'FfRrUuDdLlFBbRl'
+        expectedResult = '001144553302213'
+        actualResult = solve._movecontroller(inputDict['rotate'])
+        self.assertEqual(expectedResult, actualResult)
+         
+         
+        
     
