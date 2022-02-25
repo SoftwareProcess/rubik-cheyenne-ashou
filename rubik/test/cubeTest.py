@@ -5,6 +5,7 @@ Created on Feb 24, 2022
 '''
 import unittest
 import rubik.cube as cube
+from certifi.core import contents
 
 class CubeTest(unittest.TestCase):
 
@@ -27,8 +28,17 @@ class CubeTest(unittest.TestCase):
 #        nominal: empty instance of cube
 #        abnormal: N/A
 
+
     def test_init_010_ShouldCreateEmptyCube(self):
         myCube = cube.Cube()
         self.assertIsInstance(myCube, cube.Cube)
-
+        
+    def test_load_020_(self):
+        inputDict = {}
+        inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
+        content = inputDict.get('cube')
+        expectedContent = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
+        myCube = cube.Cube()
+        myCube._load(content)
+        self.assertEqual(expectedContent, myCube._content)
 
