@@ -41,6 +41,6 @@ class Cube:
         content = self._content
         copyofcontent = ''
         for face in content:
-            for piece in face:
-                copyofcontent += piece
+            for row in face:
+                copyofcontent += ''.join(row)
         return copyofcontent
