@@ -23,7 +23,7 @@ class Cube:
         self._content = cubearray
     
     def _get(self):
-        content = self.content
+        content = self._content
         copyofcontent = ''
         for face in content:
             for piece in face:
