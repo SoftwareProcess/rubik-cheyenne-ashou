@@ -7,7 +7,24 @@ class Cube:
         self._content = content
 
     def _load(self, content):
-        self._content = content
+        cubearray=[[],[],[],[],[],[]]
+        totalpieces = 54
+        faceindex, pieceindex = 0, 0
+        totalfaces = 6
+        piecesperface = 9
+        
+        # Populate a 2d array with each piece of the cube
+        for piece in content:
+            cubearray[faceindex].append(piece)
+            if(pieceindex % 9 == 0):
+                faceindex += 1
+                pieceindex = 0
+        self._content = cubearray
     
     def _get(self):
-        return self._content
+        content = self.content
+        copyofcontent = ''
+        for face in content:
+            for piece in face:
+                copyofcontent += piece
+        return copyofcontent
