@@ -47,7 +47,7 @@ class CubeTest(unittest.TestCase):
         myCube._load(content)
         self.assertEqual(expectedContent, myCube._content)
     
-    @unittest.skip("Skip while working refactoring the load function")    
+      
     def test_get_030_ShouldReturnContentsOfCubeAsString(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
