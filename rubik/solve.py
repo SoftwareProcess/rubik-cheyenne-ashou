@@ -63,7 +63,7 @@ def _movecontroller(moves):
             face = 5
             _counterclockwise(face)
             movelist += '5'
-        return movelist
+    return movelist
         
 
 def _clockwise(face):
