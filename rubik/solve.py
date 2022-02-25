@@ -1,8 +1,8 @@
-import rubik.cube as rubik
+import rubik.cube as cube
 
 def _solve(parms):
     result = {}
-    result['cube'] = 'bwbybgrygyogyrrobwogrbgooggbwyworwogwwybygrroyowbwyrrb'            
+    result['cube'] = None         
     result['status'] = 'ok'
     return result
 

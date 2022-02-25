@@ -5,6 +5,7 @@ Created on Feb 24, 2022
 '''
 import unittest
 import rubik.solve as solve
+import rubik.cube as cube
 
 class SolveTest(unittest.TestCase):
 
@@ -53,6 +54,8 @@ class SolveTest(unittest.TestCase):
         inputDict['rotate'] = 'F'
         inputDict['op'] = 'solve'
         
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
         expectedResult = {}
         expectedResult['cube'] = 'bwbybgrygyogyrrobwogrbgooggbwyworwogwwybygrroyowbwyrrb'
         expectedResult['status'] = 'ok'
