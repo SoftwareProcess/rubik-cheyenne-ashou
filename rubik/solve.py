@@ -13,55 +13,55 @@ def _solve(parms):
 
 def _movecontroller(content, moves):
     movelist = ''
-    face = 0
+    facecount = 0
     for move in moves:
         if move == 'F':
-            face = 0
-            _clockwise(content[face])
+            facecount = 0
+            _clockwise(content[facecount])
             movelist += '0'
         elif move == 'f':
-            face = 0
-            _counterclockwise(content[face])
+            facecount = 0
+            _counterclockwise(content[facecount])
             movelist += '0'
         elif move == 'R':
-            face = 1
-            _clockwise(content[face])
+            facecount = 1
+            _clockwise(content[facecount])
             movelist += '1'
         elif move == 'r':
-            face = 1
-            _counterclockwise(content[face])
+            facecount = 1
+            _counterclockwise(content[facecount])
             movelist += '1'
         elif move == 'B':
-            face = 2
-            _clockwise(face)
+            facecount = 2
+            _clockwise(facecount)
             movelist += '2'
         elif move == 'b':
-            face = 2
-            _counterclockwise(content[face])
+            facecount = 2
+            _counterclockwise(content[facecount])
             movelist += '2'
         elif move == 'L':
-            face = 3
-            _clockwise(content[face])
+            facecount = 3
+            _clockwise(content[facecount])
             movelist += '3'
         elif move == 'l':
-            face = 3
-            _counterclockwise(content[face])
+            facecount = 3
+            _counterclockwise(content[facecount])
             movelist += '3'
         elif move == 'U':
-            face = 4
-            _clockwise(content[face])
+            facecount = 4
+            _clockwise(content[facecount])
             movelist += '4'
         elif move == 'u':
-            face = 4
-            _counterclockwise(content[face])
+            facecount = 4
+            _counterclockwise(content[facecount])
             movelist += '4'
         elif move == 'D':
-            face = 5
-            _clockwise(content[face])
+            facecount = 5
+            _clockwise(content[facecount])
             movelist += '5'
         elif move == 'd':
-            face = 5
-            _counterclockwise(content[face])
+            facecount = 5
+            _counterclockwise(content[facecount])
             movelist += '5'
     return movelist
         
