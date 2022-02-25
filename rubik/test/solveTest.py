@@ -70,7 +70,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._movecontroller(inputDict['rotate'])
         self.assertEqual(expectedResult, actualResult)
     
-    def test_clockwise_ShouldReturn2DArrayClockwise(self):
+    def test_clockwise_030_ShouldReturn2DArrayClockwise(self):
         face = [
             [0,1,2],
             [3,4,5],
@@ -82,6 +82,20 @@ class SolveTest(unittest.TestCase):
             [8,5,2]
             ]
         actualResult = solve._clockwise(face)
+        self.assertEqual(expectedResult, actualResult)
+    
+    def test_counterclockwise_040_ShouldReturn2DArrayClockwise(self):
+        face = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8]
+            ]
+        expectedResult = [
+            [2,5,8],
+            [1,4,7],
+            [0,3,6]
+            ]
+        actualResult = solve._counterclockwise(face)
         self.assertEqual(expectedResult, actualResult)
         
     
