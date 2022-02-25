@@ -10,4 +10,4 @@ class Cube:
         self._content = content
     
     def _get(self):
-        pass
+        return self._content
