@@ -11,7 +11,7 @@ def _solve(parms):
     result['status'] = 'ok'
     return result
 
-def _movecontroller(moves):
+def _movecontroller(content, moves):
     movelist = ''
     face = 0
     for move in moves:
