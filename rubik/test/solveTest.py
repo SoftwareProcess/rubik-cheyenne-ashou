@@ -59,6 +59,6 @@ class SolveTest(unittest.TestCase):
         
         actualResult = solve._solve(inputDict)
         
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
