@@ -33,7 +33,7 @@ class CubeTest(unittest.TestCase):
         myCube = cube.Cube()
         self.assertIsInstance(myCube, cube.Cube)
         
-    def test_load_020_(self):
+    def test_load_020_ShouldLoadContentsIntoCube(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
         content = inputDict.get('cube')
@@ -41,4 +41,14 @@ class CubeTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(content)
         self.assertEqual(expectedContent, myCube._content)
+        
+    def test_get_030_ShouldReturnContentsOfCubeAsString(self):
+        inputDict = {}
+        inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
+        content = inputDict.get('cube')
+        expectedContent = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
+        myCube = cube.Cube()
+        myCube._load(content)
+        actualContent = myCube._get()
+        self.assertEqual(expectedContent, actualContent)
 
