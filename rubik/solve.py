@@ -68,7 +68,7 @@ def _movecontroller(moves):
 
 def _clockwise(face):
     rowlength = len(face[0])
-    for row in range(0, rowlength / 2):
+    for row in range(0, int(rowlength / 2)):
         for col in range(row, rowlength-1-col):
             temp = face[row][col]
             face[row][col] = face[rowlength-1-col][row]
