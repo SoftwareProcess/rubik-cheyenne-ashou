@@ -7,7 +7,7 @@ class Cube:
         self._content = content
 
     def _load(self, content):
-        pass
+        self._content = content
     
     def _get(self):
         pass
