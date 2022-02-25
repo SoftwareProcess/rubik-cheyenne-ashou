@@ -9,7 +9,7 @@ class Cube:
     def _load(self, content):
         cubearray=[
             [[], [], []],
-            [[], [], []]
+            [[], [], []],
             [[], [], []]
             ]
         totalpieces = 54
