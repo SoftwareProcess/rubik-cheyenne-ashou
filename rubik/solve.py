@@ -78,7 +78,15 @@ def _clockwise(face):
     return face
 
 def _counterclockwise(face):
-    pass
+    rowlength = len(face[0])
+    for row in range(0, int(rowlength / 2)):
+        for col in range(row, rowlength-1-row):
+            temp = face[row][col]
+            face[row][col] = face[col][rowlength-1-row]
+            face[col][rowlength-1-row] = face[rowlength-1-row][rowlength-1-col]
+            face[rowlength-1-row][rowlength-1-col] = face[rowlength-1-col][row]
+            face[rowlength-1-col][row] = temp
+    return face
 # dev strategy
 #    validate parms
 #    loads parms['cube'] into cube model
