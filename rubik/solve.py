@@ -16,20 +16,20 @@ def _movecontroller(content, moves):
     face = 0
     for move in moves:
         if move == 'F':
-            _clockwise(face)
             face = 0
+            _clockwise(content[face])
             movelist += '0'
         elif move == 'f':
             face = 0
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '0'
         elif move == 'R':
             face = 1
-            _clockwise(face)
+            _clockwise(content[face])
             movelist += '1'
         elif move == 'r':
             face = 1
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '1'
         elif move == 'B':
             face = 2
@@ -37,31 +37,31 @@ def _movecontroller(content, moves):
             movelist += '2'
         elif move == 'b':
             face = 2
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '2'
         elif move == 'L':
             face = 3
-            _clockwise(face)
+            _clockwise(content[face])
             movelist += '3'
         elif move == 'l':
             face = 3
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '3'
         elif move == 'U':
             face = 4
-            _clockwise(face)
+            _clockwise(content[face])
             movelist += '4'
         elif move == 'u':
             face = 4
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '4'
         elif move == 'D':
             face = 5
-            _clockwise(face)
+            _clockwise(content[face])
             movelist += '5'
         elif move == 'd':
             face = 5
-            _counterclockwise(face)
+            _counterclockwise(content[face])
             movelist += '5'
     return movelist
         

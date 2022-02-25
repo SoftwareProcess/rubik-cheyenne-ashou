@@ -67,8 +67,17 @@ class SolveTest(unittest.TestCase):
         inputDict = {}
         inputDict['rotate'] = 'FfRrUuDdLlFBbRl'
         expectedResult = '001144553302213'
-        actualResult = solve._movecontroller(inputDict['rotate'])
+        content = [
+                        [['b','g','g'],['w','b','y'],['b','y','r']],
+                        [['w','o','g'],['o','r','r'],['y','b','w']],
+                        [['o','g','r'],['b','g','o'],['o','g','g']],
+                        [['b','w','o'],['w','o','r'],['w','o','r']],
+                        [['w','w','y'],['b','y','g'],['y','y','o']],
+                        [['y','r','g'],['b','w','y'],['r','r','b']]
+                    ]
+        actualResult = solve._movecontroller(content, inputDict['rotate'])
         self.assertEqual(expectedResult, actualResult)
+        
     
     def test_clockwise_030_ShouldReturn2DArrayClockwise(self):
         face = [
