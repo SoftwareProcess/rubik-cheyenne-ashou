@@ -100,7 +100,7 @@ def _switchedge(cube, action):
         cube[3][1][2] = cube[5][0][1]
         cube[3][2][2] = cube[5][0][2]      
         
-        cube[5][1] = [cube[1][2][0], cube[1][1][0], cube[1][0][0]]
+        cube[5][0] = [cube[1][2][0], cube[1][1][0], cube[1][0][0]]
         
         cube[1][0][0] = temp[0]
         cube[1][1][0] = temp[1]
