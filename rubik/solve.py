@@ -96,9 +96,9 @@ def _switchedge(cube, action):
         temp = cube[4][2]
         cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
         #
-        cube[3][0][2] = cube[5][1][0]
-        cube[3][1][2] = cube[5][1][1]
-        cube[3][2][2] = cube[5][1][2]      
+        cube[3][0][2] = cube[5][0][0]
+        cube[3][1][2] = cube[5][0][1]
+        cube[3][2][2] = cube[5][0][2]      
         
         cube[5][1] = [cube[1][2][0], cube[1][1][0], cube[1][0][0]]
         
