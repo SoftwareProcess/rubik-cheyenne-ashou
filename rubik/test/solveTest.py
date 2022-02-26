@@ -150,4 +150,5 @@ class SolveTest(unittest.TestCase):
             [52,53,54]]
             ]
         action = 'F'
-        solve._switchedge(cube, action)
+        actualResult = solve._switchedge(cube, action)
+        self.assertEqual(expectedResult, actualResult)
