@@ -94,7 +94,7 @@ def _counterclockwise(face):
 def _switchedge(cube, action):
     if (action == 'F'):
         temp = cube[4][2]
-        cube[4][2] = [cube[3][0][2], cube[3][1][2], cube[3][2][2]]
+        cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
         #
         cube[3][0][2] = cube[5][1][0]
         cube[3][1][2] = cube[5][1][1]
