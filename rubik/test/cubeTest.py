@@ -56,7 +56,7 @@ class CubeTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(content)
         self.assertEqual(expectedContent, myCube._content)
-        self.assertEqual(expectedRowContent, myCube._rowcontent)
+        self.assertEqual(expectedRowContent, myCube._colcontent)
     
     
     def test_get_030_ShouldReturnContentsOfCubeAsString(self):

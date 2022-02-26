@@ -33,7 +33,7 @@ class Cube:
         # Populate a 2d array with each piece of the cube
         for piece in content:
             cubearray[faceindex][row].append(piece)
-            cubearray[faceindex][col].append(piece)
+            colcubearray[faceindex][col].append(piece)
             pieceindex += 1
             col += 1
             if(col % 3 == 0):
