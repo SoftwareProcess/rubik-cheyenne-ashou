@@ -107,4 +107,5 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._counterclockwise(face)
         self.assertEqual(expectedResult, actualResult)
         
-    
+    def test_rotateedge_050_ShouldReturnCubeModel(self):
+        pass

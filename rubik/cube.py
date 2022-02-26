@@ -15,6 +15,7 @@ class Cube:
             [[], [], []],
             [[], [], []]
             ]
+        
         totalpieces = 54
         faceindex, pieceindex = 0, 0
         row, col = 0, 0

@@ -45,9 +45,18 @@ class CubeTest(unittest.TestCase):
                         [['w','w','y'],['b','y','g'],['y','y','o']],
                         [['y','r','g'],['b','w','y'],['r','r','b']]
                             ]
+        expectedRowContent = [
+                        [['b','w','b'],['g','b','y'],['g','y','r']],
+                        [['w','o','y'],['o','r','b'],['g','r','w']],
+                        [['o','b','o'],['g','g','g'],['r','o','g']],
+                        [['b','w','w'],['w','o','o'],['o','r','r']],
+                        [['w','b','y'],['w','y','y'],['y','g','o']],
+                        [['y','b','r'],['r','w','r'],['g','y','b']]
+                            ]
         myCube = cube.Cube()
         myCube._load(content)
         self.assertEqual(expectedContent, myCube._content)
+        self.assertEqual(expectedRowContent, myCube._rowcontent)
     
     
     def test_get_030_ShouldReturnContentsOfCubeAsString(self):
