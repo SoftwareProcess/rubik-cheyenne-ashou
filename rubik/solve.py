@@ -1,17 +1,15 @@
 import rubik.cube as cube
-import rubik.check as check
+import rubik.check
 def _solve(parms):
     
     result = {}
-    result['status'] = check._check(parms)
-    
-    if(result['status'] != 'ok'):
-        return result
-    
     if 'cube' in parms:
         content = parms['cube']
+    else:
+        result['status'] = 'error: 100 No cube input'
+        return result
     
-    content = parms['cube']
+    
     myCube = cube.Cube()
     myCube._load(content)
     moves = parms['rotate']
