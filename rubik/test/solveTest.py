@@ -63,8 +63,27 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    
+    
+    #Show a test case for a string of rotations
+    def test_solve_020_ShouldRotateValidNominalCubeWithPrimeMoves(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'FfRrLlUuDdBb'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    
     @unittest.skip("skip because test case is no longer valid")
-    def test_movecontroller_020_ShouldReturnStringOfFaceNumbers(self):
+    def test_movecontroller_030_ShouldReturnStringOfFaceNumbers(self):
         inputDict = {}
         inputDict['rotate'] = 'FfRrUuDdLlFBbRl'
         expectedResult = '001144553302213'
@@ -80,7 +99,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult, actualResult)
         
     
-    def test_clockwise_030_ShouldReturn2DArrayClockwise(self):
+    def test_clockwise_040_ShouldReturn2DArrayClockwise(self):
         face = [
             [0,1,2],
             [3,4,5],
@@ -94,7 +113,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._clockwise(face)
         self.assertEqual(expectedResult, actualResult)
     
-    def test_counterclockwise_040_ShouldReturn2DArrayClockwise(self):
+    def test_counterclockwise_050_ShouldReturn2DArrayClockwise(self):
         face = [
             [0,1,2],
             [3,4,5],
@@ -108,7 +127,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._counterclockwise(face)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_rotateedge_050_ShouldShiftEdgesF(self):
+    def test_rotateedge_060_ShouldShiftEdgesF(self):
         cube = [
             [[1,2,3],
             [4,5,6],
@@ -164,7 +183,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_rotateedge_060_ShouldShiftEdgesR(self):
+    def test_rotateedge_070_ShouldShiftEdgesR(self):
         cube = [
             [[1,2,3],
             [4,5,6],
@@ -220,7 +239,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_rotateedge_070_ShouldShiftEdgesL(self):
+    def test_rotateedge_080_ShouldShiftEdgesL(self):
         cube = [
             [[1,2,3],
             [4,5,6],
@@ -276,7 +295,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_rotateedge_080_ShouldShiftEdgesB(self):
+    def test_rotateedge_090_ShouldShiftEdgesB(self):
         cube = [
             [[1,2,3],
             [4,5,6],
@@ -332,7 +351,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
     
-    def test_rotateedge_090_ShouldShiftEdgesU(self):
+    def test_rotateedge_100_ShouldShiftEdgesU(self):
         cube = [
             [[1,2,3],
             [4,5,6],
@@ -388,7 +407,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
     
-    def test_rotateedge_100_ShouldShiftEdgesU(self):
+    def test_rotateedge_110_ShouldShiftEdgesD(self):
         cube = [
             [[1,2,3],
             [4,5,6],
