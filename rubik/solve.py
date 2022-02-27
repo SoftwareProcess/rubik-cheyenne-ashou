@@ -154,6 +154,12 @@ def _switchedge(cube, action):
         cube[3][0][0] = temp[2]
         cube[3][1][0] = temp[1]
         cube[3][2][0] = temp[0]
+    elif(action == 'U'):
+        temp = cube[0][0]
+        cube[0][0] = cube[1][0]
+        cube[1][0] = cube[2][0]
+        cube[2][0] = cube[3][0]
+        cube[3][0] = temp
     return cube
 # dev strategy
 #    validate parms
