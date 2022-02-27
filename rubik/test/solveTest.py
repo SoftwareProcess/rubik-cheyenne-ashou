@@ -477,4 +477,38 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
+    def test_solve_910_ValidCubeInvalidRotation(self):
+        inputDict = {}
+        inputDict['rotate'] = 'FfwrLlUuDdBb'
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        expectedResult = {}
+        expectedResult['status'] = 'error: 101 Invalid rotation'
+        
+    def test_solve_920_InvalidCubeLength(self):
+        inputDict = {}
+        inputDict['rotate'] = 'FfwrLlUuDdBb'
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwww'
+        
+        expectedResult = {}
+        expectedResult['status'] = 'error: 102 Cube length is less than 54'
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwwww'
+        expectedResult['status'] = 'error: 102 Cube length is greater than 54'
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        
+        
+        
+        
+        
+        
+        
+        
         

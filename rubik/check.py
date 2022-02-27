@@ -19,7 +19,7 @@ def _check(parms):
         return result
         
     if encodedCube.isalnum() == False:
-        result['status'] = 'error: Non-alphanumber character used in the value for "cube"'
+        result['status'] = 'error: Non-alphanumeric character used in the value for "cube"'
         return result
     
     colors = {}
