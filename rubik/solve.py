@@ -14,7 +14,8 @@ def _solve(parms):
     
     if len(parms.get('cube')):
         pass
-    result['cube'] = _movecontroller(myCube, moves)
+    myCube._content = _movecontroller(myCube, moves)
+    myCube._get()
     result['status'] = 'ok'
     return result
 
