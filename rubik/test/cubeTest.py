@@ -68,5 +68,6 @@ class CubeTest(unittest.TestCase):
         myCube._load(content)
         actualContent = myCube._get()
         self.assertEqual(expectedContent, actualContent)
+        
     
 

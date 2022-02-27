@@ -2,12 +2,17 @@ import rubik.cube as cube
 
 def _solve(parms):
     content = parms['cube']
+    myCube = cube.Cube()
+    content = myCube._load(content)
+    moves = parms['rotate']
     result = {}
     if len(content) != 54:
         result['status'] = 'error xxx' 
-    result['cube'] = None       
+        return result
+    
     if len(parms.get('cube')):
         pass
+    result['cube'] = _movecontroller(content, moves)
     result['status'] = 'ok'
     return result
 
@@ -18,53 +23,65 @@ def _movecontroller(content, moves):
     for move in moves:
         if move == 'F':
             face = 0
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '0'
         elif move == 'f':
             face = 0
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '0'
         elif move == 'R':
             face = 1
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '1'
         elif move == 'r':
             face = 1
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '1'
         elif move == 'B':
             face = 2
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '2'
         elif move == 'b':
             face = 2
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '2'
         elif move == 'L':
             face = 3
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '3'
         elif move == 'l':
             face = 3
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '3'
         elif move == 'U':
             face = 4
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '4'
         elif move == 'u':
             face = 4
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '4'
         elif move == 'D':
             face = 5
-            _clockwise(content[face])
+            content = _clockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '5'
         elif move == 'd':
             face = 5
-            _counterclockwise(content[face])
+            content = _counterclockwise(content[face])
+            content = _switchedge(content, move)
             movelist += '5'
-    return movelist
+    return content
         
 
 def _clockwise(face):
