@@ -1,28 +1,23 @@
 import rubik.cube as cube
 import rubik.check as check
 def _solve(parms):
-    check._check(parms)
+    
     result = {}
-    if 'cube' in parms:
-        content = parms['cube']
-    else:
-        result['status'] = 'error: 100 No cube input'
+    result['status'] = check._check(parms)
+
+    if result.get('status') != 'ok':
         return result
     
-    if len(content) != 54:
-        result['status'] = 'error xxx' 
-        return result
+    content = parms['cube']
+    result['status'] = 'ok'
     
     myCube = cube.Cube()
     myCube._load(content)
     moves = parms['rotate']
     
-    
-    if len(parms.get('cube')):
-        pass
     myCube._content = _movecontroller(myCube, moves)
     result['cube'] = myCube._get()
-    result['status'] = 'ok'
+    
     return result
 
 
