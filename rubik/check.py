@@ -52,8 +52,9 @@ def _check(parms):
         return result
     
     validRotations = 'FfBbRrLlUuDd'
-    for action in parms.get('rotate'):
-        if action not in validRotations:
-            result['status'] = 'error 101: Invalid rotation'
+    if 'rotate' in parms:
+        for action in parms.get('rotate'):
+            if action not in validRotations:
+                result['status'] = 'error 101: Invalid rotation'
     
     return result

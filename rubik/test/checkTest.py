@@ -42,7 +42,7 @@ class CheckTest(TestCase):
         result = check._check(parm)
         self.assertIn('status', result)
         status = result.get('status', None)
-        self.assertEqual(status, 'error: 102 Cube length is less than 54')
+        self.assertEqual(status, 'error: 102 Cube length is greater than 54')
     
     def test_check_060_ShouldReturnErrorTooSmall(self):
         parm = {'op':'check',
@@ -50,7 +50,7 @@ class CheckTest(TestCase):
         result = check._check(parm)
         self.assertIn('status', result)
         status = result.get('status', None)
-        self.assertEqual(status, 'error: 102 Cube length is greater than 54')
+        self.assertEqual(status, 'error: 102 Cube length is less than 54')
     
     def test_check_070_ShouldReturnErrorMiddlePieceConflict(self):
         parm = {'op':'check',
