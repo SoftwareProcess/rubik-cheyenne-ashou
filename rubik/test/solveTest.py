@@ -109,9 +109,7 @@ class SolveTest(unittest.TestCase):
         
     def test_rotateedge_050_ShouldShiftEdgesF(self):
         cube = [
-            [
-            
-            [1,2,3],
+            [[1,2,3],
             [4,5,6],
             [7,8,9]],
             
@@ -143,7 +141,7 @@ class SolveTest(unittest.TestCase):
             
             [[43,11,12],
             [44,14,15],
-            [45,17,18]],
+            [45,17,18]], 
             
             [[19,20,21],
             [22,23,24],
@@ -162,5 +160,61 @@ class SolveTest(unittest.TestCase):
             [52,53,54]]
             ]
         action = 'F'
+        actualResult = solve._switchedge(cube, action)
+        self.assertEqual(expectedResult, actualResult)
+        
+    def test_rotateedge_060_ShouldShiftEdgesR(self):
+        cube = [
+            [[1,2,3],
+            [4,5,6],
+            [7,8,9]],
+            
+            [[10,11,12],
+            [13,14,15],
+            [16,17,18]],
+            
+            [[19,20,21],
+            [22,23,24],
+            [25,26,27]],
+            
+            [[28,29,30],
+            [31,32,33],
+            [34,35,36]],
+            
+            [[37,38,39],
+            [40,41,42],
+            [43,44,45]],
+            
+            [[46,47,48],
+            [49,50,51],
+            [52,53,54]]
+            ]
+        
+        expectedResult = [
+            [[1,2,48],
+            [4,5,51],
+            [7,8,54]],
+            
+            [[10,11,12],
+            [13,14,15],
+            [16,17,18]],
+            
+            [[45,20,21],
+            [42,23,24],
+            [39,26,27]],
+            
+            [[28,29,30],
+            [31,32,33],
+            [34,35,36]],
+            
+            [[37,38,3],
+            [40,41,6],
+            [43,44,9]],
+            
+            [[46,47,25],
+            [49,50,22],
+            [52,53,19]]
+            ]
+        action = 'R'
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
