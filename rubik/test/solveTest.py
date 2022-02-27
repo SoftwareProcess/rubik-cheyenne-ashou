@@ -488,13 +488,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_solve_910_ValidCubeInvalidRotation(self):
-        inputDict = {}
-        inputDict['rotate'] = 'FfwrLlUuDdBb'
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-        expectedResult = {}
-        expectedResult['status'] = 'error: 101 Invalid rotation'
+    
         
     def test_solve_920_InvalidCubeLength(self):
         inputDict = {}

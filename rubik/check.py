@@ -19,7 +19,7 @@ def _check(parms):
         return result
         
     if encodedCube.isalnum() == False:
-        result['status'] = 'error: Non-alphanumeric character used in the value for "cube"'
+        result['status'] = 'error: 106 Non-alphanumeric character used in cube'
         return result
     
     colors = {}
@@ -37,18 +37,18 @@ def _check(parms):
             colors[elementColor] = 1
         index += 1
     if len(colors) != 6:
-        result['status'] = 'error: There must be 6 colors'
+        result['status'] = 'error: 104 Invalid amount of colors'
         return result
                 
     # Check if any elementColor has more or less then 9
     for elementColor in colors:
         if colors[elementColor] != 9:
-            result['status'] = 'error: Each color must have 9 occurrences'
+            result['status'] = 'error: 105 Each color must have 9 occurrences'
             return result
         
     # Check if there are middle colors that are the same
     if len(midColors) != 6:
-        result['status'] = 'error: 2 or more middle pieces have the same color'
+        result['status'] = 'error: 103 Some middle pieces have the same color'
         return result
     
     validRotations = 'FfBbRrLlUuDd'

@@ -24,7 +24,6 @@ def _solve(parms):
 
 
 def _movecontroller(myCube, moves=None):
-    movelist = ''
     face = 0
     content = myCube._content
     if(moves == None):
@@ -37,74 +36,62 @@ def _movecontroller(myCube, moves=None):
             face = 0
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '0'
         elif move == 'f':
             face = 0
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '0'
         elif move == 'R':
             face = 1
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '1'
         elif move == 'r':
             face = 1
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '1'
         elif move == 'B':
             face = 2
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '2'
         elif move == 'b':
             face = 2
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '2'
         elif move == 'L':
             face = 3
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '3'
         elif move == 'l':
             face = 3
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '3'
         elif move == 'U':
             face = 4
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '4'
         elif move == 'u':
             face = 4
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '4'
         elif move == 'D':
             face = 5
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
-            movelist += '5'
         elif move == 'd':
             face = 5
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
-            movelist += '5'
     return content
         
 
