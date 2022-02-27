@@ -4,14 +4,16 @@ def _solve(parms):
     
     result = {}
     result = check._check(parms)
+    
     if(result.get('status') != 'ok'):
         return result
-    if 'cube' in parms:
-        content = parms['cube']
-    else:
-        result['status'] = 'error: 100 No cube input'
-        return result
     
+    # if 'cube' in parms:
+    #     content = parms['cube']
+    # else:
+    #     result['status'] = 'error: 100 No cube input'
+    #     return result
+    content = parms['cube']
     
     myCube = cube.Cube()
     myCube._load(content)
