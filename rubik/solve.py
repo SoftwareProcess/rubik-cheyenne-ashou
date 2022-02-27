@@ -2,7 +2,7 @@ import rubik.cube as cube
 
 def _solve(parms):
     content = parms['cube']
-    
+    result = {}
     if len(content) != 54:
         result['status'] = 'error xxx' 
         return result
@@ -10,7 +10,6 @@ def _solve(parms):
     myCube = cube.Cube()
     content = myCube._load(content)
     moves = parms['rotate']
-    result = {}
     
     
     if len(parms.get('cube')):
