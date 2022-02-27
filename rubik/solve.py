@@ -23,10 +23,15 @@ def _solve(parms):
     return result
 
 
-def _movecontroller(myCube, moves):
+def _movecontroller(myCube, moves=None):
     movelist = ''
     face = 0
     content = myCube._content
+    if(moves == None):
+        move = 'F'
+        content[face] = _clockwise(content[face])
+        content = _switchedge(content, move)
+        return content
     for move in moves:
         if move == 'F':
             face = 0
