@@ -8,9 +8,9 @@ def _solve(parms):
     if(result['status'] != 'ok'):
         return result
     
-    # if 'cube' in parms:
-    #     content = parms['cube']
-    #
+    if 'cube' in parms:
+        content = parms['cube']
+    
     content = parms['cube']
     myCube = cube.Cube()
     myCube._load(content)
