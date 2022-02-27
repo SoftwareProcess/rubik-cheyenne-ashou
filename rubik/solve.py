@@ -1,23 +1,21 @@
 import rubik.cube as cube
-import rubik.check as check
+import rubik.check
 def _solve(parms):
     
     result = {}
-    result['status'] = check._check(parms)
-
-    if result.get('status') != 'ok':
-        return result
-    
-    content = parms['cube']
-    result['status'] = 'ok'
+    if 'cube' in parms:
+        content = parms['cube']
     
     myCube = cube.Cube()
     myCube._load(content)
     moves = parms['rotate']
     
+    
+    if len(parms.get('cube')):
+        pass
     myCube._content = _movecontroller(myCube, moves)
     result['cube'] = myCube._get()
-    
+    result['status'] = 'ok'
     return result
 
 
