@@ -25,62 +25,62 @@ def _movecontroller(content, moves):
     for move in moves:
         if move == 'F':
             face = 0
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '0'
         elif move == 'f':
             face = 0
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '0'
         elif move == 'R':
             face = 1
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '1'
         elif move == 'r':
             face = 1
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '1'
         elif move == 'B':
             face = 2
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '2'
         elif move == 'b':
             face = 2
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '2'
         elif move == 'L':
             face = 3
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '3'
         elif move == 'l':
             face = 3
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '3'
         elif move == 'U':
             face = 4
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '4'
         elif move == 'u':
             face = 4
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '4'
         elif move == 'D':
             face = 5
-            content = _clockwise(content[face])
+            content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
             movelist += '5'
         elif move == 'd':
             face = 5
-            content = _counterclockwise(content[face])
+            content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
             movelist += '5'
     return content
