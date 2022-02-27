@@ -47,7 +47,7 @@ class SolveTest(unittest.TestCase):
 #        test 910: missing cube
 #        test 920: valid cube, invalid rotation (i.e 'w')
 #        test 930: all the other invalid inputs
-    @unittest.skip("skip while working on methods required for solve to work")
+    
     def test_solve_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
