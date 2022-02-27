@@ -8,20 +8,21 @@ def _solve(parms):
         return result
     
     myCube = cube.Cube()
-    content = myCube._load(content)
+    myCube._load(content)
     moves = parms['rotate']
     
     
     if len(parms.get('cube')):
         pass
-    result['cube'] = _movecontroller(content, moves)
+    result['cube'] = _movecontroller(myCube, moves)
     result['status'] = 'ok'
     return result
 
 
-def _movecontroller(content, moves):
+def _movecontroller(myCube, moves):
     movelist = ''
     face = 0
+    content = myCube._content
     for move in moves:
         if move == 'F':
             face = 0
