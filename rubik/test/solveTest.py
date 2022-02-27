@@ -63,6 +63,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    @unittest.skip("skip because test case is no longer valid")
     def test_movecontroller_020_ShouldReturnStringOfFaceNumbers(self):
         inputDict = {}
         inputDict['rotate'] = 'FfRrUuDdLlFBbRl'

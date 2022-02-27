@@ -2,13 +2,16 @@ import rubik.cube as cube
 
 def _solve(parms):
     content = parms['cube']
+    
+    if len(content) != 54:
+        result['status'] = 'error xxx' 
+        return result
+    
     myCube = cube.Cube()
     content = myCube._load(content)
     moves = parms['rotate']
     result = {}
-    if len(content) != 54:
-        result['status'] = 'error xxx' 
-        return result
+    
     
     if len(parms.get('cube')):
         pass
