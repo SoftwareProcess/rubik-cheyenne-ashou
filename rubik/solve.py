@@ -34,6 +34,8 @@ def _movecontroller(myCube, moves):
             face = 0
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             movelist += '0'
         elif move == 'R':
             face = 1
@@ -43,6 +45,8 @@ def _movecontroller(myCube, moves):
         elif move == 'r':
             face = 1
             content[face] = _counterclockwise(content[face])
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             content = _switchedge(content, move)
             movelist += '1'
         elif move == 'B':
@@ -54,6 +58,8 @@ def _movecontroller(myCube, moves):
             face = 2
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             movelist += '2'
         elif move == 'L':
             face = 3
@@ -63,6 +69,8 @@ def _movecontroller(myCube, moves):
         elif move == 'l':
             face = 3
             content[face] = _counterclockwise(content[face])
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             content = _switchedge(content, move)
             movelist += '3'
         elif move == 'U':
@@ -74,6 +82,8 @@ def _movecontroller(myCube, moves):
             face = 4
             content[face] = _counterclockwise(content[face])
             content = _switchedge(content, move)
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             movelist += '4'
         elif move == 'D':
             face = 5
@@ -83,6 +93,8 @@ def _movecontroller(myCube, moves):
         elif move == 'd':
             face = 5
             content[face] = _counterclockwise(content[face])
+            content = _switchedge(content, move)
+            content = _switchedge(content, move)
             content = _switchedge(content, move)
             movelist += '5'
     return content
