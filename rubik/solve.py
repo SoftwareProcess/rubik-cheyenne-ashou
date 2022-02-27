@@ -2,7 +2,6 @@ import rubik.cube as cube
 import rubik.check as check
 def _solve(parms):
     
-    result = {}
     result = check._check(parms)
     
     if(result.get('status') != 'ok'):

@@ -5,7 +5,6 @@ class Cube:
 
     def __init__(self, content=None):
         self._content = content
-        self._colcontent = content
     def _load(self, content):
         cubearray=[
             [[], [], []],
@@ -15,25 +14,14 @@ class Cube:
             [[], [], []],
             [[], [], []]
             ]
-        # The same as cube array, but the columns are grouped together rather than the rows
-        colcubearray = [
-            [[], [], []],
-            [[], [], []],
-            [[], [], []],
-            [[], [], []],
-            [[], [], []],
-            [[], [], []]
-            ]
-        totalpieces = 54
+
         faceindex, pieceindex = 0, 0
         row, col = 0, 0
-        totalfaces = 6
-        piecesperface = 9
+   
         
         # Populate a 2d array with each piece of the cube
         for piece in content:
             cubearray[faceindex][row].append(piece)
-            colcubearray[faceindex][col].append(piece)
             pieceindex += 1
             col += 1
             if(col % 3 == 0):
@@ -46,7 +34,6 @@ class Cube:
                 pieceindex = 0
             
         self._content = cubearray
-        self._colcontent = colcubearray
     def _get(self):
         content = self._content
         copyofcontent = ''

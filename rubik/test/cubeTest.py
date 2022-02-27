@@ -5,7 +5,7 @@ Created on Feb 24, 2022
 '''
 import unittest
 import rubik.cube as cube
-from certifi.core import contents
+
 
 class CubeTest(unittest.TestCase):
 

@@ -1,5 +1,5 @@
-import rubik.cube as rubik
-from curses.ascii import isalnum
+# import rubik.cube as rubik
+# from curses.ascii import isalnum
 
 def _check(parms):
     result={}
