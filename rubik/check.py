@@ -4,18 +4,18 @@ from curses.ascii import isalnum
 def _check(parms):
     result={}
     encodedCube = parms.get('cube',None)
-
+    
+    result['status'] = 'ok'
+    
     if(encodedCube == None):
-        result['status'] = 'error: No value for "cube"\n'
+        result['status'] = 'error: 100 No cube input'
         return result
-    else:
-        result['status'] = 'ok'
     
     if(len(encodedCube) < 54):
-        result['status'] = 'error: Length for "cube" is too small\nThere must be 54 elements.'
+        result['status'] = 'error: 102 Cube length is less than 54'
         return result
     elif len(encodedCube) > 54:
-        result['status'] = 'error: Length for "cube" is too big\nThere must be 54 elements.'
+        result['status'] = 'error: 102 Cube length is greater than 54'
         return result
         
     if encodedCube.isalnum() == False:
@@ -50,5 +50,10 @@ def _check(parms):
     if len(midColors) != 6:
         result['status'] = 'error: 2 or more middle pieces have the same color'
         return result
+    
+    validRotations = 'FfBbRrLlUuDd'
+    for action in parms.get('rotate'):
+        if action not in validRotations:
+            result['status'] = 'error 101: Invalid rotation'
     
     return result

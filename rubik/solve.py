@@ -1,7 +1,7 @@
 import rubik.cube as cube
-
+import rubik.check as check
 def _solve(parms):
-    
+    check._check(parms)
     result = {}
     if 'cube' in parms:
         content = parms['cube']
