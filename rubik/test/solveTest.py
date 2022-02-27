@@ -463,3 +463,18 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
+    #Sad path test cases
+    def test_solve_900_MissingCube_ShouldReturnError(self):
+        inputDict = {}
+        inputDict['rotate'] = 'FfRrLlUuDdBb'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['status'] = 'error: 100 No cube input'
+        
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        
