@@ -470,8 +470,8 @@ class SolveTest(unittest.TestCase):
         content = inputDict['cube']
         myCube = cube.Cube()
         myCube._load(content)
-        actualResult = myCube._get()
         solve._movecontroller(myCube)
+        actualResult = myCube._get()
         self.assertEqual(expectedResult, actualResult)
         
     #Sad path test cases
