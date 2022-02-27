@@ -4,6 +4,8 @@ def _solve(parms):
     
     result = {}
     result = check._check(parms)
+    if(result.get('status') != 'ok'):
+        return result
     if 'cube' in parms:
         content = parms['cube']
     else:
