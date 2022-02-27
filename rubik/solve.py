@@ -1,7 +1,5 @@
 import rubik.cube as cube
-import unittest
 
-@unittest.skip("skip until change orientation method is finished")
 def _solve(parms):
     content = parms['cube']
     result = {}
@@ -12,7 +10,8 @@ def _solve(parms):
         pass
     result['status'] = 'ok'
     return result
-@unittest.skip("skip until change orientation method is finished")
+
+
 def _movecontroller(content, moves):
     movelist = ''
     face = 0
@@ -67,7 +66,7 @@ def _movecontroller(content, moves):
             movelist += '5'
     return movelist
         
-@unittest.skip("skip until change orientation method is finished")
+
 def _clockwise(face):
     rowlength = len(face)
     for row in range(0, int(rowlength / 2)):
@@ -79,7 +78,7 @@ def _clockwise(face):
             face[col][rowlength-1-row] = temp
     return face
 
-@unittest.skip("skip until finishing cube model")
+
 def _counterclockwise(face):
     rowlength = len(face[0])
     for row in range(0, int(rowlength / 2)):
