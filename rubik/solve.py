@@ -124,7 +124,7 @@ def _counterclockwise(face):
     return face
 
 def _switchedge(cube, action):
-    if (action == 'F'):
+    if (action == 'F' or action == 'f'):
         temp = cube[4][2]
         cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
         
@@ -137,7 +137,7 @@ def _switchedge(cube, action):
         cube[1][0][0] = temp[0]
         cube[1][1][0] = temp[1]
         cube[1][2][0] = temp[2]
-    elif(action == 'R'):
+    elif(action == 'R' or action == 'r'):
         temp = [cube[0][0][2], cube[0][1][2], cube[0][2][2]]
         
         cube[0][0][2] = cube[5][0][2]
@@ -155,7 +155,7 @@ def _switchedge(cube, action):
         cube[4][0][2] = temp[0]
         cube[4][1][2] = temp[1]
         cube[4][2][2] = temp[2]
-    elif(action == 'L'):
+    elif(action == 'L' or action == 'l'):
         temp = [cube[0][0][0], cube[0][1][0], cube[0][2][0]]
         
         cube[0][0][0] = cube[5][0][0]
@@ -173,7 +173,7 @@ def _switchedge(cube, action):
         cube[4][0][0] = temp[0]
         cube[4][1][0] = temp[1]
         cube[4][2][0] = temp[2]
-    elif(action == 'B'):
+    elif(action == 'B' or action == 'b'):
         temp = cube[4][0]
         cube[4][0] = [cube[1][0][2], cube[1][1][2], cube[1][2][2]]
         
@@ -186,13 +186,13 @@ def _switchedge(cube, action):
         cube[3][0][0] = temp[2]
         cube[3][1][0] = temp[1]
         cube[3][2][0] = temp[0]
-    elif(action == 'U'):
+    elif(action == 'U' or action == 'u'):
         temp = cube[0][0]
         cube[0][0] = cube[1][0]
         cube[1][0] = cube[2][0]
         cube[2][0] = cube[3][0]
         cube[3][0] = temp
-    elif(action == 'D'):
+    elif(action == 'D' or action =='d'):
         temp = cube[0][2]
         cube[0][2] = cube[3][2]
         cube[3][2] = cube[2][2]
