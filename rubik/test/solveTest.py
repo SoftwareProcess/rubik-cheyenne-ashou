@@ -248,7 +248,7 @@ class SolveTest(unittest.TestCase):
         
         expectedResult = [
             [[46,2,3],
-            [48,5,6],
+            [49,5,6],
             [52,8,9]],
             
             [[10,11,12],
