@@ -1,8 +1,14 @@
 import rubik.cube as cube
 
 def _solve(parms):
-    content = parms['cube']
+    
     result = {}
+    if 'cube' in parms:
+        content = parms['cube']
+    else:
+        result['status'] = 'error: 100 No cube input'
+        return result
+    
     if len(content) != 54:
         result['status'] = 'error xxx' 
         return result
