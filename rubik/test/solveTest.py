@@ -274,3 +274,59 @@ class SolveTest(unittest.TestCase):
         action = 'L'
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
+        
+    def test_rotateedge_080_ShouldShiftEdgesB(self):
+        cube = [
+            [[1,2,3],
+            [4,5,6],
+            [7,8,9]],
+            
+            [[10,11,12],
+            [13,14,15],
+            [16,17,18]],
+            
+            [[19,20,21],
+            [22,23,24],
+            [25,26,27]],
+            
+            [[28,29,30],
+            [31,32,33],
+            [34,35,36]],
+            
+            [[37,38,39],
+            [40,41,42],
+            [43,44,45]],
+            
+            [[46,47,48],
+            [49,50,51],
+            [52,53,54]]
+            ]
+        
+        expectedResult = [
+            [[1,2,3],
+            [4,5,6],
+            [7,8,9]],
+            
+            [[10,11,54],
+            [13,14,53],
+            [16,17,52]],
+            
+            [[19,20,21],
+            [22,23,24],
+            [25,26,27]],
+            
+            [[39,29,30],
+            [38,32,33],
+            [37,35,36]],
+            
+            [[12,15,18],
+            [40,41,42],
+            [43,44,45]],
+            
+            [[46,47,48],
+            [49,50,51],
+            [28,31,34]]
+            ]
+        action = 'B'
+        actualResult = solve._switchedge(cube, action)
+        self.assertEqual(expectedResult, actualResult)
