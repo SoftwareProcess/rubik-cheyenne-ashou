@@ -66,7 +66,7 @@ class SolveTest(unittest.TestCase):
     
     
     #Show a test case for a string of rotations
-    def test_solve_020_ShouldRotateValidNominalCubeWithPrimeMoves(self):
+    def test_solve_011_ShouldRotateValidNominalCubeWithPrimeMoves(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['rotate'] = 'FfRrLlUuDdBb'
@@ -81,8 +81,82 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    
+    def test_solve_012_ShouldRotateValidNominalCubeB(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'B'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'rrrrrrrrrggwggwggwoooooooooybbybbybbgggyyyyyywwwwwwbbb'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    def test_solve_021_ShouldRotateValidNominalCubeR(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'R'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'rrwrrwrrwgggggggggyooyooyoobbbbbbbbbyyryyryyrwwowwowwo'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_solve_022_ShouldRotateValidNominalCubeL(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'L'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'yrryrryrrgggggggggoowoowoowbbbbbbbbboyyoyyoyyrwwrwwrww'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_solve_023_ShouldRotateValidNominalCubeU(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'U'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'gggrrrrrroooggggggbbboooooorrrbbbbbbyyyyyyyyywwwwwwwww'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_solve_024_ShouldRotateValidNominalCubeD(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['rotate'] = 'D'
+        inputDict['op'] = 'solve'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'rrrrrrbbbggggggrrroooooogggbbbbbboooyyyyyyyyywwwwwwwww'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
     @unittest.skip("skip because test case is no longer valid")
+    
     def test_movecontroller_030_ShouldReturnStringOfFaceNumbers(self):
         inputDict = {}
         inputDict['rotate'] = 'FfRrUuDdLlFBbRl'
