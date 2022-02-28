@@ -361,9 +361,9 @@ class SolveTest(unittest.TestCase):
             [24,41,42],
             [21,44,45]],
             
-            [[27,47,48],
-            [24,50,51],
-            [21,53,54]]
+            [[1,47,48],
+            [4,50,51],
+            [7,53,54]]
             ]
         action = 'L'
         actualResult = solve._switchedge(cube, action)
