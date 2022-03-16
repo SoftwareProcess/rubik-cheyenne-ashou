@@ -25,7 +25,7 @@ def _solve(parms):
 def _movecontroller(myCube, moves=None):
     face = 0
     content = myCube._content
-    if(moves == None):
+    if(moves == None or moves == ''):
         move = 'F'
         content[face] = _clockwise(content[face])
         content = _switchedge(content, move)
