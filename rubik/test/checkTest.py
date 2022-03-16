@@ -1,6 +1,6 @@
 from unittest import TestCase
 import rubik.check as check 
-
+import rubik.solve as solve
 class CheckTest(TestCase):
     #Happy
     def test_check_010_ShouldReturnOkOnSolvedCube(self):
@@ -91,4 +91,6 @@ class CheckTest(TestCase):
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         expectedResult = {}
         expectedResult['status'] = 'error: 101 Invalid rotation'
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult['status'], actualResult)
 
