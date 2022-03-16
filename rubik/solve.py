@@ -11,7 +11,7 @@ def _solve(parms):
     
     myCube = cube.Cube()
     myCube._load(content)
-    moves = parms['rotate']
+    moves = parms.get('rotate',None)
     
     
     if len(parms.get('cube')):

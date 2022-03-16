@@ -548,7 +548,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_movecontroller_120_ShouldRotateFOnNominalCubeMissingRotation(self):
+    def test_movecontroller_120_ShouldRotateFOnNominalCubeEmptyRotation(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
         inputDict['rotate'] = ''
@@ -563,7 +563,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_movecontroller_121_ShouldRotateFOnNominalCubeEmptyRotation(self):
+    def test_movecontroller_121_ShouldRotateFOnNominalCubeMissingRotation(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
         inputDict['op'] = 'solve'
