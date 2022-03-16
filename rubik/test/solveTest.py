@@ -548,6 +548,26 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
+#Iteration 2
+#    inputs:
+#        parms:        dictionary; mandatory; arrives validated
+#        parms['op']    string, "solve"; mandatory; arrives validated
+#        parms['cube']    string; len=54, [azAZ09], ... , mandatory, arrives unvalidated -> defensive programming
+#        parms['rotate']    string; len >= 0, [FfRrBbLlUuDd]; optional, default to "solve" mode if missing; arrives unvalidated 
+#
+#    outputs:
+#        side-effects: no state change, no external effects, nothing other than input or output 
+#        returns: dictionary
+#        nominal:
+#            If the input cube is valid and rotate is present:
+#                dictionary['cube']: string, len=54
+#                dictionary['status']: 'ok'
+#            If the input cube is valid and rotate is MISSING:
+#                dictionary['solution']: string, len >= 0
+#                dictionary['status']: 'ok'
+#        abnormal:
+#            dictionary['status']: 'error: xxx' where xxx is a dev selected message
+#        
     def test_movecontroller_120_ShouldRotateFOnNominalCubeEmptyRotation(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
@@ -563,6 +583,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
+    @unittest.skip("skip due to change of requirements")
     def test_movecontroller_121_ShouldRotateFOnNominalCubeMissingRotation(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
@@ -575,5 +596,22 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._solve(inputDict)
         
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        
+    #
+        
+    def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        
+        expectedResult = {}
+        expectedResult['solution'] = ''
+        expectedResult['status'] = 'ok'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
