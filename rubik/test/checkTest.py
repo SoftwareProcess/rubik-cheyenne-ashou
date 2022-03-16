@@ -92,5 +92,5 @@ class CheckTest(TestCase):
         expectedResult = {}
         expectedResult['status'] = 'error: 101 Invalid rotation'
         actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult['status'], actualResult)
+        self.assertEqual(expectedResult['status'], actualResult['status'])
 
