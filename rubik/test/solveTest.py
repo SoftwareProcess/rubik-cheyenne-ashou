@@ -568,6 +568,7 @@ class SolveTest(unittest.TestCase):
 #        abnormal:
 #            dictionary['status']: 'error: xxx' where xxx is a dev selected message
 #        
+    @unittest.skip("skip due to change of requirements")
     def test_movecontroller_120_ShouldRotateFOnNominalCubeEmptyRotation(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
@@ -598,9 +599,6 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-        
-    #
-        
     def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -614,4 +612,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        self.assertEqual(expectedResult, actualResult)
+        
+    
         
