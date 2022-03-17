@@ -608,11 +608,28 @@ class SolveTest(unittest.TestCase):
         expectedResult['solution'] = ''
         expectedResult['status'] = 'ok'
         
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        
         actualResult = solve._solve(inputDict)
+        #actualResult = solve._bottomcross(myCube)
         
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
+        
+    def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
+        
+        actualResult = solve._solve(inputDict)
+        
+        self.assertEqual(actualResult['cube'][46],'w')
+        self.assertEqual(actualResult['cube'][48],'w')
+        self.assertEqual(actualResult['cube'][50],'w')
+        self.assertEqual(actualResult['cube'][52],'w')
+        
         
     
         
