@@ -13,14 +13,18 @@ def _solve(parms):
     myCube._load(content)
     moves = parms.get('rotate',None)
     
+    if(moves == '' or moves == None):
+        result['solution'] = _bottomcross(myCube)
+    else:
+        myCube._content = _movecontroller(myCube, moves)
+        result['cube'] = myCube._get()
     
-    if len(parms.get('cube')):
-        pass
-    myCube._content = _movecontroller(myCube, moves)
-    result['cube'] = myCube._get()
     result['status'] = 'ok'
+    
     return result
 
+def _bottomcross(myCube):
+    return ''
 
 def _movecontroller(myCube, moves=None):
     face = 0
