@@ -15,8 +15,10 @@ class Cube:
             [[], [], []]
             ]
 
-        faceindex, pieceindex = 0, 0
-        row, col = 0, 0
+        faceindex = 0
+        pieceindex = 0
+        row = 0
+        col = 0
    
         
         # Populate a 2d array with each piece of the cube
