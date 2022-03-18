@@ -618,7 +618,8 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
-    @unittest.skip("skip while making rotateCubeClockwise method")    
+    
+    #@unittest.skip("skip while making rotateCubeClockwise method")    
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -627,6 +628,7 @@ class SolveTest(unittest.TestCase):
         bottomFaceColor = inputDict['cube'][49]
         
         moves = solve._solve(inputDict)
+        
         inputDict['rotate'] = moves
         
         actualResult = solve._solve(inputDict)
@@ -674,6 +676,7 @@ class SolveTest(unittest.TestCase):
         actualResult = myCube._get()
         
         self.assertEqual(expectedResult, actualResult)
-
+    
+    
     
         
