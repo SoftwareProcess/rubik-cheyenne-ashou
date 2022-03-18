@@ -618,7 +618,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
-    @unittest.skip("skip while making middleLayerRotationMethod")    
+    @unittest.skip("skip while making rotateCubeClockwise method")    
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -643,7 +643,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
         
-    
+    @unittest.skip("no longer needed")
     def test_150_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
@@ -660,6 +660,21 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
 
+    def test_160_ShouldRotateEntireCubeClockWise(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['op'] = 'solve'
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._content
         
+   
+        expectedResult = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
+        
+        actualResult = solve._rotateCubeClockwise(content)
+        actualResult = myCube._get()
+        
+        self.assertEqual(expectedResult, actualResult)
+
     
         

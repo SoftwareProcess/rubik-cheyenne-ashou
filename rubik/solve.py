@@ -290,6 +290,8 @@ def _rotateMiddle(content):
             content[face][1] = content[face+1][1]
         
     return content
+
+def _rotateCubeClockwise(content):
 # dev strategy
 #    validate parms
 #    loads parms['cube'] into cube model
