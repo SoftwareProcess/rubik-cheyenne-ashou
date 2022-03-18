@@ -676,7 +676,8 @@ class SolveTest(unittest.TestCase):
         actualResult = myCube._get()
         
         self.assertEqual(expectedResult, actualResult)
+        
     
-    
+
     
         
