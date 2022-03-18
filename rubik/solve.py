@@ -282,8 +282,13 @@ def _switchedge(cube, action):
 
 def _rotateMiddle(content):
     for face in range(0,4):
-        temp = content[face][1]
-        content[face][1] = content[face+1][1]
+        if(face == 0):
+            temp = content[face][1]
+        if(face == 3):
+            content[face][1] = temp
+        else:
+            content[face][1] = content[face+1][1]
+        
     return content
 # dev strategy
 #    validate parms
