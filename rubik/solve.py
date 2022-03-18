@@ -281,7 +281,7 @@ def _switchedge(cube, action):
     return cube
 
 def _rotateMiddle(content):
-    for face in range(0,3):
+    for face in range(0,4):
         temp = content[face][1]
         content[face][1] = content[face+1][1]
     return content
