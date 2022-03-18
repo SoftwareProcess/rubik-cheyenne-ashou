@@ -666,12 +666,11 @@ class SolveTest(unittest.TestCase):
         inputDict['op'] = 'solve'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        content = myCube._content
         
    
         expectedResult = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
         
-        actualResult = solve._rotateCubeClockwise(content)
+        actualResult = solve._rotateCubeClockwise(myCube)
         actualResult = myCube._get()
         
         self.assertEqual(expectedResult, actualResult)
