@@ -624,10 +624,15 @@ class SolveTest(unittest.TestCase):
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
         
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        
         bottomFaceColor = inputDict['cube'][48]
         
-        moves = solve._solve(inputDict)
-        inputDict['rotate'] = moves
+        # moves = solve._solve(inputDict)
+        # inputDict['rotate'] = moves
+        
+        moves = solve._bottomFlower(myCube)
         #actualResult = solve._solve(inputDict)
         
         
