@@ -14,8 +14,7 @@ def _solve(parms):
     moves = parms.get('rotate',None)
     
     if(moves == '' or moves == None):
-        myCube._content = _bottomFlower(myCube)        
-        result['cube'] = myCube._get()
+        result['solution'] == _bottomFlower(myCube)   
     else:
         myCube._content = _movecontroller(myCube, moves)
         result['cube'] = myCube._get()
@@ -103,7 +102,7 @@ def _bottomFlower(myCube):
         return content   
     
     
-    #
+    #Rotate flower pieces to bottom face to form bottom cross
     for face in range(0,6):
         middleColor = content[face][1][1]
         while(content[face][0][1] != middleColor):
@@ -113,7 +112,7 @@ def _bottomFlower(myCube):
         moves += 'FF'
     
     content = myCube._content
-    return content
+    return moves
 
 def _movecontroller(myCube, moves=None):
     content = myCube._content
