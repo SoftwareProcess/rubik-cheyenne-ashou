@@ -279,6 +279,9 @@ def _switchedge(cube, action):
         cube[2][2] = cube[1][2]
         cube[1][2] = temp
     return cube
+
+def _rotateMiddle():
+    pass
 # dev strategy
 #    validate parms
 #    loads parms['cube'] into cube model
