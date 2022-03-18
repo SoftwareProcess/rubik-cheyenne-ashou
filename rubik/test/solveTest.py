@@ -624,27 +624,23 @@ class SolveTest(unittest.TestCase):
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
         
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
+        bottomFaceColor = inputDict['cube'][49]
         
-        bottomFaceColor = inputDict['cube'][48]
+        moves = solve._solve(inputDict)
+        inputDict['rotate'] = moves
         
-        # moves = solve._solve(inputDict)
-        # inputDict['rotate'] = moves
-        
-        moves = solve._bottomFlower(myCube)
-        #actualResult = solve._solve(inputDict)
+        actualResult = solve._solve(inputDict)
         
         
         
-        # self.assertEqual(actualResult['cube'][46], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
-        # self.assertEqual(actualResult['cube'][48], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
-        # self.assertEqual(actualResult['cube'][50], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
-        # self.assertEqual(actualResult['cube'][52], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
+        self.assertEqual(actualResult['cube'][46], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
+        self.assertEqual(actualResult['cube'][48], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
+        self.assertEqual(actualResult['cube'][50], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
+        self.assertEqual(actualResult['cube'][52], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
 
         
