@@ -624,9 +624,18 @@ class SolveTest(unittest.TestCase):
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
         
+        bottomFaceColor = inputDict['cube'][49]
+        
+        moves = solve._solve(inputDict)
+        inputDict['rotate'] = moves
         actualResult = solve._solve(inputDict)
         
-    
+        
+        
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        
         self.assertEqual(actualResult['cube'][46],'w')
         self.assertEqual(actualResult['cube'][48],'w')
         self.assertEqual(actualResult['cube'][50],'w')
