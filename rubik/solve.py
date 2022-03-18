@@ -177,6 +177,8 @@ def _movecontroller(myCube, moves=None, ):
             content = _switchedge(content, move)
             content = _switchedge(content, move)
             content = _switchedge(content, move)
+        elif move == 'M':
+            content = _rotateMiddle(content)
     return content
         
 
@@ -291,7 +293,9 @@ def _rotateMiddle(content):
         
     return content
 
-def _rotateCubeClockwise(content):
+def _rotateCubeClockwise(myCube):
+    content = _movecontroller(myCube, 'UMd')
+    return content 
 # dev strategy
 #    validate parms
 #    loads parms['cube'] into cube model
