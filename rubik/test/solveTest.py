@@ -635,7 +635,7 @@ class SolveTest(unittest.TestCase):
         
         
         #self.assertEqual(moves, 'fFrrR')
-        self.assertEqual(actualResult[46], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][46], bottomFaceColor)
         self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
         self.assertEqual(actualResult['cube'][48], bottomFaceColor)
         self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
