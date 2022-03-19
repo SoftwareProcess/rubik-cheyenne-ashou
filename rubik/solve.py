@@ -91,12 +91,14 @@ def _bottomFlower(myCube):
                 if(bottomFrontFaceEdge != bottomFaceColor): 
                     if(leftFrontFaceEdge != bottomFaceColor):
                         if(rightFrontFaceEdge != bottomFaceColor):
-                                flowerPiecesOnFace = False
-                                noFlowerPiecesOnFace += 1
-                                
+                            flowerPiecesOnFace = False
+                            
+                            
+        face = (face + 1) % 4   
+        noFlowerPiecesOnFace += 1          
         if(noFlowerPiecesOnFace == 7):
             solved = True                                 
-        face = (face + 1) % 4
+        
         
     
     leftFlower = myCube._content[4][1][0]    
