@@ -251,8 +251,153 @@ def _bottomFlower(myCube):
     return moves
 
 def _movetranslator(face, moves):
-    pass
+    translatedMoves = ''
+    if face == 0:
+        return moves
+    else:
+        for move in moves:
+            if face == 1:
+                translatedMoves += _translateFace1(move)
+            elif face == 2:
+                translatedMoves += _translateFace2(move)
+            elif face == 3:
+                translatedMoves += _translateFace3(move)
+            elif face == 4:
+                translatedMoves += _translateFace4(move)
+            elif face == 5:
+                translatedMoves += _translateFace5(move)
+        return translatedMoves
+                
+def _translateFace1(move):
+    if move == 'F':
+        return 'R'
+    elif move == 'f':
+        return 'r'
+    elif move == 'B':
+        return 'L'
+    elif move == 'b':
+        return 'l'
+    elif move == 'L':
+        return 'F'
+    elif move == 'l':
+        return 'f'
+    elif move == 'R':
+        return 'B'
+    elif move == 'r':
+        return 'b'
+    elif move == 'U':
+        return 'U'
+    elif move == 'u':
+        return 'u'
+    elif move == 'D':
+        return 'D'
+    elif move == 'd':
+        return 'd'
+    
+def _translateFace2(move):
+    if move == 'F':
+        return 'B'
+    elif move == 'f':
+        return 'b'
+    elif move == 'B':
+        return 'F'
+    elif move == 'b':
+        return 'f'
+    elif move == 'L':
+        return 'R'
+    elif move == 'l':
+        return 'r'
+    elif move == 'R':
+        return 'L'
+    elif move == 'r':
+        return 'l'
+    elif move == 'U':
+        return 'U'
+    elif move == 'u':
+        return 'u'
+    elif move == 'D':
+        return 'D'
+    elif move == 'd':
+        return 'd'
+    
+def _translateFace3(move):
+    if move == 'F':
+        return 'L'
+    elif move == 'f':
+        return 'l'
+    elif move == 'B':
+        return 'R'
+    elif move == 'b':
+        return 'r'
+    elif move == 'L':
+        return 'B'
+    elif move == 'l':
+        return 'b'
+    elif move == 'R':
+        return 'F'
+    elif move == 'r':
+        return 'f'
+    elif move == 'U':
+        return 'U'
+    elif move == 'u':
+        return 'u'
+    elif move == 'D':
+        return 'D'
+    elif move == 'd':
+        return 'd'
 
+def _translateFace4(move):
+    if move == 'F':
+        return 'U'
+    elif move == 'f':
+        return 'u'
+    elif move == 'B':
+        return 'D'
+    elif move == 'b':
+        return 'd'
+    elif move == 'L':
+        return 'L'
+    elif move == 'l':
+        return 'l'
+    elif move == 'R':
+        return 'R'
+    elif move == 'r':
+        return 'r'
+    elif move == 'U':
+        return 'B'
+    elif move == 'u':
+        return 'b'
+    elif move == 'D':
+        return 'F'
+    elif move == 'd':
+        return 'f'
+    
+def _translateFace5(move):
+    if move == 'F':
+        return 'D'
+    elif move == 'f':
+        return 'd'
+    elif move == 'B':
+        return 'U'
+    elif move == 'b':
+        return 'u'
+    elif move == 'L':
+        return 'L'
+    elif move == 'l':
+        return 'l'
+    elif move == 'R':
+        return 'R'
+    elif move == 'r':
+        return 'r'
+    elif move == 'U':
+        return 'F'
+    elif move == 'u':
+        return 'f'
+    elif move == 'D':
+        return 'B'
+    elif move == 'd':
+        return 'b'
+    
 def _movecontroller(myCube, moves=None, ):
     content = myCube._content
     for move in moves:
