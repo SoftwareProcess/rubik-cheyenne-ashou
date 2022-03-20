@@ -89,7 +89,7 @@ def _bottomFlower(myCube):
                                 myCube._content[0][2][1] == myCube._content[0][1][1])):
                                 flowerPiecesOnFace = False
         
-        if face == 1:
+        if face == 0:
             return moves
         if(myCube._content[4][0][1] == bottomFaceColor): 
             if(myCube._content[4][1][0] == bottomFaceColor):
