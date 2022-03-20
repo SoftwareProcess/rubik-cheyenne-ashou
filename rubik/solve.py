@@ -250,6 +250,9 @@ def _bottomFlower(myCube):
     
     return moves
 
+def _movetranslator(face, moves):
+    pass
+
 def _movecontroller(myCube, moves=None, ):
     content = myCube._content
     for move in moves:

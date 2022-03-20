@@ -619,7 +619,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip("skip while making rotateCubeClockwise method")    
+    @unittest.skip("skip while making move translation method")    
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -678,7 +678,35 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    
+    def test_170_ShouldTranslateMovesBasedOnCurrentFace(self):
+        inputMoves = 'FfBbLlRrUuDd'
+        face = 1
+        expectedMoves = 'RrLlFfBbUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 2
+        expectedMoves = 'BbFfRrLlUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 3
+        expectedMoves = 'LlRrBbFfUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 4
+        expectedMoves = 'UuDdLlRrBbFf'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 5
+        expectedMoves = 'DdUuLlRrFfBb'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+
+        
+        
     
 
     
