@@ -33,125 +33,220 @@ def _bottomFlower(myCube):
     noFlowerPiecesOnFace = 0
     face = 0 
     solved = False
-    #Add pieces to the top face flower for all faces except the bottom face
-    while(solved == False):  
+    
+    while(solved == False):
         while(flowerPiecesOnFace == True):
-            if(face != 0):
-                myCube._content = _rotateCubeClockwise(myCube)
-            
-            leftFlower = myCube._content[4][1][0] 
-            
-            if(myCube._content[0][1][0] == bottomFaceColor):
+            if(myCube._content[0][1][0] == bottomFaceColor): #piece left of the middle piece
+                leftFlower = myCube._content[4][1][0]
                 while(leftFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
                     leftFlower = myCube._content[4][1][0]
-                    moves += 'U'
-                myCube._content = _movecontroller(myCube, 'l')
-                moves += 'l'
+                myCube._content = _movecontroller(myCube, 'l') #if leftflowwer != middle piece
+                
             
-            rightFlower = myCube._content[4][1][2]
-            
-            if(myCube._content[0][1][2] == bottomFaceColor):
+            if(myCube._content[0][1][2] == bottomFaceColor): #piece right of the middle piece
+                rightFlower = myCube._content[4][1][2]
                 while(rightFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
-                    rightFlower = myCube._content[4][1][2]
-                    moves += 'U'
-                myCube._content = _movecontroller(myCube, 'R')
-                moves += 'R'
-            
-            bottomFlower = myCube._content[4][2][1] 
-            
-            if(myCube._content[0][2][1] == bottomFaceColor):
+                    rightFlower = myCube._content[4][1][2]  
+                myCube._content = _movecontroller(myCube, 'R') #if right flower != middle piece
+                
+            if(myCube._content[0][2][1] == bottomFaceColor): #piece under the middle piece
+                bottomFlower = myCube._content[4][2][1]
+                while(bottomFlower == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'U')
+                    bottomFlower = myCube._content[4][2][1]  
+                myCube._content = _movecontroller(myCube, 'FUl') #if bottomflower != middle piece
+                
+            if(myCube._content[0][0][1] == bottomFaceColor):    
+                bottomFlower = myCube._content[4][2][1]
+                while(bottomFlower == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'U')
+                    bottomFlower = myCube._content[4][2][1]  
+                myCube._content = _movecontroller(myCube, 'fUl')
+                
+            if(myCube._content[5][0][1] == bottomFaceColor): #Bring flower pieces that are on bottom layer to top layer
+                bottomFlower = myCube._content[4][2][1]
                 while(bottomFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
                     bottomFlower = myCube._content[4][2][1] 
-                    moves += 'U'
-                myCube._content = _movecontroller(myCube, 'FUl')
-                moves += 'FUl'
-            
-            rightFlower = myCube._content[4][1][2]
-            
-            if(myCube._content[0][0][1] == bottomFaceColor):
-                myCube._content = _movecontroller(myCube, 'F')
-                moves += 'F'
-                while(rightFlower == bottomFaceColor):
+                myCube._content = _movecontroller(myCube, 'FF') 
+                
+            if(myCube._content[0][0][1] != bottomFaceColor): 
+                if(myCube._content[0][1][0] != bottomFaceColor):
+                    if(myCube._content[0][1][2] != bottomFaceColor): 
+                        if(myCube._content[0][2][1] != bottomFaceColor):
+                            if(myCube._content[5][0][1] != bottomFaceColor):
+                                flowerPiecesOnFace = False
+        
+        if(myCube._content[4][0][1] == bottomFaceColor): 
+            if(myCube._content[4][1][0] == bottomFaceColor):
+                if(myCube._content[4][1][2] == bottomFaceColor): 
+                    if(myCube._content[4][2][1] == bottomFaceColor): 
+                        solved = True
+        else:
+            myCube._content = _rotateCubeClockwise(myCube)
+            flowerPiecesOnFace = True
+    
+    matching = False
+    for face in range(0,4):
+        while(matching == False):
+            if(face == 0):
+                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][2][1] == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'FF')
+                    matching = True
+                else:
                     myCube._content = _movecontroller(myCube, 'U')
-                    rightFlower = myCube._content[4][1][2]
-                    moves += 'U'
-                myCube._content = _movecontroller(myCube, 'R')
-                moves += 'R'
+            elif(face == 1):
+                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][2] == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'RR')
+                    matching = True
+                else:
+                    myCube._content = _movecontroller(myCube, 'U')
+            elif(face == 2):
+                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][0][1] == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'BB')
+                    matching = True
+                else:
+                    myCube._content = _movecontroller(myCube, 'U')
+            elif(face == 3):
+                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][0] == bottomFaceColor):
+                    myCube._content = _movecontroller(myCube, 'LL')
+                    matching = True
+                else:
+                    myCube._content = _movecontroller(myCube, 'U')
             
+       
             
-            topFrontFaceEdge = myCube._content[0][0][1]
-            bottomFrontFaceEdge = myCube._content[0][2][1]
-            leftFrontFaceEdge = myCube._content[0][1][0]
-            rightFrontFaceEdge = myCube._content[0][1][2]
-            
-            if(topFrontFaceEdge != bottomFaceColor):
-                if(bottomFrontFaceEdge != bottomFaceColor): 
-                    if(leftFrontFaceEdge != bottomFaceColor):
-                        if(rightFrontFaceEdge != bottomFaceColor):
-                            flowerPiecesOnFace = False
-                            
-                            
-        face = (face + 1) % 4   
-        noFlowerPiecesOnFace += 1          
-        if(noFlowerPiecesOnFace == 7):
-            solved = True                                 
-        
-        
-    
-    leftFlower = myCube._content[4][1][0]    
-    
-    #Add pieces on the bottom face to the top flower
-    if(myCube._content[5][1][0] == bottomFaceColor and myCube._content[3][2][1] != myCube._content[3][1][1]):
-        while(leftFlower == bottomFaceColor):
-            myCube._content = _movecontroller(myCube, 'U')
-            moves += 'U'
-            leftFlower = myCube._content[4][1][0]
-        myCube._content = _movecontroller(myCube, 'LL')
-        moves += 'LL'
-    
-    
-    rightFlower = myCube._content[4][1][2]
-    
-    if(myCube._content[5][1][2] == bottomFaceColor and myCube._content[1][2][1] != myCube._content[1][1][1]):
-        while(rightFlower == bottomFaceColor):
-            myCube._content = _movecontroller(myCube, 'U')
-            moves += 'U'
-            rightFlower = myCube._content[4][1][2]
-        myCube._content = _movecontroller(myCube, 'RR')
-        moves += 'RR'
-    
 
-    topFlower = myCube._content[4][0][1]
-    if(myCube._content[5][2][1] == bottomFaceColor and myCube._content[2][2][1] != myCube._content[2][1][1]):
-        while(topFlower == bottomFaceColor):
-            myCube._content = _movecontroller(myCube, 'U')
-            moves += 'U'
-        myCube._content = _movecontroller(myCube, 'BB')
-        moves += 'BB'
     
-    bottomFlower = myCube._content[4][2][1] 
-    
-    if(myCube._content[5][0][1] == bottomFaceColor and myCube._content[0][2][1] != myCube._content[0][1][1]):
-        while(bottomFlower == bottomFaceColor):
-            myCube._content = _movecontroller(myCube, 'U')
-            moves += 'U'
-        myCube._content = _movecontroller(myCube, 'FF')
-        moves += 'FF'
-    else: #Bottom cross is already solved
-        return moves   
-    
-    
-    #Rotate flower pieces to bottom face to form bottom cross
-    for face in range(0,6):
-        middleColor = myCube._content[face][1][1]
-        while(myCube._content[face][0][1] != middleColor):
-            myCube._content = _movecontroller(myCube, 'U')
-            moves += 'U'
-        myCube._content = _movecontroller(myCube, 'FF')
-        moves += 'FF'
+     #Rotate flower to bottom layer after matching middle pieces
+     
+     
+                
+            
+                
+                
+        
+    #Add pieces to the top face flower for all faces except the bottom face
+    # while(solved == False):  
+    #     while(flowerPiecesOnFace == True):
+    #         if(face != 0):
+    #             myCube._content = _rotateCubeClockwise(myCube)
+    #
+    #         leftFlower = myCube._content[4][1][0] 
+    #
+    #         if(myCube._content[0][1][0] == bottomFaceColor):
+    #             while(leftFlower == bottomFaceColor):
+    #                 myCube._content = _movecontroller(myCube, 'U')
+    #                 leftFlower = myCube._content[4][1][0]
+    #                 moves += 'U'
+    #             myCube._content = _movecontroller(myCube, 'l')
+    #             moves += 'l'
+    #
+    #         rightFlower = myCube._content[4][1][2]
+    #
+    #         if(myCube._content[0][1][2] == bottomFaceColor):
+    #             while(rightFlower == bottomFaceColor):
+    #                 myCube._content = _movecontroller(myCube, 'U')
+    #                 rightFlower = myCube._content[4][1][2]
+    #                 moves += 'U'
+    #             myCube._content = _movecontroller(myCube, 'R')
+    #             moves += 'R'
+    #
+    #         bottomFlower = myCube._content[4][2][1] 
+    #
+    #         if(myCube._content[0][2][1] == bottomFaceColor):
+    #             while(bottomFlower == bottomFaceColor):
+    #                 myCube._content = _movecontroller(myCube, 'U')
+    #                 bottomFlower = myCube._content[4][2][1] 
+    #                 moves += 'U'
+    #             myCube._content = _movecontroller(myCube, 'FUl')
+    #             moves += 'FUl'
+    #
+    #         rightFlower = myCube._content[4][1][2]
+    #
+    #         if(myCube._content[0][0][1] == bottomFaceColor):
+    #             myCube._content = _movecontroller(myCube, 'F')
+    #             moves += 'F'
+    #             while(rightFlower == bottomFaceColor):
+    #                 myCube._content = _movecontroller(myCube, 'U')
+    #                 rightFlower = myCube._content[4][1][2]
+    #                 moves += 'U'
+    #             myCube._content = _movecontroller(myCube, 'R')
+    #             moves += 'R'
+    #
+    #
+    #         topFrontFaceEdge = myCube._content[0][0][1]
+    #         bottomFrontFaceEdge = myCube._content[0][2][1]
+    #         leftFrontFaceEdge = myCube._content[0][1][0]
+    #         rightFrontFaceEdge = myCube._content[0][1][2]
+    #
+    #         if(topFrontFaceEdge != bottomFaceColor):
+    #             if(bottomFrontFaceEdge != bottomFaceColor): 
+    #                 if(leftFrontFaceEdge != bottomFaceColor):
+    #                     if(rightFrontFaceEdge != bottomFaceColor):
+    #                         flowerPiecesOnFace = False
+    #
+    #
+    #     face = (face + 1) % 4   
+    #     noFlowerPiecesOnFace += 1          
+    #     if(noFlowerPiecesOnFace == 7):
+    #         solved = True                                 
+    #
+    #
+    #
+    # leftFlower = myCube._content[4][1][0]    
+    #
+    # #Add pieces on the bottom face to the top flower
+    # if(myCube._content[5][1][0] == bottomFaceColor and myCube._content[3][2][1] != myCube._content[3][1][1]):
+    #     while(leftFlower == bottomFaceColor):
+    #         myCube._content = _movecontroller(myCube, 'U')
+    #         moves += 'U'
+    #         leftFlower = myCube._content[4][1][0]
+    #     myCube._content = _movecontroller(myCube, 'LL')
+    #     moves += 'LL'
+    #
+    #
+    # rightFlower = myCube._content[4][1][2]
+    #
+    # if(myCube._content[5][1][2] == bottomFaceColor and myCube._content[1][2][1] != myCube._content[1][1][1]):
+    #     while(rightFlower == bottomFaceColor):
+    #         myCube._content = _movecontroller(myCube, 'U')
+    #         moves += 'U'
+    #         rightFlower = myCube._content[4][1][2]
+    #     myCube._content = _movecontroller(myCube, 'RR')
+    #     moves += 'RR'
+    #
+    #
+    # topFlower = myCube._content[4][0][1]
+    # if(myCube._content[5][2][1] == bottomFaceColor and myCube._content[2][2][1] != myCube._content[2][1][1]):
+    #     while(topFlower == bottomFaceColor):
+    #         myCube._content = _movecontroller(myCube, 'U')
+    #         moves += 'U'
+    #     myCube._content = _movecontroller(myCube, 'BB')
+    #     moves += 'BB'
+    #
+    # bottomFlower = myCube._content[4][2][1] 
+    #
+    # if(myCube._content[5][0][1] == bottomFaceColor and myCube._content[0][2][1] != myCube._content[0][1][1]):
+    #     while(bottomFlower == bottomFaceColor):
+    #         myCube._content = _movecontroller(myCube, 'U')
+    #         moves += 'U'
+    #     myCube._content = _movecontroller(myCube, 'FF')
+    #     moves += 'FF'
+    # else: #Bottom cross is already solved
+    #     return moves   
+    #
+    #
+    # #Rotate flower pieces to bottom face to form bottom cross
+    # for face in range(0,6):
+    #     middleColor = myCube._content[face][1][1]
+    #     while(myCube._content[face][0][1] != middleColor):
+    #         myCube._content = _movecontroller(myCube, 'U')
+    #         moves += 'U'
+    #     myCube._content = _movecontroller(myCube, 'FF')
+    #     moves += 'FF'
     
     return moves
 
