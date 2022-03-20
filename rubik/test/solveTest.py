@@ -623,8 +623,8 @@ class SolveTest(unittest.TestCase):
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
-        
+        #inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
+        inputDict['cube'] = 'brborgyboywgrggwowoogyowbywrwybbyoorwbyrygrbogygwwgbrr'
         bottomFaceColor = inputDict['cube'][49]
         
         moves = solve._solve(inputDict).get('solution')
