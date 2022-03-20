@@ -89,7 +89,8 @@ def _bottomFlower(myCube):
                                 myCube._content[0][2][1] == myCube._content[0][1][1])):
                                 flowerPiecesOnFace = False
         
-        return moves
+        if face == 2:
+            return moves
         if(myCube._content[4][0][1] == bottomFaceColor): 
             if(myCube._content[4][1][0] == bottomFaceColor):
                 if(myCube._content[4][1][2] == bottomFaceColor): 
@@ -106,28 +107,36 @@ def _bottomFlower(myCube):
             if(face == 0):
                 if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][2][1] == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'FF')
+                    moves += _movetranslator(face, 'FF')
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, 'U')
+                    moves += _movetranslator(face, 'U')
             elif(face == 1):
                 if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][2] == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'RR')
+                    moves += _movetranslator(face, 'RR')
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, 'U')
+                    moves += _movetranslator(face, 'U')
             elif(face == 2):
                 if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][0][1] == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'BB')
+                    moves += _movetranslator(face, 'BB')
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, 'U')
+                    moves += _movetranslator(face, 'U')
             elif(face == 3):
                 if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][0] == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'LL')
+                    moves += _movetranslator(face, 'LL')
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, 'U')
-            
+                    moves += _movetranslator(face, 'U')
+        matching = False
    
     return moves
 
