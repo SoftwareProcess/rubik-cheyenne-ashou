@@ -619,7 +619,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
     
-    #@unittest.skip("skip while making move translation method")    
+    @unittest.skip("skip while making formBottomCross method")    
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -705,7 +705,23 @@ class SolveTest(unittest.TestCase):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
 
+    def test_180_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wrwrbboyygbborobbrrggygrwygooogoyrggywywywbwrwgoowrybb'
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        bottomFaceColor = inputDict['cube'][49]
         
+        moves = solve._formBottomCross(myCube)
+        inputDict['rotate'] = moves
+        actualResult = solve._solve(inputDict)
+        solve._solve(inputDict)
+        self.assertEqual(actualResult['cube'][5][0][1], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][5][1][0], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][5][1][2], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][5][2][1], bottomFaceColor)
+    
         
     
 

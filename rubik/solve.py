@@ -139,6 +139,8 @@ def _bottomFlower(myCube):
    
     return moves
 
+def formBottomCross():
+    pass
 def _movetranslator(face, moves):
     translatedMoves = ''
     if face == 0:
