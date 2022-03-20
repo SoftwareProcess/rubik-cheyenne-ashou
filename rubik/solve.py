@@ -99,7 +99,7 @@ def _bottomFlower(myCube):
             myCube._content = _rotateCubeClockwise(myCube)
             flowerPiecesOnFace = True
             face = (face + 1) % 4
-            return face
+        return face
     
     matching = False
     for face in range(0,4):
