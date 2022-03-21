@@ -643,7 +643,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    def test_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
+    def test_solve_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'oowrboyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
@@ -668,7 +668,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    def test_132_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
+    def test_solve_133_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ggrrgwbooyroboowobwrrybgroywyyrrbgbygwbgyyowboggywwrbw'
@@ -693,7 +693,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    def test_rotateMiddle_150_ShouldRotateMiddleLayer(self):
+    def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -709,7 +709,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
 
-    def test_rotateCubeClockwise_160_ShouldRotateEntireCubeClockWise(self):
+    def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -724,7 +724,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    def test_movetranslator_170_ShouldTranslateMovesBasedOnCurrentFace(self):
+    def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         inputMoves = 'FfBbLlRrUuDd'
         face = 1
         expectedMoves = 'RrLlFfBbUuDd'
@@ -751,7 +751,7 @@ class SolveTest(unittest.TestCase):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
 
-    def test_180_formBottomCross_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
+    def test_170_formBottomCross_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wrwrbboyygbborobbrrggygrwygooogoyrggywywywbwrwgoowrybb'
@@ -775,7 +775,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    def test_formBottomCross_181_ShouldDoNothingBecuaseCrossAlreadySolved(self):
+    def test_formBottomCross_171_ShouldDoNothingBecuaseCrossAlreadySolved(self):
         myCube = cube.Cube()
         myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
         expectedMoves = ''
@@ -783,7 +783,7 @@ class SolveTest(unittest.TestCase):
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
         
-    def test_solvedFlower_190_ShouldReturnTrueIfTopLayerHasFlower(self):
+    def test_solvedFlower_180_ShouldReturnTrueIfTopLayerHasFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'gboyoooogwygybrwbrorwgrobyyogobgrbggbwywygywbwwrowroby'
@@ -800,7 +800,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._solvedFlower(myCube)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_solvedFlower_191_ShouldReturnFalseBecauseTopFlowerNotSolved(self):
+    def test_solvedFlower_181_ShouldReturnFalseBecauseTopFlowerNotSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wyyrrbgbyggrrgybowbowooboryorrwbgroygwwwywggoryobwgbyb'

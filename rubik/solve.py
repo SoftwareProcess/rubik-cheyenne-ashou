@@ -89,17 +89,11 @@ def _bottomFlower(myCube):
                     moves += _movetranslator(face, 'U')
                 myCube._content = _movecontroller(myCube, 'FF') 
                 moves += _movetranslator(face, 'FF')
-                
-            if(myCube._content[0][0][1] != bottomFaceColor): 
-                if(myCube._content[0][1][0] != bottomFaceColor):
-                    if(myCube._content[0][1][2] != bottomFaceColor): 
-                        if(myCube._content[0][2][1] != bottomFaceColor):
-                            if(myCube._content[5][0][1] != bottomFaceColor or 
-                               (myCube._content[5][0][1] == bottomFaceColor and 
-                                myCube._content[0][2][1] == myCube._content[0][1][1])):
-                                flowerPiecesOnFace = False
-        #return moves
+            
+            flowerPiecesOnFace = _checkFlowerPieces(myCube)    
+
         solved = _solvedFlower(myCube)
+        
         if(solved == False):
             myCube._content = _rotateCubeClockwise(myCube)
             flowerPiecesOnFace = True
@@ -111,7 +105,19 @@ def _bottomFlower(myCube):
     moves += _formBottomCross(myCube)
     
     return moves
-
+def _checkFlowerPieces(myCube):
+    content = myCube._content
+    bottomFaceColor = content[5][1][1]
+    flowerPiecesOnFace = True
+    if(content[0][0][1] != bottomFaceColor): 
+        if(content[0][1][0] != bottomFaceColor):
+            if(content[0][1][2] != bottomFaceColor): 
+                if(content[0][2][1] != bottomFaceColor):
+                    if(content[5][0][1] != bottomFaceColor or 
+                       (content[5][0][1] == bottomFaceColor and 
+                        content[0][2][1] == content[0][1][1])):
+                        flowerPiecesOnFace = False
+    return flowerPiecesOnFace
 def _formBottomCross(myCube):
     bottomFaceColor = myCube._content[5][1][1]
     matching = False
@@ -159,9 +165,9 @@ def _formBottomCross(myCube):
                 else:
                     myCube._content = _movecontroller(myCube, 'U')
                     moves += 'U'
-        
-   
     return moves
+
+        
 def _movetranslator(face, moves):
     translatedMoves = ''
     if face == 0:
@@ -524,9 +530,3 @@ def _solvedFlower(myCube):
     else:
         return False
     
-# dev strategy
-#    validate parms
-#    loads parms['cube'] into cube model
-#    rotate cube in desired direction
-#    serialize the cube model into a string
-#    return the string + status of 'ok'
