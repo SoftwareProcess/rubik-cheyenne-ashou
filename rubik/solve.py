@@ -479,28 +479,29 @@ def _rotateCubeClockwise(myCube):
     return content 
 
 def _solvedFlower(myCube):
-    bottomFaceColor = myCube._content[5][1][1]
+    content = myCube._content
+    bottomFaceColor = content[5][1][1]
     flowerCount = 0
     for face in range(0,4):
         if(face == 0):
-            if(myCube._content[4][2][1] == bottomFaceColor):
+            if(content[4][2][1] == bottomFaceColor):
                 flowerCount += 1
-            if(myCube._content[5][0][1] == bottomFaceColor and myCube._content[face][1][1] == myCube._content[face][2][1]):
+            if(content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
                 flowerCount += 1
         if(face == 1):
-            if(myCube._content[4][1][2] == bottomFaceColor):
+            if(content[4][1][2] == bottomFaceColor):
                 flowerCount += 1
-            if(myCube._content[5][1][2] == bottomFaceColor and myCube._content[face][1][1] == myCube._content[face][2][1]):
+            if(content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
                 flowerCount += 1
         if(face == 2):
-            if(myCube._content[4][0][1] == bottomFaceColor): 
+            if(content[4][0][1] == bottomFaceColor): 
                 flowerCount += 1
-            if(myCube._content[5][2][1] == bottomFaceColor and myCube._content[face][1][1] == myCube._content[face][2][1]):
+            if(content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
                 flowerCount += 1
         if(face == 3):
-            if(myCube._content[4][1][0] == bottomFaceColor):
+            if(content[4][1][0] == bottomFaceColor):
                 flowerCount += 1
-            if(myCube._content[5][1][0] == bottomFaceColor and myCube._content[face][1][1] == myCube._content[face][2][1]):
+            if(content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
                 flowerCount += 1
         
     if(flowerCount == 4):
