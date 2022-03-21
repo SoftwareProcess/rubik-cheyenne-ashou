@@ -11,6 +11,7 @@ Modified: 3/21/2022
 import rubik.cube as cube
 import rubik.check as check
 
+#Driver method to solve cube
 def _solve(parms):
     
     result = check._check(parms)
@@ -34,6 +35,7 @@ def _solve(parms):
     
     return result
 
+#Rotate the cube to get a 'flower' at the top face
 def _topFlower(myCube):  
     moves = ''
     
@@ -41,13 +43,11 @@ def _topFlower(myCube):
     
     flowerPiecesOnFace = True
     face = 0 
-    solved = False
+    flowerSolved = False
     
-    while(solved == False):
+    while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
-            leftFrontLayer = myCube._content[0][1][0]
-            
-            
+            leftFrontLayer = myCube._content[0][1][0] 
             if(leftFrontLayer == bottomFaceColor):
                 leftFlower = myCube._content[4][1][0]
                 while(leftFlower == bottomFaceColor):
@@ -101,25 +101,27 @@ def _topFlower(myCube):
             
             flowerPiecesOnFace = _checkFlowerPieces(myCube)    
 
-        solved = _solvedFlower(myCube)
+        flowerSolved = _solvedFlower(myCube)
         
-        if(solved == False):
+        if(flowerSolved == False):
             myCube._content = _rotateCubeClockwise(myCube)
             flowerPiecesOnFace = True
             face = (face + 1) % 4
             
-    myCube._content = _rotateBackToFrontFace(myCube, face)
+    myCube._content = _rotateToFrontFace(myCube, face)
     
     moves += _formBottomCross(myCube)
     
     return moves
 
-def _rotateBackToFrontFace(myCube, face):
+#Shift the orientation of the cube to the original orientation
+def _rotateToFrontFace(myCube, face):
     while(face != 0):
         myCube._content = _rotateCubeClockwise(myCube)
         face = (face + 1) % 4
     return myCube._content
 
+#Checks if more moves are required on the current face
 def _checkFlowerPieces(myCube):
     content = myCube._content
     bottomFaceColor = content[5][1][1]
@@ -134,6 +136,7 @@ def _checkFlowerPieces(myCube):
                         flowerPiecesOnFace = False
     return flowerPiecesOnFace
 
+#Forms a bottom cross after the flower has been made
 def _formBottomCross(myCube):
     bottomFaceColor = myCube._content[5][1][1]
     matching = False
@@ -196,7 +199,54 @@ def _formBottomCross(myCube):
                     moves += translatedU
     return moves
 
+def _rotateMiddle(content):
+    for face in range(0,4):
+        if(face == 0):
+            temp = content[face][1]
+        if(face == 3):
+            content[face][1] = temp
+        else:
+            content[face][1] = content[face+1][1]
         
+    return content
+
+def _rotateCubeClockwise(myCube):
+    content = _movecontroller(myCube, 'UMd')
+    return content 
+
+#Determines if flower is solved
+def _solvedFlower(myCube):
+    content = myCube._content
+    bottomFaceColor = content[5][1][1]
+    flowerCount = 0
+    for face in range(0,4):
+        if(face == 0):
+            if(content[4][2][1] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 1):
+            if(content[4][1][2] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 2):
+            if(content[4][0][1] == bottomFaceColor): 
+                flowerCount += 1
+            if(content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 3):
+            if(content[4][1][0] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        
+    if(flowerCount == 4):
+        return True
+    else:
+        return False
+    
+#Used to print all moves relative to face 0, rather than relative to the current face        
 def _movetranslator(face, moves):
     translatedMoves = ''
     if face == 0:
@@ -345,7 +395,8 @@ def _translateFace5(move):
     elif move == 'd':
         return 'b'
     
-def _movecontroller(myCube, moves=None, ):
+#Rotate cube
+def _movecontroller(myCube, moves):
     content = myCube._content
     for move in moves:
         if move == 'F':
@@ -513,49 +564,3 @@ def _switchedge(cube, action):
         cube[1][2] = temp
     return cube
 
-def _rotateMiddle(content):
-    for face in range(0,4):
-        if(face == 0):
-            temp = content[face][1]
-        if(face == 3):
-            content[face][1] = temp
-        else:
-            content[face][1] = content[face+1][1]
-        
-    return content
-
-def _rotateCubeClockwise(myCube):
-    content = _movecontroller(myCube, 'UMd')
-    return content 
-
-def _solvedFlower(myCube):
-    content = myCube._content
-    bottomFaceColor = content[5][1][1]
-    flowerCount = 0
-    for face in range(0,4):
-        if(face == 0):
-            if(content[4][2][1] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 1):
-            if(content[4][1][2] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 2):
-            if(content[4][0][1] == bottomFaceColor): 
-                flowerCount += 1
-            if(content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 3):
-            if(content[4][1][0] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        
-    if(flowerCount == 4):
-        return True
-    else:
-        return False
-    
