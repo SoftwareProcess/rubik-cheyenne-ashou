@@ -11,6 +11,7 @@ Modified: 3/21/2022
 import rubik.cube as cube
 import rubik.check as check
 from idlelib.pyparse import trans
+from unittest.mock import right
 
 def _solve(parms):
     
@@ -46,25 +47,31 @@ def _topFlower(myCube):
     
     while(solved == False):
         while(flowerPiecesOnFace == True):
-            if(myCube._content[0][1][0] == bottomFaceColor): #piece left of the middle piece
+            leftFrontLayer = myCube._content[0][1][0]
+            
+            
+            if(leftFrontLayer == bottomFaceColor):
                 leftFlower = myCube._content[4][1][0]
                 while(leftFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
                     leftFlower = myCube._content[4][1][0]
                     moves += _movetranslator(face, 'U')
-                myCube._content = _movecontroller(myCube, 'l') #if leftflowwer != middle piece
+                myCube._content = _movecontroller(myCube, 'l') 
                 moves += _movetranslator(face, 'l')
             
-            if(myCube._content[0][1][2] == bottomFaceColor): #piece right of the middle piece
+            rightFrontLayer = myCube._content[0][1][2]
+            
+            if(rightFrontLayer == bottomFaceColor): 
                 rightFlower = myCube._content[4][1][2]
                 while(rightFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
                     rightFlower = myCube._content[4][1][2]
                     moves += _movetranslator(face, 'U')
-                myCube._content = _movecontroller(myCube, 'R') #if right flower != middle piece
+                myCube._content = _movecontroller(myCube, 'R') 
                 moves += _movetranslator(face, 'R')
-                
-            if(myCube._content[0][2][1] == bottomFaceColor): #piece under the middle piece
+            
+            bottomFrontLayer = myCube._content[0][2][1]
+            if(bottomFrontLayer == bottomFaceColor): #piece under the middle piece
                 bottomFlower = myCube._content[4][2][1]
                 while(bottomFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
@@ -72,8 +79,9 @@ def _topFlower(myCube):
                     moves += _movetranslator(face, 'U')
                 myCube._content = _movecontroller(myCube, 'FUl') #if bottomflower != middle piece
                 moves += _movetranslator(face, 'FUl')
-                
-            if(myCube._content[0][0][1] == bottomFaceColor):    
+            
+            topFrontLayer = myCube._content[0][0][1]
+            if(topFrontLayer == bottomFaceColor):    
                 bottomFlower = myCube._content[4][2][1]
                 while(bottomFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
@@ -81,8 +89,10 @@ def _topFlower(myCube):
                     moves += _movetranslator(face, 'U')  
                 myCube._content = _movecontroller(myCube, 'fUl')
                 moves += _movetranslator(face, 'fUl')
-                
-            if(myCube._content[5][0][1] == bottomFaceColor and myCube._content[0][2][1] != myCube._content[0][1][1]): #Bring flower pieces that are on bottom layer to top layer
+            
+            topBottomLayer = myCube._content[5][0][1]    
+            middleFrontLayer = myCube._content[0][1][1]
+            if(topBottomLayer == bottomFaceColor and bottomFrontLayer != middleFrontLayer): #Bring flower pieces that are on bottom layer to top layer
                 bottomFlower = myCube._content[4][2][1]
                 while(bottomFlower == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'U')
@@ -111,6 +121,7 @@ def _rotateBackToFrontFace(myCube, face):
         myCube._content = _rotateCubeClockwise(myCube)
         face = (face + 1) % 4
     return myCube._content
+
 def _checkFlowerPieces(myCube):
     content = myCube._content
     bottomFaceColor = content[5][1][1]
