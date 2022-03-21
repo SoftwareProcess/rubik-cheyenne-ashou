@@ -647,7 +647,7 @@ class SolveTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'oowrbgyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
-        inputDict['rotate'] = ''
+        #inputDict['rotate'] = ''
         
         bottomFaceColor = inputDict['cube'][49]
         
