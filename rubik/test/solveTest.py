@@ -619,7 +619,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult, actualResult)
     
 
-    def test_solve_140_ShouldSolveBottomCrossForMixedValidCubeMissingRotation(self):
+    def test_solve_131_ShouldSolveBottomCrossForMixedValidCubeMissingRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         #inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
@@ -643,7 +643,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    def test_145_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
+    def test_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'oowrboyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
@@ -668,7 +668,31 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    
+    def test_132_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ggrrgwbooyroboowobwrrybgroywyyrrbgbygwbgyyowboggywwrbw'
+        inputDict['rotate'] = ''
+        
+        bottomFaceColor = inputDict['cube'][49]
+        
+        moves = solve._solve(inputDict).get('solution')
+        
+        inputDict['rotate'] = moves
+        
+        actualResult = solve._solve(inputDict)
+        expectedStatus = 'ok'
+        
+        self.assertEqual(expectedStatus, actualResult['status'])
+        self.assertEqual(actualResult['cube'][46], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
+        self.assertEqual(actualResult['cube'][48], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
+        self.assertEqual(actualResult['cube'][50], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
+        self.assertEqual(actualResult['cube'][52], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
+        
     def test_150_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'

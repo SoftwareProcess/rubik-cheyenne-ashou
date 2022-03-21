@@ -1,6 +1,16 @@
+'''
+The purpose of this project is to output the rotations
+required to solve a given rubik cube. It also allows a user
+to input rotations on a cube.
+
+Modified: 3/21/2022
+@author:  Cheyenne Ashou
+'''
+
+
 import rubik.cube as cube
 import rubik.check as check
-from pickle import FALSE
+
 def _solve(parms):
     
     result = check._check(parms)
