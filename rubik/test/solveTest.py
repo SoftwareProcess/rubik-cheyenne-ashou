@@ -731,15 +731,21 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
     def test_190_ShouldReturnTrueIfTopLayerHasFlower(self):
+        
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'gboyoooogwygybrwbrorwgrobyyogobgrbggbwywygywbwwrowroby'
         expectedResult = True
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        
         actualResult = solve._solvedFlower(myCube)
+        self.assertEqual(expectedResult, actualResult)
         
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        expectedResult = True
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        actualResult = solve._solvedFlower(myCube)
         self.assertEqual(expectedResult, actualResult)
         
         
