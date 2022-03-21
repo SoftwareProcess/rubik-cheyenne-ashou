@@ -693,7 +693,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    def test_150_ShouldRotateMiddleLayer(self):
+    def test_rotateMiddle_150_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -704,7 +704,7 @@ class SolveTest(unittest.TestCase):
    
         expectedResult = 'rrrgggrrrgggooogggooobbbooobbbrrrbbbyyyyyyyyywwwwwwwww'
         
-        actualResult = solve._rotateMiddle(content)
+        myCube._content = solve._rotateMiddle(content)
         actualResult = myCube._get()
         
         self.assertEqual(expectedResult, actualResult)
