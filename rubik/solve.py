@@ -107,8 +107,8 @@ def _formBottomCross(myCube):
     matching = False
     moves = ''
     for face in range(0,4):
+        matching = False
         while(matching == False):
-            matching = False
             if(face == 0):
                 if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][2][1] == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, 'FF')
