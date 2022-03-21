@@ -631,9 +631,9 @@ class SolveTest(unittest.TestCase):
         inputDict['rotate'] = moves
         
         actualResult = solve._solve(inputDict)
+        expectedStatus = 'ok'
         
-        
-        #self.assertEqual(moves, 'fFrrR')
+        self.assertEqual(expectedStatus, actualResult['status'])
         self.assertEqual(actualResult['cube'][46], bottomFaceColor)
         self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
         self.assertEqual(actualResult['cube'][48], bottomFaceColor)
@@ -656,9 +656,9 @@ class SolveTest(unittest.TestCase):
         inputDict['rotate'] = moves
         
         actualResult = solve._solve(inputDict)
+        expectedStatus = 'ok'
         
-        
-        #self.assertEqual(moves, 'fFrrR')
+        self.assertEqual(expectedStatus, actualResult['status'])
         self.assertEqual(actualResult['cube'][46], bottomFaceColor)
         self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
         self.assertEqual(actualResult['cube'][48], bottomFaceColor)
@@ -668,7 +668,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-    @unittest.skip("no longer needed")
+    
     def test_150_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
