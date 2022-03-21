@@ -89,16 +89,12 @@ def _bottomFlower(myCube):
                                 myCube._content[0][2][1] == myCube._content[0][1][1])):
                                 flowerPiecesOnFace = False
         
-        
-        if(myCube._content[4][0][1] == bottomFaceColor and 
-            myCube._content[4][1][0] == bottomFaceColor and
-                myCube._content[4][1][2] == bottomFaceColor and
-                    myCube._content[4][2][1] == bottomFaceColor): 
-                        solved = True
-        else:
+        solved = _solvedFlower(myCube)
+        if(solved == False):
             myCube._content = _rotateCubeClockwise(myCube)
             flowerPiecesOnFace = True
             face = (face + 1) % 4
+            
     while(face != 0):
         _rotateCubeClockwise(myCube)
         face = (face + 1) % 4
