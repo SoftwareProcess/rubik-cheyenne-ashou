@@ -732,8 +732,8 @@ class SolveTest(unittest.TestCase):
         
     def test_190_ShouldReturnTrueIfTopLayerHasFlower(self):
         inputDict = {}
-        inputDict['cube'] = 'wygyoogorwybrwbrrgrgrobyygbobgrbggywbwywbgy'
         inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wygyoogorwybrwbrrgrgrobyygbobgrbggywbwywbgyrrywwbwoo'
         expectedResult = True
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
