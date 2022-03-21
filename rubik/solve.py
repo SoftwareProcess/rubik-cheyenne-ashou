@@ -502,6 +502,8 @@ def _solvedFlower(myCube):
         
     if(flowerCount == 4):
         return True
+    else:
+        return False
     
 # dev strategy
 #    validate parms
