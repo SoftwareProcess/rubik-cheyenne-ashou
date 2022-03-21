@@ -477,6 +477,36 @@ def _rotateMiddle(content):
 def _rotateCubeClockwise(myCube):
     content = _movecontroller(myCube, 'UMd')
     return content 
+
+def _solvedFlower(myCube):
+    content = myCube._content
+    bottomFaceColor = content[5][1][1]
+    flowerCount = 0
+    for face in range(0,4):
+        if(face == 0):
+            if(content[4][2][1] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 1):
+            if(content[4][1][2] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 2):
+            if(content[4][0][1] == bottomFaceColor): 
+                flowerCount += 1
+            if(content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        if(face == 3):
+            if(content[4][1][0] == bottomFaceColor):
+                flowerCount += 1
+            if(content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+                flowerCount += 1
+        
+    if(flowerCount == 4):
+        return True
+    
 # dev strategy
 #    validate parms
 #    loads parms['cube'] into cube model

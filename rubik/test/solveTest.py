@@ -738,7 +738,7 @@ class SolveTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         
-        actualResult = solvedFlower(myCube)
+        actualResult = solve._solvedFlower(myCube)
         
         self.assertEqual(expectedResult, actualResult)
         
