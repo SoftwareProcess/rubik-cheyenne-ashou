@@ -88,7 +88,7 @@ def _bottomFlower(myCube):
                                (myCube._content[5][0][1] == bottomFaceColor and 
                                 myCube._content[0][2][1] == myCube._content[0][1][1])):
                                 flowerPiecesOnFace = False
-        
+        return moves
         solved = _solvedFlower(myCube)
         if(solved == False):
             myCube._content = _rotateCubeClockwise(myCube)
