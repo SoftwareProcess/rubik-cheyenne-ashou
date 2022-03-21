@@ -599,7 +599,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    @unittest.skip("skip while working on solution method")
+    #@unittest.skip("skip while working on solution method")
     def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
