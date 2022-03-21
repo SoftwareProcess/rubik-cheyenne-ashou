@@ -99,7 +99,9 @@ def _bottomFlower(myCube):
             myCube._content = _rotateCubeClockwise(myCube)
             flowerPiecesOnFace = True
             face = (face + 1) % 4
-    
+    while(face != 0):
+        _rotateCubeClockwise(myCube)
+        face = (face + 1) % 4
     moves += _formBottomCross(myCube)
     
     return moves
