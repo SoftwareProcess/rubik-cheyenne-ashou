@@ -709,7 +709,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
 
-    def test_160_ShouldRotateEntireCubeClockWise(self):
+    def test_rotateCubeClockwise_160_ShouldRotateEntireCubeClockWise(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -724,7 +724,7 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    def test_170_ShouldTranslateMovesBasedOnCurrentFace(self):
+    def test_movetranslator_170_ShouldTranslateMovesBasedOnCurrentFace(self):
         inputMoves = 'FfBbLlRrUuDd'
         face = 1
         expectedMoves = 'RrLlFfBbUuDd'
@@ -751,7 +751,7 @@ class SolveTest(unittest.TestCase):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
 
-    def test_180_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
+    def test_180_formBottomCross_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wrwrbboyygbborobbrrggygrwygooogoyrggywywywbwrwgoowrybb'
@@ -774,16 +774,16 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
-        
-        myCube2 = cube.Cube()
-        myCube2._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
+    
+    def test_formBottomCross_181_ShouldDoNothingBecuaseCrossAlreadySolved(self):
+        myCube = cube.Cube()
+        myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
         expectedMoves = ''
-        moves = solve._formBottomCross(myCube2)
+        moves = solve._formBottomCross(myCube)
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
         
-    def test_190_ShouldReturnTrueIfTopLayerHasFlower(self):
-        
+    def test_solvedFlower_190_ShouldReturnTrueIfTopLayerHasFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'gboyoooogwygybrwbrorwgrobyyogobgrbggbwywygywbwwrowroby'
@@ -800,6 +800,16 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._solvedFlower(myCube)
         self.assertEqual(expectedResult, actualResult)
         
+    def test_solvedFlower_191_ShouldReturnFalseBecauseTopFlowerNotSolved(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wyyrrbgbyggrrgybowbowooboryorrwbgroygwwwywggoryobwgbyb'
+        expectedResult = False
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        actualResult = solve._solvedFlower(myCube)
+        self.assertEqual(expectedResult, actualResult)
+    
         
         
     
