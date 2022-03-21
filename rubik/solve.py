@@ -108,38 +108,50 @@ def _formBottomCross(myCube):
     moves = ''
     for face in range(0,4):
         while(matching == False):
-            if(face == 0):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][2][1] == bottomFaceColor):
-                    myCube._content = _movecontroller(myCube, 'FF')
-                    moves += 'FF'
+            if(face == 0): #RESULTS IN INFiNITE LOOP
+                if(myCube._content[4][2][1] == bottomFaceColor):
+                    if(myCube._content[face][0][1] == myCube._content[face][1][1]):
+                        myCube._content = _movecontroller(myCube, 'FF')
+                        moves += 'FF'
+                        matching = True
+                    else:
+                        myCube._content = _movecontroller(myCube, 'U')
+                        moves += 'U'
+                elif(myCube._content[face][1][1] == myCube._content[face][2][1] and myCube._content[5][0][1] == bottomFaceColor):
                     matching = True
-                else:
-                    myCube._content = _movecontroller(myCube, 'U')
-                    moves += 'U'
             elif(face == 1):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][2] == bottomFaceColor):
-                    myCube._content = _movecontroller(myCube, 'RR')
-                    moves += 'RR'
+                if(myCube._content[face][0][1] == myCube._content[face][1][1]):
+                    if(myCube._content[4][1][2] == bottomFaceColor):
+                        myCube._content = _movecontroller(myCube, 'RR')
+                        moves += 'RR'
+                        matching = True
+                    else:
+                        myCube._content = _movecontroller(myCube, 'U')
+                        moves += 'U'
+                elif(myCube._content[face][1][1] == myCube._content[face][2][1] and myCube._content[5][1][2] == bottomFaceColor):
                     matching = True
-                else:
-                    myCube._content = _movecontroller(myCube, 'U')
-                    moves += 'U'
             elif(face == 2):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][0][1] == bottomFaceColor):
-                    myCube._content = _movecontroller(myCube, 'BB')
-                    moves += 'BB'
+                if(myCube._content[face][0][1] == myCube._content[face][1][1]):
+                    if(myCube._content[4][0][1] == bottomFaceColor):
+                        myCube._content = _movecontroller(myCube, 'BB')
+                        moves += 'BB'
+                        matching = True
+                    else:
+                        myCube._content = _movecontroller(myCube, 'U')
+                        moves += 'U'
+                elif(myCube._content[face][1][1] == myCube._content[face][2][1] and myCube._content[5][2][1] == bottomFaceColor):
                     matching = True
-                else:
-                    myCube._content = _movecontroller(myCube, 'U')
-                    moves += 'U'
             elif(face == 3):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][0] == bottomFaceColor):
-                    myCube._content = _movecontroller(myCube, 'LL')
-                    moves += 'LL'
+                if(myCube._content[face][0][1] == myCube._content[face][1][1]):
+                    if(myCube._content[4][1][0] == bottomFaceColor):
+                        myCube._content = _movecontroller(myCube, 'LL')
+                        moves += 'LL'
+                        matching = True
+                    else:
+                        myCube._content = _movecontroller(myCube, 'U')
+                        moves += 'U'
+                elif(myCube._content[face][1][1] == myCube._content[face][2][1] and myCube._content[5][1][0] == bottomFaceColor):
                     matching = True
-                else:
-                    myCube._content = _movecontroller(myCube, 'U')
-                    moves += 'U'
         matching = False
    
     return moves
