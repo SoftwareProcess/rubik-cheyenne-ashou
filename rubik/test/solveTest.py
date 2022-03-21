@@ -730,8 +730,8 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-        myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
-        epxectedMoves = ''
+        # myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
+        # epxectedMoves = ''
         #moves = solve._formBottomCross(myCube)
         actualMoves = moves
     def test_190_ShouldReturnTrueIfTopLayerHasFlower(self):
