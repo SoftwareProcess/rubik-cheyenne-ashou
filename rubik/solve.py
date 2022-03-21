@@ -10,8 +10,6 @@ Modified: 3/21/2022
 
 import rubik.cube as cube
 import rubik.check as check
-from idlelib.pyparse import trans
-from unittest.mock import right
 
 def _solve(parms):
     
@@ -145,42 +143,53 @@ def _formBottomCross(myCube):
         while(matching == False):
             move = _movetranslator(face, 'FF')
             translatedU = _movetranslator(face, 'U')
+            topPiece = myCube._content[face][0][1]
+            middlePiece = myCube._content[face][1][1]
+            bottomPiece = myCube._content[face][2][1]
             if(face == 0):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][2][1] == bottomFaceColor):
+                adjacentFlowerPiece = myCube._content[4][2][1]
+                adjacentCrossPiece = myCube._content[5][0][1]
+                if(topPiece == middlePiece and  adjacentFlowerPiece == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, move)
                     moves += move
                     matching = True
-                elif(myCube._content[face][2][1] == myCube._content[face][1][1] and myCube._content[5][0][1] == bottomFaceColor):
+                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, translatedU)
                     moves += translatedU
             elif(face == 1):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][2] == bottomFaceColor):
+                adjacentFlowerPiece = myCube._content[4][1][2]
+                adjacentCrossPiece = myCube._content[5][1][2]
+                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, move)
                     moves += move
                     matching = True
-                elif(myCube._content[face][2][1] == myCube._content[face][1][1] and myCube._content[5][1][2] == bottomFaceColor):
+                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, translatedU)
                     moves += translatedU
             elif(face == 2):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][0][1] == bottomFaceColor):
+                adjacentFlowerPiece = myCube._content[4][0][1]
+                adjacentCrossPiece = myCube._content[5][2][1]
+                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, move)
                     moves += move
                     matching = True
-                elif(myCube._content[face][2][1] == myCube._content[face][1][1] and myCube._content[5][2][1] == bottomFaceColor):
+                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, translatedU)
                     moves += translatedU
             elif(face == 3):
-                if(myCube._content[face][0][1] == myCube._content[face][1][1] and myCube._content[4][1][0] == bottomFaceColor):
+                adjacentFlowerPiece = myCube._content[4][1][0]
+                adjacentCrossPiece = myCube._content[5][1][0]
+                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
                     myCube._content = _movecontroller(myCube, move)
                     moves += move
                     matching = True
-                elif(myCube._content[face][2][1] == myCube._content[face][1][1] and myCube._content[5][1][0] == bottomFaceColor):
+                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
                     matching = True
                 else:
                     myCube._content = _movecontroller(myCube, translatedU)
