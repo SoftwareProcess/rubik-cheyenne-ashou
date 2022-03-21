@@ -110,6 +110,7 @@ def _rotateBackToFrontFace(myCube, face):
     while(face != 0):
         myCube._content = _rotateCubeClockwise(myCube)
         face = (face + 1) % 4
+    return myCube._content
 def _checkFlowerPieces(myCube):
     content = myCube._content
     bottomFaceColor = content[5][1][1]
