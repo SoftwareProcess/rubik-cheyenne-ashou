@@ -646,8 +646,8 @@ class SolveTest(unittest.TestCase):
     def test_145_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'oowrbgyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
-        #inputDict['rotate'] = ''
+        inputDict['cube'] = 'oowrboyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
+        inputDict['rotate'] = ''
         
         bottomFaceColor = inputDict['cube'][49]
         
