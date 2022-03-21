@@ -619,7 +619,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip("skip while making formBottomCross method")    
+    #@unittest.skip("skip while making formBottomCross method")    
     def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
