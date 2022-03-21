@@ -732,7 +732,7 @@ class SolveTest(unittest.TestCase):
         
         myCube2 = cube.Cube()
         myCube2._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
-        epxectedMoves = ''
+        expectedMoves = ''
         moves = solve._formBottomCross(myCube2)
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
