@@ -599,7 +599,6 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    #@unittest.skip("skip while working on solution method")
     def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -619,8 +618,8 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
     
-    #@unittest.skip("skip while making formBottomCross method")    
-    def test_solve_140_ShouldSolveBottomCrossForMixedValidCube(self):
+
+    def test_solve_140_ShouldSolveBottomCrossForMixedValidCubeMissingRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         #inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
@@ -644,7 +643,30 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
-
+    def test_145_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'oowrbgyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
+        inputDict['rotate'] = ''
+        
+        bottomFaceColor = inputDict['cube'][49]
+        
+        moves = solve._solve(inputDict).get('solution')
+        
+        inputDict['rotate'] = moves
+        
+        actualResult = solve._solve(inputDict)
+        
+        
+        #self.assertEqual(moves, 'fFrrR')
+        self.assertEqual(actualResult['cube'][46], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
+        self.assertEqual(actualResult['cube'][48], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
+        self.assertEqual(actualResult['cube'][50], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
+        self.assertEqual(actualResult['cube'][52], bottomFaceColor)
+        self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         
     @unittest.skip("no longer needed")
     def test_150_ShouldRotateMiddleLayer(self):
@@ -717,10 +739,9 @@ class SolveTest(unittest.TestCase):
         inputDict['rotate'] = moves
         actualResult = solve._solve(inputDict)
         
-        #expectedMoves = 'UFFUURRUBBLL'
-        #actualMoves = moves
+    
         solve._solve(inputDict)
-        #self.assertEqual(expectedMoves, actualMoves)
+        
         self.assertEqual(actualResult['cube'][46], bottomFaceColor)
         self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
         self.assertEqual(actualResult['cube'][48], bottomFaceColor)
