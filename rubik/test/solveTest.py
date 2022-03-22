@@ -719,7 +719,7 @@ class SolveTest(unittest.TestCase):
    
         expectedResult = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
         
-        actualResult = solve._rotateCubeClockwise(myCube)
+        myCube._content = solve._rotateCubeClockwise(myCube)
         actualResult = myCube._get()
         
         self.assertEqual(expectedResult, actualResult)
