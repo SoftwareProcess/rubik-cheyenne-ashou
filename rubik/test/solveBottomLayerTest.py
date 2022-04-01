@@ -14,7 +14,7 @@ import rubik.check as check
 from tkinter.constants import BOTTOM
 
 class BottomLayerTest(unittest.TestCase):
-    def test_checkSolved_010_ShouldReturnTrueForSolvedBottomLayer(self):
+    def test_010_checkSolved_ShouldReturnTrueForSolvedBottomLayer(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'roygrrrrrgorbgbgggyybyogoooygyobrbbborbyyygbowwwwwwwww'
@@ -32,7 +32,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
     
-    def test_checkSolved_011_ShouldReturnFalseBecauseMisplacedCorner(self):
+    def test_011_checkSolved_ShouldReturnFalseBecauseMisplacedCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'bgyorrbrrrorbgbgggyygyoroobooogbgrboyrbyybyygwwwwwwwww'
@@ -50,7 +50,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
-    def test_checkSolved_012_ShouldReturnFalseBecauseWrongColorOnBottomFace(self):
+    def test_012_checkSolved_ShouldReturnFalseBecauseWrongColorOnBottomFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rrgorryrryyobgbgggybwyogooorgbobybbobogyyrygrbwwwwwwww'
@@ -68,4 +68,21 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
+    def test_020_getCornerPiece_shouldReturnTopLeftCornerPiece(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rbgorybryygbggrrgrygwyoogogorwbbyybogrobyobyrwwbwwwoww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = (0,0)
+        actualResult = bottomLayer._getCornerPiece(content)
+        
+        self.assertEqual(expectedResult, actualResult)
     
