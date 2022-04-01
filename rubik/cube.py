@@ -43,3 +43,6 @@ class Cube:
             for row in face:
                 copyofcontent += ''.join(row)
         return copyofcontent
+    
+    def _getContent(self):
+        return self._content
