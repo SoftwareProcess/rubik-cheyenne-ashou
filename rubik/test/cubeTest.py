@@ -85,5 +85,19 @@ class CubeTest(unittest.TestCase):
                             ]
         actualContent = myCube._getContent()
         self.assertEqual(expectedContent, actualContent)
+        
+    def test_setContent_050_ShouldChangeValueOfContentToInputValue(self):
+        myCube = cube.Cube()
+        content = [
+                   [['b','g','g'],['w','b','y'],['b','y','r']],
+                    [['w','o','g'],['o','r','r'],['y','b','w']],
+                    [['o','g','r'],['b','g','o'],['o','g','g']],
+                    [['b','w','o'],['w','o','r'],['w','o','r']],
+                    [['w','w','y'],['b','y','g'],['y','y','o']],
+                    [['y','r','g'],['b','w','y'],['r','r','b']]
+                        ]
+        myCube._setContent(content)
+        actualContent = myCube._getContent()
+        self.assertEqual(content, actualContent)
     
 
