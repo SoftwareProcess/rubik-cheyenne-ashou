@@ -13,8 +13,8 @@ def _checkSolved(content):
     sideFaces = 4
     
     for face in range(sideFaces):
-        bottomRow = [face[2][0],face[2][1], face[2][2]]
-        expectedColor = face[1][1]
+        bottomRow = [content[face][2][0],content[face][2][1], content[face][2][2]]
+        expectedColor = content[face][1][1]
         if (bottomRow[0] != expectedColor or bottomRow[1] != expectedColor 
             or bottomRow[2] != expectedColor):
             solved = False
