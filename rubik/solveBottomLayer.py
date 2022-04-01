@@ -20,13 +20,14 @@ def _checkSolved(content):
             solved = False
             break
         
-    bottomLayer = 5
+    bottomLayer = content[5]
     bottomLayerColor = content[bottomLayer][1][1]  
         
-    for piece in bottomLayer:
-        if piece != bottomLayerColor:
-            solved = False
-            break
+    for row in bottomLayer:
+        for piece in row:
+            if piece != bottomLayerColor:
+                solved = False
+                break
     
     return solved
         
