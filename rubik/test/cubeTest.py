@@ -1,7 +1,8 @@
 '''
-Created on Feb 24, 2022
-
-@author: cheyennea.
+This module tests all methods of the cubeT
+Created: 2/24/2022
+Modified: 4/1/2022
+@author: Cheyenne Ashou
 '''
 import unittest
 import rubik.cube as cube

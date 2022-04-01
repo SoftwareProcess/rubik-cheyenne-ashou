@@ -11,6 +11,7 @@ import unittest
 import rubik.solveBottomLayer as bottomLayer
 import rubik.cube as cube
 import rubik.check as check
+from tkinter.constants import BOTTOM
 
 class BottomLayerTest(unittest.TestCase):
     def test_checkSolved_010_ShouldReturnTrueForSolvedBottomLayer(self):
