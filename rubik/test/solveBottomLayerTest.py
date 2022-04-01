@@ -10,17 +10,23 @@ Modified: 4/1/2022
 import unittest
 import rubik.solveBottomLayer as bottomLayer
 import rubik.cube as cube
+import rubik.check as check
 
-@unittest.skip('skip until getContent method for cube is created and tested')
 class BottomLayerTest(unittest.TestCase):
-    pass
-    # def test_checkSolved_010_ShouldReturnTrueForSolvedBottomLayer(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'wyyrrbgbyggrrgybowbowooboryorrwbgroygwwwywggoryobwgbyb'
-    #     expectedResult = True
-    #     myCube = cube.Cube()
-    #     myCube._load(inputDict['cube'])
-    #     content = myCube._content
-    #     actualResult = bottomLayer.checkSolved(content)
-    #     self.assertEqual(expectedResult, actualResult)
+    def test_checkSolved_010_ShouldReturnTrueForSolvedBottomLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'roygrrrrrgorbgbgggyybyogoooygyobrbbborbyyygbowwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = True
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = True
+        actualResult = bottomLayer._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
