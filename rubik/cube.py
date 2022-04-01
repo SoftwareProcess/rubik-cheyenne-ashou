@@ -46,3 +46,6 @@ class Cube:
     
     def _getContent(self):
         return self._content
+    
+    def _setContent(self, content):
+        self._content = content
