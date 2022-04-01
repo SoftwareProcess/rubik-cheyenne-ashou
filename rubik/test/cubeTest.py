@@ -68,5 +68,22 @@ class CubeTest(unittest.TestCase):
         actualContent = myCube._get()
         self.assertEqual(expectedContent, actualContent)
         
+    def test_getContent_040_ShouldReturn3DArrayOfCube(self):
+        inputDict = {}
+        inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
+        inputDict['op'] = 'solve'
+        myCube = cube.Cube()
+        content = inputDict['cube']
+        myCube._load(content)
+        expectedContent = [
+                        [['b','g','g'],['w','b','y'],['b','y','r']],
+                        [['w','o','g'],['o','r','r'],['y','b','w']],
+                        [['o','g','r'],['b','g','o'],['o','g','g']],
+                        [['b','w','o'],['w','o','r'],['w','o','r']],
+                        [['w','w','y'],['b','y','g'],['y','y','o']],
+                        [['y','r','g'],['b','w','y'],['r','r','b']]
+                            ]
+        actualContent = myCube._getContent()
+        self.assertEqual(expectedContent, actualContent)
     
 

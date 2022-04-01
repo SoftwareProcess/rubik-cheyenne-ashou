@@ -94,3 +94,4 @@ class CheckTest(TestCase):
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult['status'], actualResult['status'])
 
+    
