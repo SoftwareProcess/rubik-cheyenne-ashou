@@ -31,3 +31,23 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkSolved(content)
         
         self.assertEqual(expectedResult, actualResult) 
+    
+    def test_checkSolved_011_ShouldReturnFalseBecauseMisplacedCorner(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bgyorrbrrrorbgbgggyygyoroobooogbgrboyrbyybyygwwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = bottomLayer._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
+        
+    
