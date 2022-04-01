@@ -21,7 +21,7 @@ def _checkSolved(content):
             break
         
     bottomLayer = content[5]
-    bottomLayerColor = content[bottomLayer][1][1]  
+    bottomLayerColor = content[5][1][1]  
         
     for row in bottomLayer:
         for piece in row:
