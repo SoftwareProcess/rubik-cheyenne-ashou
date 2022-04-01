@@ -22,7 +22,7 @@ class BottomLayerTest(unittest.TestCase):
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
         
-        expectedCheck = True
+        expectedCheck = {'status': 'ok'}
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
