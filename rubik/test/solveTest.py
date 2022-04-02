@@ -723,21 +723,23 @@ class SolveTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip("skip while changing the movecontroller method")
+    
     def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
+        content = myCube._getContent()
         
-   
-        expectedResult = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
+        expectedContent = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
+        myCube2 = cube.Cube()
+        myCube2._load(expectedContent)
+        expectedContent = myCube2._getContent()
         
-        myCube._content = solve._rotateCubeClockwise(myCube)
-        actualResult = myCube._get()
-        
-        self.assertEqual(expectedResult, actualResult)
+        actualContent = solve._rotateCubeClockwise(content)
+ 
+        self.assertEqual(expectedContent, actualContent)
         
     def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         inputMoves = 'FfBbLlRrUuDd'
