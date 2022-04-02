@@ -629,7 +629,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip("skip while changing the movecontroller method")
+    
     def test_solve_131_ShouldSolveBottomCrossForMixedValidCubeMissingRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
