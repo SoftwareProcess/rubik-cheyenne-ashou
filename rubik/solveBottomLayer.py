@@ -6,6 +6,7 @@ Created: 4/1/2022
 Modified: 4/1/2022
 @author: Cheyenne Ashou
 '''
+from tkinter.constants import BOTTOM
 
 def _checkSolved(content):
     solved = True
@@ -58,6 +59,8 @@ def _getCornerPiece(content):
        and adjacentRightCorners['upper'] == rightFaceColor
        and adjacentRightCorners['right'] == bottomFaceColor):
         return (0,2)
+    if(frontCorners['bottomLeft'] == bottomFaceColor):
+        return (2,0)
     
     
     
