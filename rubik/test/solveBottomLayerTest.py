@@ -135,7 +135,7 @@ class BottomLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        expectedCornerCoord = (2,2) 
+        expectedCornerCoord = (2,2, 'RUr') 
         actualCornerCoord = bottomLayer._getCornerPiece(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
