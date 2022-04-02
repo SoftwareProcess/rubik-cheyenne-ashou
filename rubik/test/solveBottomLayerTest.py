@@ -161,7 +161,7 @@ class BottomLayerTest(unittest.TestCase):
     def test_025_getCornerPiece_shouldReturnBottomRightCornerPieceCoordinateBecauseMisplacedCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ybgorgbrgygrygoyggbyggoyoooryrrbbybowbwoyrbrrwwowwwbww'
+        inputDict['cube'] = 'yywbrryrogbgggobggyybgoyooowborbyybbroroyrggrrwwwwwbww'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
