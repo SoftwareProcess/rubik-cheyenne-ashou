@@ -396,8 +396,7 @@ def _translateFace5(move):
         return 'b'
     
 #Rotate cube
-def _movecontroller(myCube, moves):
-    content = myCube._content
+def _movecontroller(content, moves):
     for move in moves:
         if move == 'F':
             face = 0
