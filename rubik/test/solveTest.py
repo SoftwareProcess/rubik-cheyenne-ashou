@@ -61,8 +61,8 @@ class SolveTest(unittest.TestCase):
         move = 'F'
         rotatedCube = 'bwbybgrygyogyrrobwogrbgooggbwyworwogwwybygrroyowbwyrrb'
         myCube2 = cube.Cube()
-        myCube._load(rotatedCube)
-        expectedContent = myCube._getContent()
+        myCube2._load(rotatedCube)
+        expectedContent = myCube2._getContent()
         actualContent = solve._movecontroller(content, move)
         
         self.assertEqual(expectedContent, actualContent)
