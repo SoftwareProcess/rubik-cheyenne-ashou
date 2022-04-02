@@ -123,8 +123,7 @@ def _rotateToFrontFace(content, face):
     return content
 
 #Checks if more moves are required on the current face
-def _checkFlowerPieces(myCube):
-    content = myCube._content
+def _checkFlowerPieces(content):
     bottomFaceColor = content[5][1][1]
     flowerPiecesOnFace = True
     if(content[0][0][1] != bottomFaceColor): 
