@@ -713,7 +713,7 @@ class SolveTest(unittest.TestCase):
         inputDict['op'] = 'solve'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        content = myCube.getContent()
+        content = myCube._getContent()
         
    
         expectedResult = 'rrrgggrrrgggooogggooobbbooobbbrrrbbbyyyyyyyyywwwwwwwww'
