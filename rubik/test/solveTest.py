@@ -110,21 +110,26 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedContent, actualContent)
   
  
-    @unittest.skip("skip while changing the movecontroller method")
+    
     def test_solve_021_ShouldRotateValidNominalCubeR(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['rotate'] = 'R'
         inputDict['op'] = 'solve'
         
-        expectedResult = {}
-        expectedResult['cube'] = 'rrwrrwrrwgggggggggyooyooyoobbbbbbbbbyyryyryyrwwowwowwo'
-        expectedResult['status'] = 'ok'
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
         
-        actualResult = solve._solve(inputDict)
+        moves = inputDict['rotate']
+        rotatedCube = 'rrwrrwrrwgggggggggyooyooyoobbbbbbbbbyyryyryyrwwowwowwo'
+        myCube2 = cube.Cube()
+        myCube2._load(rotatedCube)
+        expectedContent = myCube2._getContent()
+        actualContent = solve._movecontroller(content, moves)
         
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        self.assertEqual(expectedContent, actualContent)
+  
         
     @unittest.skip("skip while changing the movecontroller method")    
     def test_solve_022_ShouldRotateValidNominalCubeL(self):
