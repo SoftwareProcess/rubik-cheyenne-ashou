@@ -229,8 +229,24 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkPiecesOnTopLayer(content)
         
         self.assertEqual(expectedResult, actualResult) 
-    
-    
+        
+    def test_030_checkPiecesOnTopLayer_ReturnFalseBecauseAllNeededCornerPiecesOnBottomLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'byorrrrrgborygowggggogoyoowybyobbobbgryyybrgywwrwwwbww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = bottomLayer._checkPiecesOnTopLayer(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
     
     
     
