@@ -654,7 +654,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    @unittest.skip("skip while changing the movecontroller method")    
+    
     def test_solve_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -680,7 +680,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    @unittest.skip("skip while changing the movecontroller method")    
+    
     def test_solve_133_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -706,14 +706,14 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    @unittest.skip("skip while changing the movecontroller method")    
+   
     def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        content = myCube._content
+        content = myCube.getContent()
         
    
         expectedResult = 'rrrgggrrrgggooogggooobbbooobbbrrrbbbyyyyyyyyywwwwwwwww'
