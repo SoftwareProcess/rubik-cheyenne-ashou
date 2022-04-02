@@ -795,12 +795,13 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    @unittest.skip("skip while changing the movecontroller method")
+    
     def test_formBottomCross_171_ShouldDoNothingBecuaseCrossAlreadySolved(self):
         myCube = cube.Cube()
         myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
+        content = myCube._getContent()
         expectedMoves = ''
-        moves = solve._formBottomCross(myCube)
+        moves = solve._formBottomCross(content)
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
     
