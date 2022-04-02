@@ -805,7 +805,7 @@ class SolveTest(unittest.TestCase):
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
     
-    @unittest.skip("skip while changing the movecontroller method")    
+    
     def test_solvedFlower_180_ShouldReturnTrueIfTopLayerHasFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -813,14 +813,16 @@ class SolveTest(unittest.TestCase):
         expectedResult = True
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        actualResult = solve._solvedFlower(myCube)
+        content = myCube._getContent()
+        actualResult = solve._solvedFlower(content)
         self.assertEqual(expectedResult, actualResult)
         
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         expectedResult = True
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        actualResult = solve._solvedFlower(myCube)
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        content2 = myCube2._getContent()
+        actualResult = solve._solvedFlower(content2)
         self.assertEqual(expectedResult, actualResult)
     
     @unittest.skip("skip while changing the movecontroller method")    
