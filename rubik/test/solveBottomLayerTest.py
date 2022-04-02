@@ -212,6 +212,23 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
     
+    def test_030_checkPiecesOnTopLayer_ReturnTrueBecauseWhiteOnFrontOnAtLeastOneSideOfTopLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'gbbrrobrrwoobgoyggbywgoyoogbrwbbgybrogyyyyrrrywgwwwoww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = True
+        actualResult = bottomLayer._checkPiecesOnTopLayer(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
     
     
     
