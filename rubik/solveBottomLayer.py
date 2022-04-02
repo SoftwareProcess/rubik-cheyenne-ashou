@@ -7,6 +7,7 @@ Modified: 4/1/2022
 @author: Cheyenne Ashou
 '''
 from tkinter.constants import BOTTOM
+from pickle import TRUE
 
 def _checkSolved(content):
     solved = True
@@ -75,6 +76,18 @@ def _getCornerPiece(content):
         return (0,0, 'lUUL')
     if(adjacentRightCorners['upper'] == bottomFaceColor):
         return (0,2, 'RUUr')
+    
+def _checkPiecesOnTopLayer(content):
+    sideFaces = 4
+    bottomFaceColor = content[5][1][1]
+    
+    for face in range(sideFaces):
+        if(content[face][0][0] == bottomFaceColor 
+           or content[face][0][2] == bottomFaceColor):
+            piecesOnTopLayer = True
+            break
+        
+    return piecesOnTopLayer
     
     
         
