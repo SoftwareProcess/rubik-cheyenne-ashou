@@ -54,22 +54,7 @@ def _getCornerPiece(content):
        and adjacentLeftCorners['upper'] == leftFaceColor
        and adjacentLeftCorners['left'] == bottomFaceColor):
         return (0,0)
-    elif(frontCorners['topRight'] == frontFaceColor
-         and adjacentRightCorners['upper'] == rightFaceColor
-         and adjacentRightCorners['right'] == bottomFaceColor):
-        return (0,2)
-    elif(frontCorners['bottomLeft'] == bottomFaceColor): #do luL
-        return (2,0)
-    elif(frontCorners['bottomRight'] == bottomFaceColor): #do RUr
-        return (2,2)
-    elif(adjacentLeftCorners['lower'] == bottomFaceColor
-         and (adjacentLeftCorners['bottomLeft'] != leftFaceColor
-              or frontCorners['bottomLeft'] != frontFaceColor)):
-        return (2,0)
-    elif(adjacentRightCorners['lower'] == bottomFaceColor
-         and (adjacentRightCorners['bottomRight'] != rightFaceColor
-              or frontCorners['bottomRight'] != frontFaceColor)):
-        return (2,2)
+    
     
     
     

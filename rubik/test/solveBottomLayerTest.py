@@ -68,7 +68,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
-    def test_020_getCornerPiece_shouldReturnTopLeftCornerPiece(self):
+    def test_020_getCornerPiece_shouldReturnTopLeftCornerPieceCoordinate(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rbgorybryygbggrrgrygwyoogogorwbbyybogrobyobyrwwbwwwoww'
@@ -85,4 +85,23 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._getCornerPiece(content)
         
         self.assertEqual(expectedResult, actualResult)
+        
+    def test_021_getCornerPiece_shouldReturnTopRightCornerPieceCoordinate(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bbrgrggrbwborgowggyorgoyooobyyrbyybywygbyrrogrwowwwbww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = (0,2) 
+        actualResult = bottomLayer._getCornerPiece(content)
+        
+        self.assertEqual(expectedResult, actualResult)
+    
     
