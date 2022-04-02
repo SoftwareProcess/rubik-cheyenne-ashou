@@ -159,11 +159,11 @@ def _formBottomCross(content):
                 elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
                     matching = True
                 else:
-                    content._content = _movecontroller(content, translatedU)
+                    content = _movecontroller(content, translatedU)
                     moves += translatedU
             elif(face == 1):
-                adjacentFlowerPiece = content._content[4][1][2]
-                adjacentCrossPiece = content._content[5][1][2]
+                adjacentFlowerPiece = content[4][1][2]
+                adjacentCrossPiece = content[5][1][2]
                 if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
                     content = _movecontroller(content, move)
                     moves += move
