@@ -73,6 +73,8 @@ def _getCornerPiece(content):
         return (2,2)
     if(adjacentLeftCorners['upper'] == bottomFaceColor):
         return (0,0)
+    if(adjacentRightCorners['upper'] == bottomFaceColor):
+        return (0,2)
     
     
         
