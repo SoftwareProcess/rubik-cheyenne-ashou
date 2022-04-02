@@ -140,7 +140,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
         
-    def test_023_getCornerPiece_shouldReturnBottomLeftCornerPieceCoordinateBecauseMisplacedCorner(self):
+    def test_024_getCornerPiece_shouldReturnBottomLeftCornerPieceCoordinateBecauseMisplacedCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ybgorgbrgygrygoyggbyggoyoooryrrbbybowbwoyrbrrwwowwwbww'
@@ -154,6 +154,24 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (2,0) 
+        actualCornerCoord = bottomLayer._getCornerPiece(content)
+        
+        self.assertEqual(expectedCornerCoord, actualCornerCoord)
+    
+    def test_025_getCornerPiece_shouldReturnBottomRightCornerPieceCoordinateBecauseMisplacedCorner(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ybgorgbrgygrygoyggbyggoyoooryrrbbybowbwoyrbrrwwowwwbww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedCornerCoord = (2,2) 
         actualCornerCoord = bottomLayer._getCornerPiece(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
