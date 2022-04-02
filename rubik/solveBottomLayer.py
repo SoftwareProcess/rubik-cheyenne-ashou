@@ -80,6 +80,7 @@ def _getCornerPiece(content):
 def _checkPiecesOnTopLayer(content):
     sideFaces = 4
     bottomFaceColor = content[5][1][1]
+    piecesOnTopLayer = False
     
     for face in range(sideFaces):
         if(content[face][0][0] == bottomFaceColor 
