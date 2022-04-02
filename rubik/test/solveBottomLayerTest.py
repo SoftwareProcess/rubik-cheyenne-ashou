@@ -230,7 +230,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
-    def test_030_checkPiecesOnTopLayer_ReturnFalseBecauseAllNeededCornerPiecesOnBottomLayer(self):
+    def test_031_checkPiecesOnTopLayer_ReturnFalseBecauseAllNeededCornerPiecesOnBottomLayer(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'byorrrrrgborygowggggogoyoowybyobbobbgryyybrgywwrwwwbww'
@@ -246,7 +246,15 @@ class BottomLayerTest(unittest.TestCase):
         expectedResult = False
         actualResult = bottomLayer._checkPiecesOnTopLayer(content)
         
-        self.assertEqual(expectedResult, actualResult) 
+        self.assertEqual(expectedResult, actualResult)
+      
+      
+    
+    # def test_040_rotateToOpenCorner_NoRotationsBecuaseTopCornerAlreadyAtOpenCorner(self):
+    #     inputDict= {}
+    #     inputDict['op'] = 'so'
+        
+    
     
     
     
