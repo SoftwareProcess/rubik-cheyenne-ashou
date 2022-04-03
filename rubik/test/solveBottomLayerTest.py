@@ -263,7 +263,7 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedFace = 0
-        actualFace = bottomLayer._findOpenLeftCorner()
+        actualFace = bottomLayer._findOpenLeftCorner(content)
         self.assertEqual(expectedFace, actualFace)
         
         

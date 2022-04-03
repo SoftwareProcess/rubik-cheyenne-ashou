@@ -6,8 +6,7 @@ Created: 4/1/2022
 Modified: 4/1/2022
 @author: Cheyenne Ashou
 '''
-from tkinter.constants import BOTTOM
-from pickle import TRUE
+import rubik.solve as solve
 
 def _checkSolved(content):
     solved = True
@@ -90,5 +89,18 @@ def _checkPiecesOnTopLayer(content):
         
     return piecesOnTopLayer
     
+def _findOpenLeftCorner(content):
+    sideFaces = 4
+    bottomFaceColor = content[5][1][1]
     
+    for face in range(sideFaces):
+        leftCorner = content[0][2][0]
+        topLeftOfBottomFace = content[5][0][0]
+        bottomRightOfLeftFace = content[3][2][2]
+        if(topLeftOfBottomFace != bottomFaceColor
+           or leftCorner == bottomFaceColor
+           or bottomRightOfLeftFace == bottomFaceColor):
+            return face
+        content = solve._rotateCubeClockwise(content)
+    return None
         
