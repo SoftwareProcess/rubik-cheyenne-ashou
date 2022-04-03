@@ -303,7 +303,7 @@ class BottomLayerTest(unittest.TestCase):
     def test_050_openCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'oygggoogyrygybyrooorrbbgbbbgoyrrorrgybybygbrwwwbwwwwww'
+        inputDict['cube'] = 'oygggoogyrygyoyrooorrbbgbbbgoyrrorrgybybygbrwwwbwwwwww'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
