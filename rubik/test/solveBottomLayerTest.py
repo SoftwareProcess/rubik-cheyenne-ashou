@@ -354,6 +354,25 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._rotateToOpenCorner(content)
         self.assertEqual(expectedResult, actualResult)
         
+    def test_061_rotateToOpenCorner_BecuaseTopCornerAlreadyAtOpenCorner(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'oyyrrorrrgbgbgygggwoyrobroyoobrbgrbbbyogyywgowwwwwwbwy'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = 'uu'
+        actualResult = bottomLayer._rotateToOpenCorner(content)
+        self.assertEqual(expectedResult, actualResult)
+        
+    
+        
     
     
     
