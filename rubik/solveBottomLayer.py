@@ -89,7 +89,7 @@ def _checkPiecesOnTopLayer(content):
         
     return piecesOnTopLayer
     
-def _findOpenLeftCorner(content):
+def _findOpenCorner(content):
     sideFaces = 4
     bottomFaceColor = content[5][1][1]
     
