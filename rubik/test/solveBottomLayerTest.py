@@ -457,6 +457,23 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
+    def test_082_rotateMatchingCornerPieceToFace_NoRotationsBecauseMatchingRightCornerPieceAlreadyPresent(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'yorrryrrgworrgyyggyoggoroooyybbbgbbbrybbygobgwwowwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedRotations = ''
+        actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
+        self.assertEqual(expectedRotations, actualRotations)
+        
     
         
     
