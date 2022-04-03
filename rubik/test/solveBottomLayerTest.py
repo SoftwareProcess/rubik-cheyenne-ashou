@@ -11,7 +11,7 @@ import unittest
 import rubik.solveBottomLayer as bottomLayer
 import rubik.cube as cube
 import rubik.check as check
-from tkinter.constants import BOTTOM
+import rubik.solve as solve
 
 class BottomLayerTest(unittest.TestCase):
     def test_010_checkSolved_ShouldReturnTrueForSolvedBottomLayer(self):
@@ -509,23 +509,28 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
         self.assertEqual(expectedRotations, actualRotations)
         
-    # def test_091_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-    #
-    #     myCube = cube.Cube()
-    #     myCube._load(inputDict['cube'])
-    #     content = myCube._getContent()
-    #
-    #     expectedCheck = {'status': 'ok'}
-    #     actualCheck = check._check(inputDict)
-    #     self.assertEqual(expectedCheck, actualCheck)
-    #
-    #     expectedRotations = ''
-    #     actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
-    #     self.assertEqual(expectedRotations, actualRotations)
-    #
+    def test_091_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        moves = bottomLayer._movesToPlaceCornerPieces(content)
+        inputDict['rotate'] = moves
+    
+        content = solve._solve(inputDict)
+        expectedResult = True
+        actualResult = bottomLayer._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult)
+    
 
     
         
