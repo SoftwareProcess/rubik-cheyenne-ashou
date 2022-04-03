@@ -388,7 +388,7 @@ class BottomLayerTest(unittest.TestCase):
         actualFace = bottomLayer._findMatchingCornerPiece(content)
         self.assertEqual(expectedFace, actualFace)
         
-    def test_071_findMatchingLeftCornerPiece(self):
+    def test_071_findMatchingCornerPiece_Left(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'orgobggbbwrorrorrryowbgyggbbyyboyyoyogggybbyorwwwwwrww'
@@ -406,7 +406,7 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedFace, actualFace)
         
     
-    def test_080_rotateMatchingRightCornerPieceToFace(self):
+    def test_080_rotateMatchingCornerPieceToFace_Right(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yowbgyggbbyyboyyoyorgobggbbwrorrorrroybbygggowwrwwwwwr'
@@ -423,7 +423,7 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
-    def test_080_rotateMatchingLeftCornerPieceToFace(self):
+    def test_081_rotateMatchingCornerPieceToFace_Left(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'orgobggbbwrorrorrryowbgyggbbyyboyyoyogggybbyorwwwwwrww'
@@ -439,6 +439,25 @@ class BottomLayerTest(unittest.TestCase):
         expectedRotations = 'UUU'
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
+        
+    def test_082_rotateMatchingCornerPieceToFace_NoRotationsBecauseMatchingLeftCornerPieceAlreadyPresent(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'byyobggbborgrrorrrwrobgyggbyowboyyoygbogyyogbrwwwwwrww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedRotations = ''
+        actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
+        self.assertEqual(expectedRotations, actualRotations)
+        
+    
         
     
         
