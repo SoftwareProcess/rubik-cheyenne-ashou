@@ -391,7 +391,7 @@ class BottomLayerTest(unittest.TestCase):
     def test_071_findMatchingLeftCornerPiece(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'orgobggbbwrorrorrrybwbgyggbbyyboyyoyogggybbyorwwwwwrww'
+        inputDict['cube'] = 'orgobggbbwrorrorrryowbgyggbbyyboyyoyogggybbyorwwwwwrww'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
