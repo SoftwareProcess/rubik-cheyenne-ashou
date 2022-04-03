@@ -409,7 +409,7 @@ class BottomLayerTest(unittest.TestCase):
     def test_080_rotateMatchingCornerPieceToFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'woorrorrrbrobgyggbyoybogyoorrgybgbbbgggyyboyywwwwwwwwr'
+        inputDict['cube'] = 'yowbgyggbbyyboyyoyorgobggbbwrorrorrroybbygggowwrwwwwwr'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
