@@ -145,6 +145,7 @@ def _findMatchingCornerPiece(content):
         elif(rightCornerColor == frontFaceColor and topLeftOfRightFaceColor == bottomFaceColor 
              and bottomRightOfTopFaceColor == rightFaceColor):
             return face
+        content = solve._rotateCubeClockwise(content)
     noMatchingCornerPiece = 0    
     
     return noMatchingCornerPiece
