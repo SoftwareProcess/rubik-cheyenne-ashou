@@ -406,22 +406,22 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedFace, actualFace)
         
     
-    # def test_070_rotateMatchingCornerPieceToFace(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'woorrorrrbrobgyggbyoybogyoorrgybgbbbgggyyboyywwwwwwwwr'
-    #
-    #     myCube = cube.Cube()
-    #     myCube._load(inputDict['cube'])
-    #     content = myCube._getContent()
-    #
-    #     expectedCheck = {'status': 'ok'}
-    #     actualCheck = check._check(inputDict)
-    #     self.assertEqual(expectedCheck, actualCheck)
-    #
-    #     expectedResult = 'UU'
-    #     actualResult = bottomLayer._rotateToOpenCorner(content)
-    #     self.assertEqual(expectedResult, actualResult)
+    def test_080_rotateMatchingCornerPieceToFace(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'woorrorrrbrobgyggbyoybogyoorrgybgbbbgggyyboyywwwwwwwwr'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedRotations = 'UU'
+        actualRotations = bottomLayer._rotateToOpenCorner(content)
+        self.assertEqual(expectedRotations, actualRotations)
         
     
         
