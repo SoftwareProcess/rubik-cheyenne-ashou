@@ -420,7 +420,7 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedRotations = 'UU'
-        actualRotations = bottomLayer._rotateToOpenCorner(content)
+        actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
     
