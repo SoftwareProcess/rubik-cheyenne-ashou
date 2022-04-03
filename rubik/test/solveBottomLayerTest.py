@@ -282,7 +282,8 @@ class BottomLayerTest(unittest.TestCase):
         expectedFace = 2
         actualFace = bottomLayer._findOpenCorner(content)
         self.assertEqual(expectedFace, actualFace)
-    @unittest.skip("skip untilCheckOpenCorner is tested and created")   
+    
+    
     def test_042_findOpenCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
