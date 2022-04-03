@@ -22,7 +22,7 @@ def _movesToPlaceCornerPieces(content):
         content = solve._movecontroller(content, moves)
         content = solve._rotateCubeClockwise(content)
         solved = _checkSolved(content)
-        
+        break
     return moves
 def _checkSolved(content):
     solved = True
