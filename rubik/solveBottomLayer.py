@@ -123,4 +123,29 @@ def _rotateToOpenCorner(content):
         moves += 'u'
     return moves
 
+def _findMatchingCornerPiece(content):
+    sideFaces = 4
+    frontFaceColor = content[0][1][1]
+    bottomFaceColor = content[5][1][1]
+    leftFaceColor = content[3][1][1]
+    rightFaceColor = content[1][1][1]
+    
+    for face in range(sideFaces):
+        leftCornerColor = content[0][0][0]
+        topRightOfLeftFaceColor = content[3][0][2]
+        bottomLeftOfTopFaceColor = content[4][2][0]
+        
+        rightCornerColor = content[0][0][2]
+        topLeftOfRightFaceColor = content[1][0][0]
+        bottomRightOfTopFaceColor = content[4][2][2]
+
+        if(leftCornerColor == frontFaceColor and topRightOfLeftFaceColor == bottomFaceColor 
+           and bottomLeftOfTopFaceColor == leftFaceColor):
+            return face
+        elif(rightCornerColor == frontFaceColor and topLeftOfRightFaceColor == bottomFaceColor 
+             and bottomRightOfTopFaceColor == rightFaceColor):
+            return face
+    noMatchingCornerPiece = 0    
+    
+    return noMatchingCornerPiece
     
