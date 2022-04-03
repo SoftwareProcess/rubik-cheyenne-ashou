@@ -8,6 +8,7 @@ Modified: 4/1/2022
 '''
 import rubik.solve as solve
 
+
 def _checkSolved(content):
     solved = True
     
@@ -103,4 +104,22 @@ def _findOpenCorner(content):
             return face
         content = solve._rotateCubeClockwise(content)
     return None
-        
+
+def _openCorner(content):
+    leftCorner = content[0][2][0]
+    topLeftOfBottomFace = content[5][0][0]
+    bottomRightOfLeftFace = content[3][2][2]
+    bottomFaceColor = content[5][1][1]
+    frontFaceColor = content[0][1][1]
+    leftFaceColor = content[3][2][2]
+    
+    openCorner = True
+    
+    if(topLeftOfBottomFace == bottomFaceColor and leftCorner == frontFaceColor
+       and bottomRightOfLeftFace == leftFaceColor):
+        openCorner = False
+    else:
+        openCorner = True
+    
+    return openCorner
+
