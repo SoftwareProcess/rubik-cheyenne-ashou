@@ -164,7 +164,7 @@ def _findMatchingCornerPiece(content):
              and bottomRightOfTopFaceColor == rightFaceColor):
             return face
         content = solve._rotateCubeClockwise(content)
-    noMatchingCornerPiece = 0    
+    noMatchingCornerPiece = 4    
     
     return noMatchingCornerPiece
 

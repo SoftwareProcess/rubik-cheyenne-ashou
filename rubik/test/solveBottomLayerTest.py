@@ -505,7 +505,7 @@ class BottomLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
     
-        expectedRotations = ''
+        expectedRotations = 'UUUU'
         actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
         self.assertEqual(expectedRotations, actualRotations)
         
