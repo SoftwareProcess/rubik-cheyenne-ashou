@@ -12,16 +12,32 @@ from rubik.solve import _rotateCubeClockwise
 def _movesToPlaceCornerPieces(content):
     solved = False
     moves = ''
-    
+    face = 0
     while(solved == False):
         move = _rotateMatchingCornerPieceToFace(content)
         if(move != 'UUUU'):
-            moves += move
+            moves += solve._movetranslator(face, move)
         else:
             content = _rotateCubeClockwise(content)
         content = solve._movecontroller(content, moves)
-        content = solve._rotateCubeClockwise(content)
+        
+        move = _getCornerPiece(content)[2]
+        
+        if(move == 'lUUl'):
+            rotateToOpenCornerResult = _rotateToOpenCorner(content)
+            movesToOpenCorner = rotateToOpenCornerResult[1]
+            openCornerFace = rotateToOpenCornerResult[0]
+            content = solve._movecontroller(content, movesToOpenCorner)
+            moves += solve._movetranslator(face, movesToOpenCorner)
+            content = solve._movecontroller(content, move)
+            moves += solve._movetranslator(face, move)
+        
+        noCornerPieceToMove = ''
+        if(_getCornerPiece(content)[2] == noCornerPieceToMove):
+            content = solve._rotateCubeClockwise(content)
+            face = (face + 1) % 4
         solved = _checkSolved(content)
+       
         break
     return moves
 def _checkSolved(content):
@@ -136,7 +152,7 @@ def _rotateToOpenCorner(content):
     moves = ''
     for rotationCount in range(openCornerFace):
         moves += 'u'
-    return moves
+    return (openCornerFace, moves)
 
 def _rotateMatchingCornerPieceToFace(content):
     matchingCornerPieceFace = _findMatchingCornerPiece(content)
