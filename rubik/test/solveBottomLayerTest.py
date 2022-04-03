@@ -371,7 +371,7 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._rotateToOpenCorner(content)
         self.assertEqual(expectedResult, actualResult)
      
-    def test_070_findMatchingCornerPiece(self):
+    def test_070_findMatchingRightCornerPiece(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yowbgyggbbyyboyyoyorgobggbbwrorrorrroybbygggowwrwwwwwr'
@@ -387,6 +387,25 @@ class BottomLayerTest(unittest.TestCase):
         expectedFace = 2
         actualFace = bottomLayer._findMatchingCornerPiece(content)
         self.assertEqual(expectedFace, actualFace)
+        
+    def test_071_findMatchingLeftCornerPiece(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'orgobggbbwrorrorrrybwbgyggbbyyboyyoyogggybbyorwwwwwrww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedFace = 3
+        actualFace = bottomLayer._findMatchingCornerPiece(content)
+        self.assertEqual(expectedFace, actualFace)
+        
+    
     # def test_070_rotateMatchingCornerPieceToFace(self):
     #     inputDict = {}
     #     inputDict['op'] = 'solve'
