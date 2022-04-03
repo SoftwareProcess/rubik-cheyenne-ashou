@@ -92,15 +92,9 @@ def _checkPiecesOnTopLayer(content):
     
 def _findOpenCorner(content):
     sideFaces = 4
-    bottomFaceColor = content[5][1][1]
     
     for face in range(sideFaces):
-        leftCorner = content[0][2][0]
-        topLeftOfBottomFace = content[5][0][0]
-        bottomRightOfLeftFace = content[3][2][2]
-        if(topLeftOfBottomFace != bottomFaceColor
-           or leftCorner == bottomFaceColor
-           or bottomRightOfLeftFace == bottomFaceColor):
+        if(_openCorner(content) == True):
             return face
         content = solve._rotateCubeClockwise(content)
     return None
