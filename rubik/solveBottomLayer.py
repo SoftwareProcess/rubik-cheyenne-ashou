@@ -7,8 +7,19 @@ Modified: 4/1/2022
 @author: Cheyenne Ashou
 '''
 import rubik.solve as solve
+from rubik.solve import _rotateCubeClockwise
 
-
+def _movesToPlaceCornerPieces(content):
+    solved = False
+    moves = ''
+    
+    while(solved == False):
+        moves += _rotateMatchingCornerPieceToFace(content)
+        content = solve._movecontroller(content, moves)
+        content = solve._rotateCubeClockwise(content)
+        solved = _checkSolved(content)
+        
+    return moves
 def _checkSolved(content):
     solved = True
     
