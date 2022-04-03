@@ -117,5 +117,10 @@ def _openCorner(content):
     return openCorner
 
 def _rotateToOpenCorner(content):
-    # _findOpenCorner(content)
-    pass
+    openCornerFace = _findOpenCorner(content)
+    moves = ''
+    for rotationCount in range(openCornerFace):
+        moves += 'u'
+    return moves
+
+    
