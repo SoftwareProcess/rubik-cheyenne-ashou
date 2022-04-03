@@ -74,8 +74,7 @@ def _getCornerPiece(content):
         return (2,2, 'RUr')
     if(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
         return (0,0, 'lUUL')
-    if(_checkPiecesOnTopLayer(content) == False and adjacentRightCorners['upper'] == bottomFaceColor):
-        return (0,2, 'RUUr')
+    
     
 def _checkPiecesOnTopLayer(content):
     sideFaces = 4
@@ -117,3 +116,6 @@ def _openCorner(content):
     
     return openCorner
 
+def _rotateToOpenCorner(content):
+    # _findOpenCorner(content)
+    pass
