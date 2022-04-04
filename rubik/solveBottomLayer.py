@@ -171,20 +171,21 @@ def _rotateMatchingCornerPieceToFace(content):
     return moves
 
 def _findMatchingCornerPiece(content):
+    cubeContent = content
     sideFaces = 4
-    frontFaceColor = content[0][1][1]
-    bottomFaceColor = content[5][1][1]
-    leftFaceColor = content[3][1][1]
-    rightFaceColor = content[1][1][1]
+    frontFaceColor = cubeContent[0][1][1]
+    bottomFaceColor = cubeContent[5][1][1]
+    leftFaceColor = cubeContent[3][1][1]
+    rightFaceColor = cubeContent[1][1][1]
     
     for face in range(sideFaces):
-        leftCornerColor = content[0][0][0]
-        topRightOfLeftFaceColor = content[3][0][2]
-        bottomLeftOfTopFaceColor = content[4][2][0]
+        leftCornerColor = cubeContent[0][0][0]
+        topRightOfLeftFaceColor = cubeContent[3][0][2]
+        bottomLeftOfTopFaceColor = cubeContent[4][2][0]
         
-        rightCornerColor = content[0][0][2]
-        topLeftOfRightFaceColor = content[1][0][0]
-        bottomRightOfTopFaceColor = content[4][2][2]
+        rightCornerColor = cubeContent[0][0][2]
+        topLeftOfRightFaceColor = cubeContent[1][0][0]
+        bottomRightOfTopFaceColor = cubeContent[4][2][2]
 
         if(leftCornerColor == frontFaceColor and topRightOfLeftFaceColor == bottomFaceColor 
            and bottomLeftOfTopFaceColor == leftFaceColor):
@@ -192,7 +193,7 @@ def _findMatchingCornerPiece(content):
         elif(rightCornerColor == frontFaceColor and topLeftOfRightFaceColor == bottomFaceColor 
              and bottomRightOfTopFaceColor == rightFaceColor):
             return face
-        content = solve._rotateCubeClockwise(content)
+        cubeContent = solve._rotateCubeClockwise(cubeContent)
     noMatchingCornerPiece = 4    
     
     return noMatchingCornerPiece
