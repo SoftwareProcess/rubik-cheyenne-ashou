@@ -621,9 +621,9 @@ class SolveTest(unittest.TestCase):
         myCube._load(actualResult.get('cube'))
         content = myCube._getContent()
         expectedSolvedResult = True
-        actualSolvedResult = bottomLayer._checkSolved(content)
-        self.assertEqual(expectedSolvedResult, actualSolvedResult)
-        # self.assertEqual(actualResult['cube'][46], bottomFaceColor)
+        # actualSolvedResult = bottomLayer._checkSolved(content)
+        # self.assertEqual(expectedSolvedResult, actualSolvedResult)
+        self.assertEqual(actualResult['cube'][46], bottomFaceColor)
         # self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
         # self.assertEqual(actualResult['cube'][48], bottomFaceColor)
         # self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
