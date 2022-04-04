@@ -16,7 +16,6 @@ def _movesToPlaceCornerPieces(content):
         #move = _rotateMatchingCornerPieceToFace(content)
         move = 'UU'
         if(move != 'UUUU'):
-            return content
             content = solve._movecontroller(content, move)
             moves += solve._movetranslator(face, move)
         else:
