@@ -22,7 +22,7 @@ def _movesToPlaceCornerPieces(content):
             content = solve._rotateCubeClockwise(content)
         
         
-        move = _getCornerPiece(content)
+        move = _getCornerPiece(content)[2]
 
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
@@ -36,10 +36,8 @@ def _movesToPlaceCornerPieces(content):
             content = solve._movecontroller(content, move)
             moves += solve._movetranslator(face, move)
         if(move != noCornerPieceToMove):
-            content = solve._movecontroller(content, move)  
-            move = solve._movetranslator(face, move)
-            return move
-            moves += move
+            content = solve._movecontroller(content, move)    
+            moves += solve._movetranslator(face, move)
         else:
             content = solve._rotateCubeClockwise(content)
             face = (face + 1) % 4
