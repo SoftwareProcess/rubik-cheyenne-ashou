@@ -22,8 +22,8 @@ def _movesToPlaceCornerPieces(content):
             content = _rotateCubeClockwise(content)
         
         
-        moved = _getCornerPiece(content)[2]
-        return moved
+        move = _getCornerPiece(content)
+        return move
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
