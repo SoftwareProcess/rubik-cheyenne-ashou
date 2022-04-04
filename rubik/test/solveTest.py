@@ -610,7 +610,7 @@ class SolveTest(unittest.TestCase):
         moves = solve._solve(inputDict).get('solution')
         
         inputDict['rotate'] = moves
-        
+        print(moves)
         actualResult = solve._solve(inputDict)
         
         expectedStatus = 'ok'
