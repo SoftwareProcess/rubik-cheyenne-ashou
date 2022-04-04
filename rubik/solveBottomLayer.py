@@ -20,6 +20,7 @@ def _movesToPlaceCornerPieces(content):
             moves += solve._movetranslator(face, move)
         else:
             content = solve._rotateCubeClockwise(content)
+            face = (face+1)%4
         
         
         move = _getCornerPiece(content)[2]
