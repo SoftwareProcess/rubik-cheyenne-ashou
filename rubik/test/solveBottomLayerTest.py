@@ -492,7 +492,7 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
-    #@unittest.skip('skip while making rotationToFace function')
+    @unittest.skip('skip while observing output moves of this function')
     def test_090_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -509,7 +509,7 @@ class BottomLayerTest(unittest.TestCase):
         expectedRotations = ''
         actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
         self.assertEqual(expectedRotations, actualRotations)
-    #@unittest.skip('skip while making rotationToFace function')    
+    @unittest.skip('skip while observing output moves of function')    
     def test_091_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -531,6 +531,25 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkSolved(content)
         
         self.assertEqual(expectedResult, actualResult)
+        
+    def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedMoves = 'UURur'
+        actualMoves = bottomLayer._movesToPlaceCornerPieces(content)
+        
+        self.assertEqual(expectedMoves, actualMoves)
+    
     
     def test_100_rotateToFace_rotateCube180Degrees(self):
         inputDict = {}
@@ -552,6 +571,7 @@ class BottomLayerTest(unittest.TestCase):
         actualCube = bottomLayer._rotateToFace(face, content)
         
         self.assertEqual(expectedCube, actualCube)
+
 
     
         
