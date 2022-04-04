@@ -535,6 +535,7 @@ class BottomLayerTest(unittest.TestCase):
         myCube2 = cube.Cube()
         myCube2._load(content['cube'])
         expectedResult = True
+        print(content)
         actualResult = bottomLayer._checkSolved(myCube2._getContent())
         
         self.assertEqual(expectedResult, actualResult)
