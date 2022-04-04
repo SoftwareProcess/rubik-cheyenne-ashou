@@ -17,28 +17,31 @@ def _movesToPlaceCornerPieces(content):
         move = _rotateMatchingCornerPieceToFace(content)
         if(move != 'UUUU'):
             moves += solve._movetranslator(face, move)
+            content = solve._movecontroller(content, move)
         else:
             content = _rotateCubeClockwise(content)
-        content = solve._movecontroller(content, moves)
+        
         
         move = _getCornerPiece(content)[2]
-        
+        noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
             movesToOpenCorner = rotateToOpenCornerResult[1]
             openCornerFace = rotateToOpenCornerResult[0]
             content = solve._movecontroller(content, movesToOpenCorner)
             moves += solve._movetranslator(face, movesToOpenCorner)
+            face = openCornerFace
+            content = _rotateToFace(face, content)
             content = solve._movecontroller(content, move)
             moves += solve._movetranslator(face, move)
-        
-        noCornerPieceToMove = ''
-        if(_getCornerPiece(content)[2] == noCornerPieceToMove):
+        elif(move != noCornerPieceToMove):
+            content = solve._movecontroller(content, move)    
+            moves += solve._movetranslator(face, move)
+        else:
             content = solve._rotateCubeClockwise(content)
             face = (face + 1) % 4
         solved = _checkSolved(content)
        
-        break
     return moves
 def _checkSolved(content):
     solved = True
@@ -87,24 +90,26 @@ def _getCornerPiece(content):
        and adjacentLeftCorners['upper'] == leftFaceColor
        and adjacentLeftCorners['left'] == bottomFaceColor):
         return (0,0, 'luL')
-    if(frontCorners['topRight'] == frontFaceColor
+    elif(frontCorners['topRight'] == frontFaceColor
        and adjacentRightCorners['upper'] == rightFaceColor
        and adjacentRightCorners['right'] == bottomFaceColor):
         return (0,2, 'RUr')
-    if(frontCorners['bottomLeft'] == bottomFaceColor):
+    elif(frontCorners['bottomLeft'] == bottomFaceColor):
         return (2,0, 'FUf')
-    if(frontCorners['bottomRight'] == bottomFaceColor):
+    elif(frontCorners['bottomRight'] == bottomFaceColor):
         return (2,2, 'fuF')
-    if(adjacentLeftCorners['lower'] == bottomFaceColor
+    elif(adjacentLeftCorners['lower'] == bottomFaceColor
        and (frontCorners['bottomLeft'] != frontFaceColor
             or adjacentLeftCorners['bottomLeft'] != leftFaceColor)):
         return (2,0, 'luL')
-    if(adjacentRightCorners['lower'] == bottomFaceColor
+    elif(adjacentRightCorners['lower'] == bottomFaceColor
        and (frontCorners['bottomRight'] != frontFaceColor
             or adjacentRightCorners['right'] != rightFaceColor)):
         return (2,2, 'RUr')
-    if(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
+    elif(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
         return (0,0, 'lUUL')
+    else:
+        return (0,0, '')
     
     
 def _checkPiecesOnTopLayer(content):
