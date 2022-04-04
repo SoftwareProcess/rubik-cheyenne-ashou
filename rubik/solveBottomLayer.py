@@ -16,6 +16,7 @@ def _movesToPlaceCornerPieces(content):
         move = _rotateMatchingCornerPieceToFace(content)
         if(move != 'UUUU'):
             content = solve._movecontroller(content, move)
+            print(move, '\n')
             moves += solve._movetranslator(face, move)
         else:
             content = solve._rotateCubeClockwise(content)
@@ -23,7 +24,7 @@ def _movesToPlaceCornerPieces(content):
         
         
         move = _getCornerPiece(content)[2]
-
+        print(move, '\n')
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
