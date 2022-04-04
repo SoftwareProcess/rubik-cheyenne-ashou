@@ -8,6 +8,7 @@ import rubik.cube as cube
 import rubik.solve as solve
 import rubik.solveBottomLayer as bottomLayer
 import rubik.solveBottomCross as bottomCross
+from rubik.solveBottomCross import _solveBottomCross
 
 class SolveBottomLayerTest(unittest.TestCase):
     def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
@@ -27,33 +28,31 @@ class SolveBottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip('skip while making solveBottomCross class ')
+    
     def test_solve_131_ShouldSolveBottomCrossForMixedValidCubeMissingRotation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        #inputDict['cube'] = 'rgrwgoybogbrwowyboyyorbybgwgygorbbggwrbgyowryorbwwyrow'
         inputDict['cube'] = 'brborgyboywgrggwowoogyowbywrwybbyoorwbyrygrbogygwwgbrr'
-        bottomFaceColor = inputDict['cube'][49]
-        
-        moves = solve._solve(inputDict).get('solution')
-        print(moves)
-        inputDict['rotate'] = moves
-        print(moves)
-        actualResult = solve._solve(inputDict)
-        
-        expectedStatus = 'ok'
-        
-        self.assertEqual(expectedStatus, actualResult['status'])
         
         myCube = cube.Cube()
-        myCube._load(actualResult.get('cube'))
+        myCube._load(inputDict['cube'])
         content = myCube._getContent()
-        print(content)
-        expectedSolvedResult = True
-        actualSolvedResult = bottomLayer._checkSolved(content)
-        self.assertEqual(expectedSolvedResult, actualSolvedResult)
+        bottomFaceColor = content[5][1][1]
+        moves = bottomCross._solveBottomCross(content)
+
+        contentCopy = content[:]
+        actualContent = solve._movecontroller(contentCopy, moves)
         
-    
+        self.assertEqual(actualContent[5][1][1], bottomFaceColor)
+        self.assertEqual(actualContent[5][0][1], bottomFaceColor)
+        self.assertEqual(actualContent[5][1][0], bottomFaceColor)
+        self.assertEqual(actualContent[5][1][2], bottomFaceColor)
+        self.assertEqual(actualContent[5][2][1], bottomFaceColor)
+        self.assertEqual(actualContent[0][1][1], actualContent[0][2][1])
+        self.assertEqual(actualContent[1][1][1], actualContent[1][2][1])
+        self.assertEqual(actualContent[2][1][1], actualContent[1][2][1])
+        self.assertEqual(actualContent[3][1][1], actualContent[3][2][1])
+     
     @unittest.skip('skip while making solveBottomCross class ')
     def test_solve_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
         inputDict = {}

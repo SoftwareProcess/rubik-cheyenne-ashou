@@ -580,6 +580,57 @@ class SolveTest(unittest.TestCase):
 #            dictionary['status']: 'error: xxx' where xxx is a dev selected message
 #        
 
+
+def test_solve_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'oowrboyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
+        inputDict['rotate'] = ''
+        
+        moves = solve._solve(inputDict).get('solution')
+        print(moves)
+        inputDict['rotate'] = moves
+        print(moves)
+        actualResult = solve._solve(inputDict)
+        
+        expectedStatus = 'ok'
+        
+        self.assertEqual(expectedStatus, actualResult['status'])
+        
+        myCube = cube.Cube()
+        myCube._load(actualResult.get('cube'))
+        content = myCube._getContent()
+        print(content)
+        expectedSolvedResult = True
+        actualSolvedResult = bottomLayer._checkSolved(content)
+        self.assertEqual(expectedSolvedResult, actualSolvedResult)
+        
+    
+    @unittest.skip('skip while making solveBottomCross class ')
+    def test_solve_133_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ggrrgwbooyroboowobwrrybgroywyyrrbgbygwbgyyowboggywwrbw'
+        inputDict['rotate'] = ''
+        
+        bottomFaceColor = inputDict['cube'][49]
+        
+        moves = solve._solve(inputDict).get('solution')
+        
+        inputDict['rotate'] = moves
+        
+        actualResult = solve._solve(inputDict)
+        expectedStatus = 'ok'
+        
+        # self.assertEqual(expectedStatus, actualResult['status'])
+        # self.assertEqual(actualResult['cube'][46], bottomFaceColor)
+        # self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
+        # self.assertEqual(actualResult['cube'][48], bottomFaceColor)
+        # self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
+        # self.assertEqual(actualResult['cube'][50], bottomFaceColor)
+        # self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
+        # self.assertEqual(actualResult['cube'][52], bottomFaceColor)
+        # self.assertEqual(actualResult['cube'][25], actualResult['c
     
         
         
