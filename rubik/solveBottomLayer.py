@@ -22,6 +22,7 @@ def _movesToPlaceCornerPieces(content):
         else:
             content = solve._rotateCubeClockwise(content)
             face = (face+1)%4
+            continue
         
         
         corner = _getCornerPiece(content)
