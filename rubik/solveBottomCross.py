@@ -17,9 +17,15 @@ def _solveBottomCross(content):
     while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
             leftFrontLayer = content[0][1][0] 
-            move = _placePieceIntoFlower(content, leftFrontLayer)
-            moves += solve._movetranslator(face, move)
-            print(face, moves)
+            if(leftFrontLayer == bottomFaceColor):
+                leftFlower = content[4][1][0]
+                while(leftFlower == bottomFaceColor):
+                    content = solve._movecontroller(content, 'U')
+                    leftFlower = content[4][1][0]
+                    moves += solve._movetranslator(face, 'U')
+                content = solve._movecontroller(content, 'l') 
+                moves += solve._movetranslator(face, 'l')
+            
             rightFrontLayer = content[0][1][2]
             
             if(rightFrontLayer == bottomFaceColor): 
@@ -75,21 +81,6 @@ def _solveBottomCross(content):
     
     moves += _formBottomCross(content)
     
-    return moves
-
-
-def _placePieceIntoFlower(content, frontLayerPiece):
-    bottomFaceColor = content[5][1][1]
-    moves = ''
-    if(frontLayerPiece == bottomFaceColor):
-        leftFlower = content[4][1][0]
-        while(leftFlower == bottomFaceColor):
-            content = solve._movecontroller(content, 'U')
-            leftFlower = content[4][1][0]
-            moves += 'U'
-        content = solve._movecontroller(content, 'l') 
-        moves += 'l'
-    print(moves)
     return moves
 
 #Checks if more moves are required on the current face
