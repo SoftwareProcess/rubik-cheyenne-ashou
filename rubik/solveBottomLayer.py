@@ -111,7 +111,7 @@ def _getCornerPiece(content):
        and (frontCorners['bottomLeft'] != frontFaceColor
             or adjacentLeftCorners['bottomLeft'] != leftFaceColor)):
         return (2,0, 'luL')
-    elif(adjacentRightCorners['lower'] == bottomFaceColor
+    elif(_checkPiecesOnTopLayer(content) == False and adjacentRightCorners['lower'] == bottomFaceColor
        and (frontCorners['bottomRight'] != frontFaceColor
             or adjacentRightCorners['right'] != rightFaceColor)):
         return (2,2, 'RUr')
