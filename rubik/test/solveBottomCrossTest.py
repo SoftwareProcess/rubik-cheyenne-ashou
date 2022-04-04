@@ -41,6 +41,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         moves = bottomCross._solveBottomCross(content)
 
         contentCopy = content[:]
+        print(contentCopy)
         actualContent = solve._movecontroller(contentCopy, moves)
         print(actualContent)
         self.assertEqual(actualContent[5][1][1], bottomFaceColor)
