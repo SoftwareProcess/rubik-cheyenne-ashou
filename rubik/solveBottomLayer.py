@@ -171,7 +171,7 @@ def _rotateMatchingCornerPieceToFace(content):
     return moves
 
 def _findMatchingCornerPiece(content):
-    cubeContent = content
+    cubeContent = content[:]
     sideFaces = 4
     frontFaceColor = cubeContent[0][1][1]
     bottomFaceColor = cubeContent[5][1][1]
