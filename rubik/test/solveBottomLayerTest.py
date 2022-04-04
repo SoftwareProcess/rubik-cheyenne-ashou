@@ -514,7 +514,7 @@ class BottomLayerTest(unittest.TestCase):
         expectedRotations = ''
         actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
         self.assertEqual(expectedRotations, actualRotations)
-    @unittest.skip('skip while observing output moves of function')    
+    #@unittest.skip('skip while observing output moves of function')    
     def test_091_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -537,24 +537,25 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
        
-    def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
-        
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-    
-        expectedCheck = {'status': 'ok'}
-        actualCheck = check._check(inputDict)
-        self.assertEqual(expectedCheck, actualCheck)
-    
-        expectedMoves = 'UURur'
-        actualMoves = bottomLayer._movesToPlaceCornerPieces(content)
-        
-        self.assertEqual(expectedMoves, actualMoves)
-    
+    # def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
+    #
+    #     myCube = cube.Cube()
+    #     myCube._load(inputDict['cube'])
+    #     content = myCube._getContent()
+    #
+    #     expectedCheck = {'status': 'ok'}
+    #     actualCheck = check._check(inputDict)
+    #     self.assertEqual(expectedCheck, actualCheck)
+    #
+    #     expectedMoves = 'UURur'
+    #     actualMoves = bottomLayer._movesToPlaceCornerPieces(content)
+    #
+    #     self.assertEqual(expectedMoves, actualMoves)
+    #
+
     
     def test_100_rotateToFace_rotateCube180Degrees(self):
         inputDict = {}
