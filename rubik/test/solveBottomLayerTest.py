@@ -424,6 +424,11 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        expectedContent = myCube2._getContent()
+        self.assertEqual(expectedContent, content)
+        
     def test_081_rotateMatchingCornerPieceToFace_Left(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -531,7 +536,7 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkSolved(content)
         
         self.assertEqual(expectedResult, actualResult)
-        
+    @unittest.skip('')    
     def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
         inputDict = {}
         inputDict['op'] = 'solve'
