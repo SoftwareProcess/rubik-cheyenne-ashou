@@ -541,11 +541,11 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    def test_092_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
+    def test_092_movesToPlaceCornerPieces(self):
         
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rgwybgwbroybwyowyorwwbgoygogoygwogwbrbywobgygorbrrryrb'
+        inputDict['cube'] = 'wyoorgbroggbrgrggrrbwyoowoggyoybbrbyrrygyobbwowywwwywb'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
