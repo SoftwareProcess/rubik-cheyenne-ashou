@@ -21,7 +21,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
-        
+        print(content)
         expectedResult = ''
         actualResult = bottomCross._solveBottomCross(content)
         #actualResult = solve._bottomcross(myCube)
