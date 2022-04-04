@@ -27,8 +27,7 @@ def _solve(parms):
     moves = parms.get('rotate',None)
     
     if(moves == '' or moves == None):
-        result['solution'] = _topFlower(content)   
-        result['solution'] += 
+        result['solution'] = _topFlower(content)    
     else:
         myCube._content = _movecontroller(content, moves)
         result['cube'] = myCube._get()
