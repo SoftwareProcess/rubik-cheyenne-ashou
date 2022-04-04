@@ -498,7 +498,7 @@ class BottomLayerTest(unittest.TestCase):
         actualRotations = bottomLayer._rotateMatchingCornerPieceToFace(content)
         self.assertEqual(expectedRotations, actualRotations)
         
-    #@unittest.skip('skip while observing output moves of this function')
+    @unittest.skip('skip while observing output moves of this function')
     def test_090_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
         inputDict = {}
         inputDict['op'] = 'solve'
