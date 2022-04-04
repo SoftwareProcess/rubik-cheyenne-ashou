@@ -557,7 +557,7 @@ class BottomLayerTest(unittest.TestCase):
     
         moves = bottomLayer._movesToPlaceCornerPieces(content)
         inputDict['rotate'] = moves
-        #print(moves)
+        print(moves)
         content = solve._solve(inputDict)
         myCube2 = cube.Cube()
         myCube2._load(content['cube'])
