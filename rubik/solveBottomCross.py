@@ -17,49 +17,23 @@ def _solveBottomCross(content):
     while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
             leftFrontLayer = content[0][1][0] 
-            move = _placePieceIntoFlower(content, leftFrontLayer)
+            move = _placePieceIntoFlower(content, leftFrontLayer, 'l')
             moves += solve._movetranslator(face, move)          
-            rightFrontLayer = content[0][1][2]
             
-            if(rightFrontLayer == bottomFaceColor): 
-                rightFlower = content[4][1][2]
-                while(rightFlower == bottomFaceColor):
-                    content = solve._movecontroller(content, 'U')
-                    rightFlower = content[4][1][2]
-                    moves += solve._movetranslator(face, 'U')
-                content = solve._movecontroller(content, 'R') 
-                moves += solve._movetranslator(face, 'R')
+            rightFrontLayer = content[0][1][2]
+            move = _placePieceIntoFlower(content, leftFrontLayer, 'R')
+            moves += solve._movetranslator(face, move)          
             
             bottomFrontLayer = content[0][2][1]
-            if(bottomFrontLayer == bottomFaceColor): 
-                bottomFlower = content[4][2][1]
-                while(bottomFlower == bottomFaceColor):
-                    content = solve._movecontroller(content, 'U')
-                    bottomFlower = content[4][2][1]  
-                    moves += solve._movetranslator(face, 'U')
-                content = solve._movecontroller(content, 'FUl') 
-                moves += solve._movetranslator(face, 'FUl')
+            move = _placePieceIntoFlower(content, leftFrontLayer, 'FUl')
+            moves += solve._movetranslator(face, move)          
             
             topFrontLayer = content[0][0][1]
-            if(topFrontLayer == bottomFaceColor):    
-                bottomFlower = content[4][2][1]
-                while(bottomFlower == bottomFaceColor):
-                    content = solve._movecontroller(content, 'U')
-                    bottomFlower = content[4][2][1]
-                    moves += solve._movetranslator(face, 'U')  
-                content = solve._movecontroller(content, 'fUl')
-                moves += solve._movetranslator(face, 'fUl')
+            move = _placePieceIntoFlower(content, leftFrontLayer, 'fUl')
+            moves += solve._movetranslator(face, move)          
             
-            topBottomLayer = content[5][0][1]    
-            middleFrontLayer = content[0][1][1]
-            if(topBottomLayer == bottomFaceColor and bottomFrontLayer != middleFrontLayer): #Bring flower pieces that are on bottom layer to top layer
-                bottomFlower = content[4][2][1]
-                while(bottomFlower == bottomFaceColor):
-                    content = solve._movecontroller(content, 'U')
-                    bottomFlower = content[4][2][1] 
-                    moves += solve._movetranslator(face, 'U')
-                content = solve._movecontroller(content, 'FF') 
-                moves += solve._movetranslator(face, 'FF')
+            move = _rotateFlowerPiece180(content, move)
+            moves += solve._movetranslator(face, move)
             
             flowerPiecesOnFace = _checkFlowerPieces(content)    
 
@@ -76,7 +50,7 @@ def _solveBottomCross(content):
     
     return moves
 
-def _placePieceIntoFlower(content, frontLayerPiece):
+def _placePieceIntoFlower(content, frontLayerPiece, move):
     bottomFaceColor = content[5][1][1]
     moves = ''
     if(frontLayerPiece == bottomFaceColor):
@@ -85,11 +59,25 @@ def _placePieceIntoFlower(content, frontLayerPiece):
             content = solve._movecontroller(content, 'U')
             leftFlower = content[4][1][0]
             moves += 'U'
-        content = solve._movecontroller(content, 'l') 
-        moves += 'l'
+        content = solve._movecontroller(content, move) 
+        moves += move
     return moves
 
-
+def _rotateFlowerPiece180(content, move):
+    moves = ''
+    bottomFaceColor = content[5][1][1]
+    topBottomLayer = content[5][0][1]    
+    middleFrontLayer = content[0][1][1]
+    bottomFrontLayer = content[0][2][1]
+    if(topBottomLayer == bottomFaceColor and bottomFrontLayer != middleFrontLayer): #Bring flower pieces that are on bottom layer to top layer
+        bottomFlower = content[4][2][1]
+        while(bottomFlower == bottomFaceColor):
+            content = solve._movecontroller(content, 'U')
+            bottomFlower = content[4][2][1] 
+        content = solve._movecontroller(content, move) 
+    return moves   
+            
+           
 #Checks if more moves are required on the current face
 def _checkFlowerPieces(content):
     bottomFaceColor = content[5][1][1]
