@@ -7,7 +7,6 @@ Modified: 4/1/2022
 @author: Cheyenne Ashou
 '''
 import rubik.solve as solve
-from rubik.solve import _rotateCubeClockwise
 
 def _movesToPlaceCornerPieces(content):
     solved = False
@@ -20,9 +19,8 @@ def _movesToPlaceCornerPieces(content):
             return content
             content = solve._movecontroller(content, move)
             moves += solve._movetranslator(face, move)
-            
         else:
-            content = _rotateCubeClockwise(content)
+            content = solve._rotateCubeClockwise(content)
         
         
         move = _getCornerPiece(content)

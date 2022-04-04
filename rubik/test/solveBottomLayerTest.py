@@ -536,7 +536,7 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkSolved(content)
         
         self.assertEqual(expectedResult, actualResult)
-    @unittest.skip('')    
+       
     def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
         inputDict = {}
         inputDict['op'] = 'solve'
