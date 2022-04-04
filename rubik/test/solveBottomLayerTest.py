@@ -548,12 +548,7 @@ class BottomLayerTest(unittest.TestCase):
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        content = [[['r', 'r', 'r'], ['r', 'r', 'r'], ['r', 'r', 'r']], 
-         [['g', 'g', 'g'], ['g', 'g', 'g'], ['g', 'g', 'g']], 
-         [['o', 'o', 'o'], ['o', 'o', 'o'], ['o', 'o', 'o']], 
-         [['b', 'b', 'b'], ['b', 'b', 'b'], ['b', 'b', 'b']], 
-         [['y', 'y', 'y'], ['y', 'y', 'y'], ['y', 'y', 'y']], 
-         [['w', 'w', 'w'], ['w', 'w', 'w'], ['w', 'w', 'w']]]
+        content = [[['r', 'g', 'w'], ['y', 'b', 'g'], ['w', 'b', 'r']], [['o', 'y', 'b'], ['w', 'y', 'o'], ['w', 'y', 'o']], [['r', 'w', 'w'], ['b', 'g', 'o'], ['y', 'g', 'o']], [['g', 'o', 'y'], ['g', 'w', 'o'], ['g', 'w', 'b']], [['r', 'b', 'y'], ['w', 'o', 'b'], ['g', 'y', 'g']], [['o', 'r', 'b'], ['r', 'r', 'r'], ['y', 'r', 'b']]]
     
         expectedCheck = {'status': 'ok'}
         actualCheck = check._check(inputDict)
