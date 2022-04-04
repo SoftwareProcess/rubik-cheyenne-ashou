@@ -515,7 +515,7 @@ class BottomLayerTest(unittest.TestCase):
         expectedRotations = ''
         actualRotations = bottomLayer._movesToPlaceCornerPieces(content)
         self.assertEqual(expectedRotations, actualRotations)
-    #@unittest.skip('skip while observing output moves of function')    
+    @unittest.skip('skip while observing output moves of function')    
     def test_091_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -531,12 +531,12 @@ class BottomLayerTest(unittest.TestCase):
     
         moves = bottomLayer._movesToPlaceCornerPieces(content)
         inputDict['rotate'] = moves
-        print(moves)
+         # print(moves)
         content = solve._solve(inputDict)
         myCube2 = cube.Cube()
         myCube2._load(content['cube'])
         expectedResult = True
-        print(content)
+        # print(content)
         actualResult = bottomLayer._checkSolved(myCube2._getContent())
         
         self.assertEqual(expectedResult, actualResult)
