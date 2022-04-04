@@ -564,7 +564,7 @@ class BottomLayerTest(unittest.TestCase):
         print(moves)
         content = solve._solve(inputDict)
         myCube2 = cube.Cube()
-        myCube2._load(content['cube'])
+        myCube2._load(content)
         expectedResult = True
         print(content)
         actualResult = bottomLayer._checkSolved(myCube2._getContent())
