@@ -16,9 +16,10 @@ def _movesToPlaceCornerPieces(content):
     while(solved == False):
         move = _rotateMatchingCornerPieceToFace(content)
         if(move != 'UUUU'):
-            moves += solve._movetranslator(face, move)
-            content = solve._movecontroller(content, move)
             return content
+            content = solve._movecontroller(content, move)
+            moves += solve._movetranslator(face, move)
+            
         else:
             content = _rotateCubeClockwise(content)
         
