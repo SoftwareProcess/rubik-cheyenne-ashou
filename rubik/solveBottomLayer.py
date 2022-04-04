@@ -23,7 +23,7 @@ def _movesToPlaceCornerPieces(content):
         
         
         move = _getCornerPiece(content)
-        return move
+        return content
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
