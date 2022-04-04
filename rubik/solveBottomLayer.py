@@ -14,16 +14,12 @@ def _movesToPlaceCornerPieces(content):
     face = 0
     while(solved == False):
         move = _rotateMatchingCornerPieceToFace(content)
-        print(face, move, '\n')
         if(move != 'UUUU'):
             content = solve._movecontroller(content, move)
-            print(content)
             moves += solve._movetranslator(face, move)
          
         corner = _getCornerPiece(content)
         move = corner[2]
-        print(face,corner, '\n')
-    
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
@@ -39,14 +35,13 @@ def _movesToPlaceCornerPieces(content):
             moves += solve._movetranslator(face, move)
         if(move != noCornerPieceToMove):
             content = solve._movecontroller(content, move)    
-            print(content)
             moves += solve._movetranslator(face, move)
         else:
             content = solve._rotateCubeClockwise(content)
             face = (face + 1) % 4
         solved = _checkSolved(content)
     
-    #content = solve._rotateToFrontFace(content, face)
+    content = solve._rotateToFrontFace(content, face)
    
     return moves 
     
