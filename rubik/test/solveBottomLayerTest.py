@@ -539,25 +539,10 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._checkSolved(myCube2._getContent())
         
         self.assertEqual(expectedResult, actualResult)
-       
-    # def test_092_movesToPlaceCornerPieces_thisfunctionisonlyusedtoseeoutput(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
-    #
-    #     myCube = cube.Cube()
-    #     myCube._load(inputDict['cube'])
-    #     content = myCube._getContent()
-    #
-    #     expectedCheck = {'status': 'ok'}
-    #     actualCheck = check._check(inputDict)
-    #     self.assertEqual(expectedCheck, actualCheck)
-    #
-    #     expectedMoves = 'UURur'
-    #     actualMoves = bottomLayer._movesToPlaceCornerPieces(content)
-    #
-    #     self.assertEqual(expectedMoves, actualMoves)
-    #
+        
+    
+
+    
 
     
     def test_100_rotateToFace_rotateCube180Degrees(self):

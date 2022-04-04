@@ -10,7 +10,7 @@ Modified: 3/21/2022
 
 import rubik.cube as cube
 import rubik.check as check
-
+import rubik.solveBottomLayer as bottomLayer
 #Driver method to solve cube
 def _solve(parms):
     
@@ -28,6 +28,7 @@ def _solve(parms):
     
     if(moves == '' or moves == None):
         result['solution'] = _topFlower(content)   
+        result['solution'] += 
     else:
         myCube._content = _movecontroller(content, moves)
         result['cube'] = myCube._get()
