@@ -79,6 +79,7 @@ def _solveBottomCross(content):
 
 
 def _placePieceIntoFlower(content, frontLayerPiece):
+    print(content)
     bottomFaceColor = content[5][1][1]
     moves = ''
     if(frontLayerPiece == bottomFaceColor):
