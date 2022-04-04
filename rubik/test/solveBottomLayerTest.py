@@ -542,13 +542,14 @@ class BottomLayerTest(unittest.TestCase):
         self.assertEqual(expectedResult, actualResult)
         
     def test_092_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
+        
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
+        inputDict['cube'] = 'rgwybgwbroybwyowyorwwbgoygogoygwogwbrbywobgygorbrrryrb'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
-        content = [[['r', 'g', 'w'], ['y', 'b', 'g'], ['w', 'b', 'r']], [['o', 'y', 'b'], ['w', 'y', 'o'], ['w', 'y', 'o']], [['r', 'w', 'w'], ['b', 'g', 'o'], ['y', 'g', 'o']], [['g', 'o', 'y'], ['g', 'w', 'o'], ['g', 'w', 'b']], [['r', 'b', 'y'], ['w', 'o', 'b'], ['g', 'y', 'g']], [['o', 'r', 'b'], ['r', 'r', 'r'], ['y', 'r', 'b']]]
+        content = myCube._getContent()
     
         expectedCheck = {'status': 'ok'}
         actualCheck = check._check(inputDict)
@@ -559,12 +560,11 @@ class BottomLayerTest(unittest.TestCase):
         print(moves)
         content = solve._solve(inputDict)
         myCube2 = cube.Cube()
-        myCube2._load(content)
+        myCube2._load(content['cube'])
         expectedResult = True
-        print(myCube2._getContent())
-        actualResult = bottomLayer._checkSolved()
+        print(content)
+        actualResult = bottomLayer._checkSolved(myCube2._getContent())
         
-        self.assertEqual(expectedResult, actualResult)
         
 
     
