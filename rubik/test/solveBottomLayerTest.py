@@ -68,6 +68,7 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
+    
     def test_020_getCornerPiece_shouldReturnTopLeftCornerPieceCoordinateBecauseCornerReadyToPlace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -540,7 +541,36 @@ class BottomLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
+    def test_092_movesToPlaceCornerPieces_noMovesRequiredBecauseBottomCubeSolvedAlready(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ggyrryrrbogoogbrgywyrroboogwroobgrbygbbyyywobbwwwwwywg'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = [[['r', 'r', 'r'], ['r', 'r', 'r'], ['r', 'r', 'r']], 
+         [['g', 'g', 'g'], ['g', 'g', 'g'], ['g', 'g', 'g']], 
+         [['o', 'o', 'o'], ['o', 'o', 'o'], ['o', 'o', 'o']], 
+         [['b', 'b', 'b'], ['b', 'b', 'b'], ['b', 'b', 'b']], 
+         [['y', 'y', 'y'], ['y', 'y', 'y'], ['y', 'y', 'y']], 
+         [['w', 'w', 'w'], ['w', 'w', 'w'], ['w', 'w', 'w']]]
     
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        moves = bottomLayer._movesToPlaceCornerPieces(content)
+        inputDict['rotate'] = moves
+        print(moves)
+        content = solve._solve(inputDict)
+        myCube2 = cube.Cube()
+        myCube2._load(content['cube'])
+        expectedResult = True
+        print(content)
+        actualResult = bottomLayer._checkSolved(myCube2._getContent())
+        
+        self.assertEqual(expectedResult, actualResult)
+        
 
     
 
