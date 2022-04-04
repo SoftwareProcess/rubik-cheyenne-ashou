@@ -211,6 +211,7 @@ def _rotateMiddle(content):
     return content
 
 def _rotateCubeClockwise(content):
+    content = content[:]
     content = _movecontroller(content, 'UMd')
     return content 
 
@@ -396,6 +397,7 @@ def _translateFace5(move):
     
 #Rotate cube
 def _movecontroller(content, moves):
+    content = content[:]
     for move in moves:
         if move == 'F':
             face = 0
@@ -463,6 +465,7 @@ def _movecontroller(content, moves):
         
 
 def _clockwise(face):
+    face = face[:]
     rowlength = len(face)
     for row in range(0, int(rowlength / 2)):
         for col in range(row, rowlength-1-row):
@@ -475,6 +478,7 @@ def _clockwise(face):
 
 
 def _counterclockwise(face):
+    face = face[:]
     rowlength = len(face[0])
     for row in range(0, int(rowlength / 2)):
         for col in range(row, rowlength-1-row):
@@ -486,6 +490,7 @@ def _counterclockwise(face):
     return face
 
 def _switchedge(cube, action):
+    cube = cube[:]
     if (action == 'F' or action == 'f'):
         temp = cube[4][2]
         cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
