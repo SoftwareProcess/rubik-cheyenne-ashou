@@ -107,7 +107,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         # self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
         #
 
-   @unittest.skip('skip while making solveBottomCross class ')
+    @unittest.skip('skip while making solveBottomCross class')
     def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
