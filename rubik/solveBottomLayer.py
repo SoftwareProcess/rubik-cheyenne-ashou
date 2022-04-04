@@ -14,6 +14,7 @@ def _movesToPlaceCornerPieces(content):
     face = 0
     while(solved == False):
         move = _rotateMatchingCornerPieceToFace(content)
+        print(face, move, '\n')
         if(move != 'UUUU'):
             content = solve._movecontroller(content, move)
             print(face,move, '\n')
