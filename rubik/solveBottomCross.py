@@ -19,7 +19,7 @@ def _solveBottomCross(content):
             leftFrontLayer = content[0][1][0] 
             move = _placePieceIntoFlower(content, leftFrontLayer)
             moves += solve._movetranslator(face, move)
-            print(moves)
+            print(face, moves)
             rightFrontLayer = content[0][1][2]
             
             if(rightFrontLayer == bottomFaceColor): 
@@ -89,6 +89,7 @@ def _placePieceIntoFlower(content, frontLayerPiece):
             moves += 'U'
         content = solve._movecontroller(content, 'l') 
         moves += 'l'
+    print(moves)
     return moves
 
 #Checks if more moves are required on the current face
