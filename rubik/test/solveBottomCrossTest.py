@@ -54,7 +54,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         self.assertEqual(actualContent[5][2][1], bottomFaceColor)
         self.assertEqual(actualContent[0][1][1], actualContent[0][2][1])
         self.assertEqual(actualContent[1][1][1], actualContent[1][2][1])
-        self.assertEqual(actualContent[2][1][1], actualContent[1][2][1])
+        self.assertEqual(actualContent[2][1][1], actualContent[2][2][1])
         self.assertEqual(actualContent[3][1][1], actualContent[3][2][1])
      
     @unittest.skip('skip while making solveBottomCross class ')
