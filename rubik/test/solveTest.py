@@ -607,20 +607,21 @@ class SolveTest(unittest.TestCase):
         inputDict['cube'] = 'brborgyboywgrggwowoogyowbywrwybbyoorwbyrygrbogygwwgbrr'
         bottomFaceColor = inputDict['cube'][49]
         
-        moves = solve._solve(inputDict).get('solution')
-        
-        inputDict['rotate'] = moves
-        
-        actualResult = solve._solve(inputDict)
-        
-        expectedStatus = 'ok'
-        
-        self.assertEqual(expectedStatus, actualResult['status'])
-        
-        myCube = cube.Cube()
-        myCube._load(actualResult.get('cube'))
-        content = myCube._getContent()
-        expectedSolvedResult = True
+        self.assertEqual('test', solve._solve(inputDict))
+        # moves = solve._solve(inputDict).get('solution')
+        #
+        # inputDict['rotate'] = moves
+        #
+        # actualResult = solve._solve(inputDict)
+        #
+        # expectedStatus = 'ok'
+        #
+        # self.assertEqual(expectedStatus, actualResult['status'])
+        #
+        # myCube = cube.Cube()
+        # myCube._load(actualResult.get('cube'))
+        # content = myCube._getContent()
+        # expectedSolvedResult = True
         # actualSolvedResult = bottomLayer._checkSolved(content)
         # self.assertEqual(expectedSolvedResult, actualSolvedResult)
         self.assertEqual(actualResult['cube'][46], bottomFaceColor)
@@ -641,7 +642,7 @@ class SolveTest(unittest.TestCase):
         
         bottomFaceColor = inputDict['cube'][49]
         
-        moves = solve._solve(inputDict).get('solution')
+        moves = solve._solve(inputDict)
         
         inputDict['rotate'] = moves
         
