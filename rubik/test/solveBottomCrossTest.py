@@ -37,11 +37,13 @@ class SolveBottomLayerTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
-        contentCopy = content[:]
+        
         bottomFaceColor = content[5][1][1]
         moves = bottomCross._solveBottomCross(content)
 
-        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        contentCopy = myCube2._getContent()
         print(contentCopy)
         actualContent = solve._movecontroller(contentCopy, moves)
         print(actualContent)
