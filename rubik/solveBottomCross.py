@@ -17,7 +17,7 @@ def _solveBottomCross(content):
     while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
             leftFrontLayer = content[0][1][0] 
-            move = _placePieceIntoFlower(leftFrontLayer, moves)
+            move = _placePieceIntoFlower(content, leftFrontLayer)
             moves += solve._movetranslator(face, move)          
             rightFrontLayer = content[0][1][2]
             
