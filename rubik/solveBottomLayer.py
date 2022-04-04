@@ -45,7 +45,8 @@ def _movesToPlaceCornerPieces(content):
             moves += solve._movetranslator(face, move)
         if(move != noCornerPieceToMove):
             content = solve._movecontroller(content, move)    
-            
+            print(content)
+            break
             moves += solve._movetranslator(face, move)
         else:
             content = solve._rotateCubeClockwise(content)
