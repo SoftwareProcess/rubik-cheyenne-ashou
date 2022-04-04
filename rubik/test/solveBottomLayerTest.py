@@ -336,7 +336,7 @@ class BottomLayerTest(unittest.TestCase):
         actualResult = bottomLayer._openCorner(content)
         self.assertEqual(expectedResult, actualResult)
         
-    
+    @unittest.skip('skip because change in functionality')
     def test_060_rotateToOpenCorner_NoRotationsBecuaseTopCornerAlreadyAtOpenCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'

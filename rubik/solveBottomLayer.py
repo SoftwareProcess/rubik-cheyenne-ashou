@@ -188,5 +188,9 @@ def _findMatchingCornerPiece(content):
     
     return noMatchingCornerPiece
 
+def _rotateToFace(face, content):
+    for faceCount in range(face):
+        content = solve._rotateCubeClockwise(content)
+    return content
 
     
