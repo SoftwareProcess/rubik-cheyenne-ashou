@@ -42,7 +42,7 @@ class SolveBottomLayerTest(unittest.TestCase):
 
         contentCopy = content[:]
         actualContent = solve._movecontroller(contentCopy, moves)
-        
+        print(actualContent)
         self.assertEqual(actualContent[5][1][1], bottomFaceColor)
         self.assertEqual(actualContent[5][0][1], bottomFaceColor)
         self.assertEqual(actualContent[5][1][0], bottomFaceColor)
