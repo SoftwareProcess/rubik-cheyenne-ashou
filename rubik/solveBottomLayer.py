@@ -19,13 +19,7 @@ def _movesToPlaceCornerPieces(content):
             content = solve._movecontroller(content, move)
             print(content)
             moves += solve._movetranslator(face, move)
-        else:
-            content = solve._rotateCubeClockwise(content)
-            print(content)
-            face = (face+1)%4
-            continue
-        
-        
+         
         corner = _getCornerPiece(content)
         move = corner[2]
         print(face,corner, '\n')
