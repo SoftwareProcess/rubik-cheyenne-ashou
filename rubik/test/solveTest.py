@@ -652,6 +652,7 @@ class SolveTest(unittest.TestCase):
         myCube._load(actualResult)
         content = myCube._getContent()
         expectedSolvedResult = True
+        print(content)
         actualSolvedResult = bottomLayer._checkSolved(content)
         self.assertEqual(expectedSolvedResult, actualSolvedResult)
         
