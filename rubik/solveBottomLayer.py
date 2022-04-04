@@ -45,8 +45,8 @@ def _movesToPlaceCornerPieces(content):
             content = solve._rotateCubeClockwise(content)
             face = (face + 1) % 4
         solved = _checkSolved(content)
-        
-    content = solve._rotateToFrontFace(content, face)
+        break
+    #content = solve._rotateToFrontFace(content, face)
     return moves 
     
 def _checkSolved(content):
