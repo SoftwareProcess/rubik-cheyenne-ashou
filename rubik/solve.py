@@ -28,7 +28,7 @@ def _solve(parms):
     
     if(moves == '' or moves == None):
         result['solution'] = _topFlower(content)    
-        #return content
+        return content
         #result['solution'] += bottomLayer._movesToPlaceCornerPieces(content)
     else:
         myCube._content = _movecontroller(content, moves)
