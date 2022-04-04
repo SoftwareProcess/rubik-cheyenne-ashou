@@ -532,8 +532,10 @@ class BottomLayerTest(unittest.TestCase):
         inputDict['rotate'] = moves
     
         content = solve._solve(inputDict)
+        myCube2 = cube.Cube()
+        myCube2._load(content['cube'])
         expectedResult = True
-        actualResult = bottomLayer._checkSolved(content)
+        actualResult = bottomLayer._checkSolved(myCube2._getContent())
         
         self.assertEqual(expectedResult, actualResult)
        
