@@ -23,8 +23,9 @@ def _movesToPlaceCornerPieces(content):
             face = (face+1)%4
         
         
-        move = _getCornerPiece(content)[2]
-        print(move, '\n')
+        corner = _getCornerPiece(content)
+        move = corner[2]
+        print(corner, '\n')
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
             rotateToOpenCornerResult = _rotateToOpenCorner(content)
