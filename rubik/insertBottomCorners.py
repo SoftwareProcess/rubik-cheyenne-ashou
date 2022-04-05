@@ -21,6 +21,17 @@ def fixMisorientedCorners(content, face, move):
         moves += solve._movetranslator(face, move)
     return (content, moves, face)
 
+
+def moveCornerPiece(content, face, move):
+    moves = ''
+    if (move != noCornerPieceToMove):
+        content = solve._movecontroller(content, move)
+        moves += solve._movetranslator(face, move)
+    else:
+        content = solve._rotateCubeClockwise(content)
+        face = (face + 1) % 4
+    return (content, face, moves)
+
 def _movesToPlaceCornerPieces(content):
     solved = False
     moves = ''
@@ -29,8 +40,7 @@ def _movesToPlaceCornerPieces(content):
         move = _rotateMatchingCornerPieceToFace(content)
         if(move != 'UUUU'):
             content = solve._movecontroller(content, move)
-            moves += solve._movetranslator(face, move)
-         
+            moves += solve._movetranslator(face, move)    
         corner = _getCornerMove(content)
         move = corner[2]
         noCornerPieceToMove = ''
@@ -38,16 +48,14 @@ def _movesToPlaceCornerPieces(content):
         content = fixMisorientedCornersResult[0]
         moves += fixMisorientedCornersResult[1]
         face = fixMisorientedCornersResult[2]
-        if(move != noCornerPieceToMove):
-            content = solve._movecontroller(content, move)    
-            moves += solve._movetranslator(face, move)
-        else:
-            content = solve._rotateCubeClockwise(content)
-            face = (face + 1) % 4
+        moveCornerPieceResult = moveCornerPiece(content, face, move)
+        
+        content = moveCornerPieceResult[0]
+        face = moveCornerPieceResult[1]
+        moves+= moveCornerPieceResult[2]
         solved = _checkSolved(content)
-    
     content = solve._rotateToFrontFace(content, face)
-   
+  
     return moves 
     
 def _checkSolved(content):
