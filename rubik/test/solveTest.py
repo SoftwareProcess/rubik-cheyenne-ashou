@@ -9,14 +9,6 @@ import rubik.cube as cube
 
 class SolveTest(unittest.TestCase):
 
-
-    def setUp(self):
-        pass
-
-
-    def tearDown(self):
-        pass
-
 # Analysis:    solve
 #
 #    inputs:
