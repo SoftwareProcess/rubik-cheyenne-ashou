@@ -117,6 +117,34 @@ def _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece,
         moves += translatedU
     return (moves, matching)
 
+
+def matchCrossPieces(content, face, moves):
+    if (face == 0):
+        adjacentFlowerPiece = content[4][2][1]
+        adjacentCrossPiece = content[5][0][1]
+        placeFlowerPieceResult = _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece, face)
+        moves += placeFlowerPieceResult[0]
+        matching = placeFlowerPieceResult[1]
+    elif (face == 1):
+        adjacentFlowerPiece = content[4][1][2]
+        adjacentCrossPiece = content[5][1][2]
+        placeFlowerPieceResult = _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece, face)
+        moves += placeFlowerPieceResult[0]
+        matching = placeFlowerPieceResult[1]
+    elif (face == 2):
+        adjacentFlowerPiece = content[4][0][1]
+        adjacentCrossPiece = content[5][2][1]
+        placeFlowerPieceResult = _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece, face)
+        moves += placeFlowerPieceResult[0]
+        matching = placeFlowerPieceResult[1]
+    elif (face == 3):
+        adjacentFlowerPiece = content[4][1][0]
+        adjacentCrossPiece = content[5][1][0]
+        placeFlowerPieceResult = _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece, face)
+        moves += placeFlowerPieceResult[0]
+        matching = placeFlowerPieceResult[1]
+    return (moves, matching)
+
 def _formBottomCross(content):
     bottomFaceColor = content[5][1][1]
     matching = False
@@ -124,34 +152,9 @@ def _formBottomCross(content):
     for face in range(0,4):
         matching = False
         while(matching == False):
-            
-            # topPiece = content[face][0][1]
-            # middlePiece = content[face][1][1]
-            # bottomPiece = content[face][2][1]
-            if(face == 0):
-                adjacentFlowerPiece = content[4][2][1]
-                adjacentCrossPiece = content[5][0][1]
-                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
-                moves += placeFlowerPieceResult[0]
-                matching = placeFlowerPieceResult[1]
-            elif(face == 1):
-                adjacentFlowerPiece = content[4][1][2]
-                adjacentCrossPiece = content[5][1][2]
-                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
-                moves += placeFlowerPieceResult[0]
-                matching = placeFlowerPieceResult[1]
-            elif(face == 2):
-                adjacentFlowerPiece = content[4][0][1]
-                adjacentCrossPiece = content[5][2][1]
-                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
-                moves += placeFlowerPieceResult[0]
-                matching = placeFlowerPieceResult[1]
-            elif(face == 3):
-                adjacentFlowerPiece = content[4][1][0]
-                adjacentCrossPiece = content[5][1][0]
-                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
-                moves += placeFlowerPieceResult[0]
-                matching = placeFlowerPieceResult[1]
+            matchResult = matchCrossPieces(content, face, moves)
+            moves = matchResult[0]
+            matching = matchResult[1]
     return moves
 
 #Determines if flower is solved
