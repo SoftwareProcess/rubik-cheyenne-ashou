@@ -16,7 +16,7 @@ def _movesToPlaceCornerPieces(content):
             content = solve._movecontroller(content, move)
             moves += solve._movetranslator(face, move)
          
-        corner = _getCornerPiece(content)
+        corner = _getCornerMove(content)
         move = corner[2]
         noCornerPieceToMove = ''
         if(move == 'lUUl'):
