@@ -9,46 +9,6 @@ import rubik.cube as cube
 
 
 class SolveTest(unittest.TestCase):
-
-
-    def setUp(self):
-        pass
-
-
-    def tearDown(self):
-        pass
-
-# Analysis:    solve
-#
-#    inputs:
-#        parms:        dictionary; mandatory; arrives validated
-#        parms['op']    string, "solve"; mandatory; arrives validated
-#        parms['cube']    string; len=54, [azAZ09], ... , mandatory, arrives unvalidated -> defensive programming
-#        parms['rotate']    string; len >= 0, [FfRrBbLlUuDd]; optional, default to F if missing; arrives unvalidated 
-#
-#    outputs:
-#        side-effects: no state change, no external effects, nothing other than input or output 
-#        returns: dictionary
-#        nominal:
-#            dictionary['cube']: string, len=54
-#            dictionary['status']: 'ok'
-#        abnormal:
-#            dictionary['status']: 'error: xxx' where xxx is a dev selected message
-#
-#    confidence level: boundary level analysis
-#
-#    happy path:
-#        test 010: nominal (any random) cube with F rotation
-#        test 020: nominal cube with f rotation
-#        test 030: nominal valid cube with missing rotation
-#        test 040: nominal valid cube with "" as rotation
-#        test 050: ...
-#
-#    sad path:
-#        test 910: missing cube
-#        test 920: valid cube, invalid rotation (i.e 'w')
-#        test 930: all the other invalid inputs
-    
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
@@ -619,27 +579,6 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
-#Iteration 2
-#    inputs:
-#        parms:        dictionary; mandatory; arrives validated
-#        parms['op']    string, "solve"; mandatory; arrives validated
-#        parms['cube']    string; len=54, [azAZ09], ... , mandatory, arrives unvalidated -> defensive programming
-#        parms['rotate']    string; len >= 0, [FfRrBbLlUuDd]; optional, default to "solve" mode if missing; arrives unvalidated 
-#
-#    outputs:
-#        side-effects: no state change, no external effects, nothing other than input or output 
-#        returns: dictionary
-#        nominal:
-#            If the input cube is valid and rotate is present:
-#                dictionary['cube']: string, len=54
-#                dictionary['status']: 'ok'
-#            If the input cube is valid and rotate is MISSING:
-#                dictionary['solution']: string, len >= 0
-#                dictionary['status']: 'ok'
-#        abnormal:
-#            dictionary['status']: 'error: xxx' where xxx is a dev selected message
-#        
-
 
         
     

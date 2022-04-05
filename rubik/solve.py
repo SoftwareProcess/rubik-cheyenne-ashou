@@ -216,18 +216,23 @@ def _translateFace5(move):
         return 'b'
     
 #Rotate cube
+
+def frontRotations(content, move):
+    if move == 'F':
+        face = 0
+        content[face] = _clockwise(content[face])
+        content = _switchedge(content, move)
+    elif move == 'f':
+        face = 0
+        content[face] = _counterclockwise(content[face])
+        content = _switchedge(content, move)
+        content = _switchedge(content, move)
+        content = _switchedge(content, move)
+    return content
+
 def _movecontroller(content, moves):
     for move in moves:
-        if move == 'F':
-            face = 0
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'f':
-            face = 0
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
+        content = frontRotations(content, move)
         elif move == 'R':
             face = 1
             content[face] = _clockwise(content[face])
