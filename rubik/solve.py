@@ -233,7 +233,7 @@ def frontRotations(content, move):
 def _movecontroller(content, moves):
     for move in moves:
         content = frontRotations(content, move)
-        elif move == 'R':
+        if move == 'R':
             face = 1
             content[face] = _clockwise(content[face])
             content = _switchedge(content, move)
