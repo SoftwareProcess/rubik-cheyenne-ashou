@@ -21,15 +21,15 @@ def _solveBottomCross(content):
             moves += solve._movetranslator(face, move)          
             
             rightFrontLayer = content[0][1][2]
-            move = _placePieceIntoFlower(content, leftFrontLayer, 'R')
+            move = _placePieceIntoFlower(content, rightFrontLayer, 'R')
             moves += solve._movetranslator(face, move)          
             
             bottomFrontLayer = content[0][2][1]
-            move = _placePieceIntoFlower(content, leftFrontLayer, 'FUl')
+            move = _placePieceIntoFlower(content, bottomFrontLayer, 'FUl')
             moves += solve._movetranslator(face, move)          
             
             topFrontLayer = content[0][0][1]
-            move = _placePieceIntoFlower(content, leftFrontLayer, 'fUl')
+            move = _placePieceIntoFlower(content, topFrontLayer, 'fUl')
             moves += solve._movetranslator(face, move)          
             
             move = _rotateFlowerPiece180(content, move)
