@@ -10,6 +10,60 @@ import rubik.check as check
 import rubik.solve as solve
 
 class InsertCornerPiecesTest(unittest.TestCase):
+    def test_010_checkSolved_ShouldReturnTrueForSolvedBottomLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'roygrrrrrgorbgbgggyybyogoooygyobrbbborbyyygbowwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = True
+        actualResult = bottomCorners._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
+    
+    def test_011_checkSolved_ShouldReturnFalseBecauseMisplacedCorner(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bgyorrbrrrorbgbgggyygyoroobooogbgrboyrbyybyygwwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = bottomCorners._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
+        
+    def test_012_checkSolved_ShouldReturnFalseBecauseWrongColorOnBottomFace(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrgorryrryyobgbgggybwyogooorgbobybbobogyyrygrbwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = bottomCorners._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
+        
     def test_020_getCornerMove_shouldReturnTopLeftCornerPieceCoordinateBecauseCornerReadyToPlace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
