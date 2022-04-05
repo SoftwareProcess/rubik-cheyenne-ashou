@@ -67,8 +67,33 @@ def _checkSolved(content):
 
     return solved
 
-def _getCornerPiece(content):
-    
+def _getCornerPiece(content, frontCorners, adjacentLeftCorners, adjacentRightCorners):
+    bottomFaceColor = content[5][1][1]
+    frontFaceColor = content[0][1][1]
+    leftFaceColor = content[3][1][1]
+    rightFaceColor = content[1][1][1]
+    if(frontCorners['topLeft'] == frontFaceColor and adjacentLeftCorners['upper'] == leftFaceColor
+       and adjacentLeftCorners['left'] == bottomFaceColor):
+        return (0,0, 'luL')
+    elif(frontCorners['topRight'] == frontFaceColor and adjacentRightCorners['upper'] == rightFaceColor
+       and adjacentRightCorners['right'] == bottomFaceColor):
+        return (0,2, 'RUr')
+    elif(frontCorners['bottomLeft'] == bottomFaceColor):
+        return (2,0, 'FUf')
+    elif(frontCorners['bottomRight'] == bottomFaceColor):
+        return (2,2, 'fuF')
+    elif(adjacentLeftCorners['lower'] == bottomFaceColor and (frontCorners['bottomLeft'] != frontFaceColor
+            or adjacentLeftCorners['bottomLeft'] != leftFaceColor)):
+        return (2,0, 'luL')
+    elif(adjacentRightCorners['lower'] == bottomFaceColor and (frontCorners['bottomRight'] != frontFaceColor
+            or adjacentRightCorners['right'] != rightFaceColor)):
+        return (2,2, 'RUr')
+    elif(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
+        return (0,0, 'lUUL')
+    else:
+        return (0,0, '')
+
+def _getCornerMove(content):
     frontCorners = {
             'topLeft': content[0][0][0]
             , 'topRight': content[0][0][2]
@@ -81,35 +106,32 @@ def _getCornerPiece(content):
     adjacentRightCorners = {'upper': content[4][2][2], 'right': content[1][0][0],
                             'bottomRight': content[1][2][0], 'lower': content[5][0][2]}
     
-    bottomFaceColor = content[5][1][1]
-    frontFaceColor = content[0][1][1]
-    leftFaceColor = content[3][1][1]
-    rightFaceColor = content[1][1][1]
-    
-    if(frontCorners['topLeft'] == frontFaceColor 
-       and adjacentLeftCorners['upper'] == leftFaceColor
-       and adjacentLeftCorners['left'] == bottomFaceColor):
-        return (0,0, 'luL')
-    elif(frontCorners['topRight'] == frontFaceColor
-       and adjacentRightCorners['upper'] == rightFaceColor
-       and adjacentRightCorners['right'] == bottomFaceColor):
-        return (0,2, 'RUr')
-    elif(frontCorners['bottomLeft'] == bottomFaceColor):
-        return (2,0, 'FUf')
-    elif(frontCorners['bottomRight'] == bottomFaceColor):
-        return (2,2, 'fuF')
-    elif(adjacentLeftCorners['lower'] == bottomFaceColor
-       and (frontCorners['bottomLeft'] != frontFaceColor
-            or adjacentLeftCorners['bottomLeft'] != leftFaceColor)):
-        return (2,0, 'luL')
-    elif(adjacentRightCorners['lower'] == bottomFaceColor
-       and (frontCorners['bottomRight'] != frontFaceColor
-            or adjacentRightCorners['right'] != rightFaceColor)):
-        return (2,2, 'RUr')
-    elif(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
-        return (0,0, 'lUUL')
-    else:
-        return (0,0, '')
+    move = _getCornerPiece(content, frontCorners, adjacentLeftCorners, adjacentRightCorners)
+    return move
+    # if(frontCorners['topLeft'] == frontFaceColor 
+    #    and adjacentLeftCorners['upper'] == leftFaceColor
+    #    and adjacentLeftCorners['left'] == bottomFaceColor):
+    #     return (0,0, 'luL')
+    # elif(frontCorners['topRight'] == frontFaceColor
+    #    and adjacentRightCorners['upper'] == rightFaceColor
+    #    and adjacentRightCorners['right'] == bottomFaceColor):
+    #     return (0,2, 'RUr')
+    # elif(frontCorners['bottomLeft'] == bottomFaceColor):
+    #     return (2,0, 'FUf')
+    # elif(frontCorners['bottomRight'] == bottomFaceColor):
+    #     return (2,2, 'fuF')
+    # elif(adjacentLeftCorners['lower'] == bottomFaceColor
+    #    and (frontCorners['bottomLeft'] != frontFaceColor
+    #         or adjacentLeftCorners['bottomLeft'] != leftFaceColor)):
+    #     return (2,0, 'luL')
+    # elif(adjacentRightCorners['lower'] == bottomFaceColor
+    #    and (frontCorners['bottomRight'] != frontFaceColor
+    #         or adjacentRightCorners['right'] != rightFaceColor)):
+    #     return (2,2, 'RUr')
+    # elif(_checkPiecesOnTopLayer(content) == False and adjacentLeftCorners['upper'] == bottomFaceColor):
+    #     return (0,0, 'lUUL')
+    # else:
+    #     return (0,0, '')
     
     
 def _checkPiecesOnTopLayer(content):

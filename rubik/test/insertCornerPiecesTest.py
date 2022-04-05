@@ -10,7 +10,7 @@ import rubik.check as check
 import rubik.solve as solve
 
 class InsertCornerPiecesTest(unittest.TestCase):
-    def test_020_getCornerPiece_shouldReturnTopLeftCornerPieceCoordinateBecauseCornerReadyToPlace(self):
+    def test_020_getCornerMove_shouldReturnTopLeftCornerPieceCoordinateBecauseCornerReadyToPlace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rbgorybryygbggrrgrygwyoogogorwbbyybogrobyobyrwwbwwwoww'
@@ -24,11 +24,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (0,0,'luL')
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
         
-    def test_021_getCornerPiece_shouldReturnTopRightCornerPieceCoordinateBecauseCornerReadyToPlace(self):
+    def test_021_getCornerMove_shouldReturnTopRightCornerPieceCoordinateBecauseCornerReadyToPlace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'bbrgrggrbwborgowggyorgoyooobyyrbyybywygbyrrogrwowwwbww'
@@ -42,11 +42,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (0,2, 'RUr') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
         
-    def test_022_getCornerPiece_shouldReturnBottomLeftCornerPieceCoordinateBecauseWrongOrientation(self):
+    def test_022_getCornerMove_shouldReturnBottomLeftCornerPieceCoordinateBecauseWrongOrientation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rooyrgwrbyyyrgowggbbrgoyooowbyrboybrgrryyggbgbwowwwbww'
@@ -60,11 +60,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (2,0, 'FUf') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
         
-    def test_023_getCornerPiece_shouldReturnBottomRightCornerPieceCoordinateBecauseWrongOrientation(self):
+    def test_023_getCornerMove_shouldReturnBottomRightCornerPieceCoordinateBecauseWrongOrientation(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rowrrbrrwggbygobggooogoyoooyybrbbybggbwgyryyrywrwwwbww'
@@ -78,11 +78,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (2,2, 'fuF') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
         
-    def test_024_getCornerPiece_shouldReturnBottomLeftCornerPieceCoordinateBecauseMisplacedCorner(self):
+    def test_024_getCornerMove_shouldReturnBottomLeftCornerPieceCoordinateBecauseMisplacedCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ybgorgbrgygrygoyggbyggoyoooryrrbbybowbwoyrbrrwwowwwbww'
@@ -96,11 +96,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (2,0,'luL') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
     
-    def test_025_getCornerPiece_shouldReturnBottomRightCornerPieceCoordinateBecauseMisplacedCorner(self):
+    def test_025_getCornerMove_shouldReturnBottomRightCornerPieceCoordinateBecauseMisplacedCorner(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yywbrryrogbgggobggyybgoyooowborbyybbroroyrggrrwwwwwbww'
@@ -114,11 +114,11 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (2,2, 'RUr') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
     
-    def test_026_getCornerPiece_shouldReturnTopLeftCornerPieceCoordinateBecauseMisoriented(self):
+    def test_026_getCornerMove_shouldReturnTopLeftCornerPieceCoordinateBecauseMisoriented(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rgbgryyrbrybbgowggybogoroobyygbbrrbrgoooyrwyygwowwwwww'
@@ -132,12 +132,12 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (0,0, 'lUUL') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
      
     @unittest.skip('no longer need this test because change in functionality of method')   
-    def test_027_getCornerPiece_shouldReturnTopCornerPieceCoordinateBecauseMisoriented(self):
+    def test_027_getCornerMove_shouldReturnTopCornerPieceCoordinateBecauseMisoriented(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yyggryyrbrgbbgowggrybgoroobybobbrrbroryoyygowgwowwwwww'
@@ -151,7 +151,7 @@ class InsertCornerPiecesTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedCornerCoord = (0,2, 'RUUr') 
-        actualCornerCoord = bottomCorners._getCornerPiece(content)
+        actualCornerCoord = bottomCorners._getCornerMove(content)
         
         self.assertEqual(expectedCornerCoord, actualCornerCoord)
     
