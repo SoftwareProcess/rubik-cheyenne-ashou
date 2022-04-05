@@ -7,6 +7,7 @@ import unittest
 import rubik.insertBottomCorners as bottomCorners
 import rubik.cube as cube
 import rubik.check as check
+import rubik.solve as solve
 
 class InsertCornerPiecesTest(unittest.TestCase):
     def test_020_getCornerPiece_shouldReturnTopLeftCornerPieceCoordinateBecauseCornerReadyToPlace(self):
