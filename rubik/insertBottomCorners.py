@@ -24,6 +24,7 @@ def fixMisorientedCorners(content, face, move):
 
 def moveCornerPiece(content, face, move):
     moves = ''
+    noCornerPieceToMove = ''
     if (move != noCornerPieceToMove):
         content = solve._movecontroller(content, move)
         moves += solve._movetranslator(face, move)
