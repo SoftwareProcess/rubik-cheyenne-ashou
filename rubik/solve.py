@@ -10,8 +10,8 @@ Modified: 3/21/2022
 
 import rubik.cube as cube
 import rubik.check as check
-import rubik.solveBottomLayer as bottomLayer
 import rubik.solveBottomCross as bottomCross
+import rubik.insertBottomCorners as bottomCorners
 #Driver method to solve cube
 def _solve(parms):
     
@@ -29,7 +29,7 @@ def _solve(parms):
     
     if(moves == '' or moves == None):
         result['solution'] = bottomCross._solveBottomCross(content)
-        result['solution'] += bottomLayer._movesToPlaceCornerPieces(content)
+        result['solution'] += bottomCorners._movesToPlaceCornerPieces(content)
     else:
         myCube._content = _movecontroller(content, moves)
         result['cube'] = myCube._get()
