@@ -6,7 +6,6 @@ Created on Feb 24, 2022
 import unittest
 import rubik.solve as solve
 import rubik.cube as cube
-import rubik.solveBottomLayer as bottomLayer
 
 class SolveTest(unittest.TestCase):
 
@@ -619,84 +618,6 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
-#Iteration 2
-#    inputs:
-#        parms:        dictionary; mandatory; arrives validated
-#        parms['op']    string, "solve"; mandatory; arrives validated
-#        parms['cube']    string; len=54, [azAZ09], ... , mandatory, arrives unvalidated -> defensive programming
-#        parms['rotate']    string; len >= 0, [FfRrBbLlUuDd]; optional, default to "solve" mode if missing; arrives unvalidated 
-#
-#    outputs:
-#        side-effects: no state change, no external effects, nothing other than input or output 
-#        returns: dictionary
-#        nominal:
-#            If the input cube is valid and rotate is present:
-#                dictionary['cube']: string, len=54
-#                dictionary['status']: 'ok'
-#            If the input cube is valid and rotate is MISSING:
-#                dictionary['solution']: string, len >= 0
-#                dictionary['status']: 'ok'
-#        abnormal:
-#            dictionary['status']: 'error: xxx' where xxx is a dev selected message
-#        
-
-
-def test_solve_132_ShouldSolveBottomCrossForMixedValidCubeEmptyRotation(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'oowrboyyrowobygwrbywgygroywygbgwyrrbrbgoogwwgrobwrbgby'
-        inputDict['rotate'] = ''
-        
-        moves = solve._solve(inputDict).get('solution')
-        print(moves)
-        inputDict['rotate'] = moves
-        print(moves)
-        actualResult = solve._solve(inputDict)
-        
-        expectedStatus = 'ok'
-        
-        self.assertEqual(expectedStatus, actualResult['status'])
-        
-        myCube = cube.Cube()
-        myCube._load(actualResult.get('cube'))
-        content = myCube._getContent()
-        print(content)
-        expectedSolvedResult = True
-        actualSolvedResult = bottomLayer._checkSolved(content)
-        self.assertEqual(expectedSolvedResult, actualSolvedResult)
-        
-    
-    @unittest.skip('skip while making solveBottomCross class ')
-    def test_solve_133_ShouldSolveBottomCrossForPartiallySolvedCrossValidCube(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ggrrgwbooyroboowobwrrybgroywyyrrbgbygwbgyyowboggywwrbw'
-        inputDict['rotate'] = ''
-        
-        bottomFaceColor = inputDict['cube'][49]
-        
-        moves = solve._solve(inputDict).get('solution')
-        
-        inputDict['rotate'] = moves
-        
-        actualResult = solve._solve(inputDict)
-        expectedStatus = 'ok'
-        
-        # self.assertEqual(expectedStatus, actualResult['status'])
-        # self.assertEqual(actualResult['cube'][46], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][7], actualResult['cube'][4])
-        # self.assertEqual(actualResult['cube'][48], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][34], actualResult['cube'][31])
-        # self.assertEqual(actualResult['cube'][50], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][16], actualResult['cube'][13])
-        # self.assertEqual(actualResult['cube'][52], bottomFaceColor)
-        # self.assertEqual(actualResult['cube'][25], actualResult['c
-    
-        
-        
-    
-        
-    
 
     
         
