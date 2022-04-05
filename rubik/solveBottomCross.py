@@ -36,7 +36,7 @@ def _solveBottomCross(content):
             # moves += solve._movetranslator(face, move)          
             # middleFrontLayer = content[0][1][1]
             # topBottomLayer = content[5][0][1]
-            move = _rotateFlowerPiece180ToTopFace(content, move)
+            move = _rotateFlowerPiece180ToTopFace(content, 'FF')
             moves += solve._movetranslator(face, move)
             # if(topBottomLayer == bottomFaceColor and bottomFrontLayer != middleFrontLayer): #Bring flower pieces that are on bottom layer to top layer
             #     bottomFlower = content[4][2][1]
