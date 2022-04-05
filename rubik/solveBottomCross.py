@@ -7,7 +7,7 @@ import rubik.solve as solve
 #Rotate the cube to get a 'flower' at the top face
 def _solveBottomCross(content):  
     moves = ''
-    bottomFaceColor = content[5][1][1]
+
     flowerPiecesOnFace = True
     face = 0 
     flowerSolved = False

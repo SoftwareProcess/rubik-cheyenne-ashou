@@ -6,9 +6,8 @@ Created on Apr 4, 2022
 import unittest
 import rubik.cube as cube
 import rubik.solve as solve
-import rubik.solveBottomLayer as bottomLayer
+
 import rubik.solveBottomCross as bottomCross
-from rubik.solveBottomCross import _solveBottomCross
 
 class SolveBottomLayerTest(unittest.TestCase):
     def test_solve_130_ShouldReturnEmptySolutionForUnmixedValidCube(self):
