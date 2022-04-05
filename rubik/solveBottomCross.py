@@ -137,39 +137,21 @@ def _formBottomCross(content):
             elif(face == 1):
                 adjacentFlowerPiece = content[4][1][2]
                 adjacentCrossPiece = content[5][1][2]
-                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
-                    content = solve._movecontroller(content, move)
-                    moves += move
-                    matching = True
-                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
-                    matching = True
-                else:
-                    content = solve._movecontroller(content, translatedU)
-                    moves += translatedU
+                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
+                moves += placeFlowerPieceResult[0]
+                matching = placeFlowerPieceResult[1]
             elif(face == 2):
                 adjacentFlowerPiece = content[4][0][1]
                 adjacentCrossPiece = content[5][2][1]
-                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
-                    content = solve._movecontroller(content, move)
-                    moves += move
-                    matching = True
-                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
-                    matching = True
-                else:
-                    content = solve._movecontroller(content, translatedU)
-                    moves += translatedU
+                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
+                moves += placeFlowerPieceResult[0]
+                matching = placeFlowerPieceResult[1]
             elif(face == 3):
                 adjacentFlowerPiece = content[4][1][0]
                 adjacentCrossPiece = content[5][1][0]
-                if(topPiece == middlePiece and adjacentFlowerPiece == bottomFaceColor):
-                    content = solve._movecontroller(content, move)
-                    moves += move
-                    matching = True
-                elif(bottomPiece == middlePiece and adjacentCrossPiece == bottomFaceColor):
-                    matching = True
-                else:
-                    content = solve._movecontroller(content, translatedU)
-                    moves += translatedU
+                placeFlowerPieceResult = _placeFlowerPieceIntoCross(content,adjacentFlowerPiece, adjacentCrossPiece, face)
+                moves += placeFlowerPieceResult[0]
+                matching = placeFlowerPieceResult[1]
     return moves
 
 #Determines if flower is solved
