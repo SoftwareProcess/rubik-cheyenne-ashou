@@ -235,58 +235,7 @@ def frontRotations(content, move):
 def _movecontroller(content, moves):
     for move in moves:
         content = frontRotations(content, move)
-        # if move == 'R':
-        #     face = 1
-        #     content[face] = _clockwise(content[face])
-        #     content = _switchedge(content, move)
-        # elif move == 'r':
-        #     face = 1
-        #     content[face] = _counterclockwise(content[face])
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        # elif move == 'B':
-        #     face = 2
-        #     content[face] = _clockwise(content[face])
-        #     content = _switchedge(content, move)
-        # elif move == 'b':
-        #     face = 2
-        #     content[face] = _counterclockwise(content[face])
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        # elif move == 'L':
-        #     face = 3
-        #     content[face] = _clockwise(content[face])
-        #     content = _switchedge(content, move)
-        # elif move == 'l':
-        #     face = 3
-        #     content[face] = _counterclockwise(content[face])
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        # elif move == 'U':
-        #     face = 4
-        #     content[face] = _clockwise(content[face])
-        #     content = _switchedge(content, move)
-        # elif move == 'u':
-        #     face = 4
-        #     content[face] = _counterclockwise(content[face])
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        # elif move == 'D':
-        #     face = 5
-        #     content[face] = _clockwise(content[face])
-        #     content = _switchedge(content, move)
-        # elif move == 'd':
-        #     face = 5
-        #     content[face] = _counterclockwise(content[face])
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        #     content = _switchedge(content, move)
-        # elif move == 'M':
-        #     content = _rotateMiddle(content)
+        
     return content
         
 
@@ -313,20 +262,22 @@ def _counterclockwise(face):
             face[rowlength-1-col][row] = temp
     return face
 
+
+def switchFrontEdges(cube):
+    firstEdge = cube[4][2]
+    cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
+    cube[3][0][2] = cube[5][0][0]
+    cube[3][1][2] = cube[5][0][1]
+    cube[3][2][2] = cube[5][0][2]
+    cube[5][0] = [cube[1][2][0], cube[1][1][0], cube[1][0][0]]
+    cube[1][0][0] = firstEdge[0]
+    cube[1][1][0] = firstEdge[1]
+    cube[1][2][0] = firstEdge[2]
+    return cube
+
 def _switchedge(cube, action):
     if (action == 'F' or action == 'f'):
-        temp = cube[4][2]
-        cube[4][2] = [cube[3][2][2], cube[3][1][2], cube[3][0][2]]
-        
-        cube[3][0][2] = cube[5][0][0]
-        cube[3][1][2] = cube[5][0][1]
-        cube[3][2][2] = cube[5][0][2]      
-        
-        cube[5][0] = [cube[1][2][0], cube[1][1][0], cube[1][0][0]]
-        
-        cube[1][0][0] = temp[0]
-        cube[1][1][0] = temp[1]
-        cube[1][2][0] = temp[2]
+        cube = switchFrontEdges(cube)
     elif(action == 'R' or action == 'r'):
         temp = [cube[0][0][2], cube[0][1][2], cube[0][2][2]]
         
