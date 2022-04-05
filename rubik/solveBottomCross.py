@@ -7,9 +7,7 @@ import rubik.solve as solve
 #Rotate the cube to get a 'flower' at the top face
 def _solveBottomCross(content):  
     moves = ''
-    
     bottomFaceColor = content[5][1][1]
-    
     flowerPiecesOnFace = True
     face = 0 
     flowerSolved = False
@@ -17,25 +15,6 @@ def _solveBottomCross(content):
     while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
             moves = _solveTopFlower(content, face, moves)
-            # leftFrontLayer = content[0][1][0] 
-            # move = _placePieceIntoFlower(content, leftFrontLayer, 'l')
-            # moves += solve._movetranslator(face, move)          
-            #
-            # rightFrontLayer = content[0][1][2]
-            # move = _placePieceIntoFlower(content, rightFrontLayer, 'R')
-            # moves += solve._movetranslator(face, move)          
-            #
-            # bottomFrontLayer = content[0][2][1]
-            # move = _placePieceIntoFlower(content, bottomFrontLayer, 'FUl')
-            # moves += solve._movetranslator(face, move)          
-            #
-            # topFrontLayer = content[0][0][1]
-            # move = _placePieceIntoFlower(content, topFrontLayer, 'fUl')
-            # moves += solve._movetranslator(face, move)          
-            #
-            #
-            # move = _rotateFlowerPiece180ToTopFace(content, 'FF')
-            # moves += solve._movetranslator(face, move)
             
             flowerPiecesOnFace = _checkFlowerPieces(content)    
 

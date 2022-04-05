@@ -559,6 +559,66 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
+def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['op'] = 'solve'
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+   
+        expectedResult = 'rrrgggrrrgggooogggooobbbooobbbrrrbbbyyyyyyyyywwwwwwwww'
+        
+        myCube._content = solve._rotateMiddle(content)
+        actualResult = myCube._get()
+        
+        self.assertEqual(expectedResult, actualResult)
+        
+def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
+        inputDict = {}
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['op'] = 'solve'
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedContent = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
+        myCube2 = cube.Cube()
+        myCube2._load(expectedContent)
+        expectedContent = myCube2._getContent()
+        
+        actualContent = solve._rotateCubeClockwise(content)
+ 
+        self.assertEqual(expectedContent, actualContent)
+        
+def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
+        inputMoves = 'FfBbLlRrUuDd'
+        face = 1
+        expectedMoves = 'RrLlFfBbUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 2
+        expectedMoves = 'BbFfRrLlUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 3
+        expectedMoves = 'LlRrBbFfUuDd'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 4
+        expectedMoves = 'UuDdLlRrBbFf'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        face = 5
+        expectedMoves = 'DdUuLlRrFfBb'
+        actualMoves = solve._movetranslator(face, inputMoves)
+        self.assertEqual(expectedMoves, actualMoves)
+        
 #Iteration 2
 #    inputs:
 #        parms:        dictionary; mandatory; arrives validated

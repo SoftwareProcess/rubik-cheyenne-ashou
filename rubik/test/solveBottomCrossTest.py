@@ -113,70 +113,10 @@ class SolveBottomLayerTest(unittest.TestCase):
         self.assertEqual(actualContent[2][1][1], actualContent[2][2][1])
         self.assertEqual(actualContent[3][1][1], actualContent[3][2][1])
 
-    @unittest.skip('skip while making solveBottomCross class')
-    def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
-        inputDict = {}
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-        inputDict['op'] = 'solve'
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-        
-   
-        expectedResult = 'rrrgggrrrgggooogggooobbbooobbbrrrbbbyyyyyyyyywwwwwwwww'
-        
-        myCube._content = solve._rotateMiddle(content)
-        actualResult = myCube._get()
-        
-        self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip('skip while making solveBottomCross class ')
-    def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
-        inputDict = {}
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-        inputDict['op'] = 'solve'
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-        
-        expectedContent = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
-        myCube2 = cube.Cube()
-        myCube2._load(expectedContent)
-        expectedContent = myCube2._getContent()
-        
-        actualContent = solve._rotateCubeClockwise(content)
- 
-        self.assertEqual(expectedContent, actualContent)
-     
-    @unittest.skip('skip while making solveBottomCross class ')   
-    def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
-        inputMoves = 'FfBbLlRrUuDd'
-        face = 1
-        expectedMoves = 'RrLlFfBbUuDd'
-        actualMoves = solve._movetranslator(face, inputMoves)
-        self.assertEqual(expectedMoves, actualMoves)
-        
-        face = 2
-        expectedMoves = 'BbFfRrLlUuDd'
-        actualMoves = solve._movetranslator(face, inputMoves)
-        self.assertEqual(expectedMoves, actualMoves)
-        
-        face = 3
-        expectedMoves = 'LlRrBbFfUuDd'
-        actualMoves = solve._movetranslator(face, inputMoves)
-        self.assertEqual(expectedMoves, actualMoves)
-        
-        face = 4
-        expectedMoves = 'UuDdLlRrBbFf'
-        actualMoves = solve._movetranslator(face, inputMoves)
-        self.assertEqual(expectedMoves, actualMoves)
-        
-        face = 5
-        expectedMoves = 'DdUuLlRrFfBb'
-        actualMoves = solve._movetranslator(face, inputMoves)
-        self.assertEqual(expectedMoves, actualMoves)
+    
 
-    @unittest.skip('skip while making solveBottomCross class ')
+    
     def test_170_formBottomCross_ShouldFormBottomCrossGivenCubeHasTopFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -187,7 +127,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         content = myCube._getContent()
         bottomFaceColor = inputDict['cube'][49]
         
-        moves = solve._formBottomCross(content)
+        moves = bottomCross._formBottomCross(content)
         inputDict['rotate'] = moves
         actualResult = solve._solve(inputDict)
         
@@ -203,17 +143,17 @@ class SolveBottomLayerTest(unittest.TestCase):
         self.assertEqual(actualResult['cube'][52], bottomFaceColor)
         self.assertEqual(actualResult['cube'][25], actualResult['cube'][22])
     
-    @unittest.skip('skip while making solveBottomCross class ')
+    
     def test_formBottomCross_171_ShouldDoNothingBecuaseCrossAlreadySolved(self):
         myCube = cube.Cube()
         myCube._load('rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww')
         content = myCube._getContent()
         expectedMoves = ''
-        moves = solve._formBottomCross(content)
+        moves = bottomCross._formBottomCross(content)
         actualMoves = moves
         self.assertEqual(expectedMoves, actualMoves)
     
-    @unittest.skip('skip while making solveBottomCross class ')
+    
     def test_solvedFlower_180_ShouldReturnTrueIfTopLayerHasFlower(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -222,7 +162,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
-        actualResult = solve._solvedFlower(content)
+        actualResult = bottomCross._solvedFlower(content)
         self.assertEqual(expectedResult, actualResult)
         
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
@@ -230,10 +170,9 @@ class SolveBottomLayerTest(unittest.TestCase):
         myCube2 = cube.Cube()
         myCube2._load(inputDict['cube'])
         content2 = myCube2._getContent()
-        actualResult = solve._solvedFlower(content2)
+        actualResult = bottomCross._solvedFlower(content2)
         self.assertEqual(expectedResult, actualResult)
     
-    @unittest.skip('skip while making solveBottomCross class ')
     def test_solvedFlower_181_ShouldReturnFalseBecauseTopFlowerNotSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -243,7 +182,7 @@ class SolveBottomLayerTest(unittest.TestCase):
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
         
-        actualResult = solve._solvedFlower(content)
+        actualResult = bottomCross._solvedFlower(content)
         self.assertEqual(expectedResult, actualResult)
         
 
