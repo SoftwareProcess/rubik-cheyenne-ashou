@@ -16,7 +16,7 @@ def _solveBottomCross(content):
     
     while(flowerSolved == False):
         while(flowerPiecesOnFace == True):
-            moves += _solveTopFlower(content, face, moves)
+            moves = _solveTopFlower(content, face, moves)
             # leftFrontLayer = content[0][1][0] 
             # move = _placePieceIntoFlower(content, leftFrontLayer, 'l')
             # moves += solve._movetranslator(face, move)          
@@ -72,8 +72,6 @@ def _solveTopFlower(content, face, moves):
 
     move = _rotateFlowerPiece180ToTopFace(content, 'FF')
     moves += solve._movetranslator(face, move)
-    
-    flowerPiecesOnFace = _checkFlowerPieces(content)    
     return moves
 
 def _placePieceIntoFlower(content, frontLayerPiece, move):
