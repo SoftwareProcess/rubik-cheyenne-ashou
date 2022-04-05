@@ -218,12 +218,14 @@ def _translateFace5(move):
 #Rotate cube
 
 def frontRotations(content, move):
-    if move == 'F':
-        face = 0
+    normalMoves = {'F': 0, 'R': 1, 'B': 2, 'L': 3, 'U': 4, 'D': 5 }
+    primeMoves = {'f': 0, 'r': 1, 'b':2, 'l': 3, 'u': 4, 'd': 5}
+    if move in normalMoves:
+        face = normalMoves[move]
         content[face] = _clockwise(content[face])
         content = _switchedge(content, move)
-    elif move == 'f':
-        face = 0
+    elif move in primeMoves:
+        face = primeMoves[move]
         content[face] = _counterclockwise(content[face])
         content = _switchedge(content, move)
         content = _switchedge(content, move)
@@ -233,58 +235,58 @@ def frontRotations(content, move):
 def _movecontroller(content, moves):
     for move in moves:
         content = frontRotations(content, move)
-        if move == 'R':
-            face = 1
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'r':
-            face = 1
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-        elif move == 'B':
-            face = 2
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'b':
-            face = 2
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-        elif move == 'L':
-            face = 3
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'l':
-            face = 3
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-        elif move == 'U':
-            face = 4
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'u':
-            face = 4
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-        elif move == 'D':
-            face = 5
-            content[face] = _clockwise(content[face])
-            content = _switchedge(content, move)
-        elif move == 'd':
-            face = 5
-            content[face] = _counterclockwise(content[face])
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-            content = _switchedge(content, move)
-        elif move == 'M':
-            content = _rotateMiddle(content)
+        # if move == 'R':
+        #     face = 1
+        #     content[face] = _clockwise(content[face])
+        #     content = _switchedge(content, move)
+        # elif move == 'r':
+        #     face = 1
+        #     content[face] = _counterclockwise(content[face])
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        # elif move == 'B':
+        #     face = 2
+        #     content[face] = _clockwise(content[face])
+        #     content = _switchedge(content, move)
+        # elif move == 'b':
+        #     face = 2
+        #     content[face] = _counterclockwise(content[face])
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        # elif move == 'L':
+        #     face = 3
+        #     content[face] = _clockwise(content[face])
+        #     content = _switchedge(content, move)
+        # elif move == 'l':
+        #     face = 3
+        #     content[face] = _counterclockwise(content[face])
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        # elif move == 'U':
+        #     face = 4
+        #     content[face] = _clockwise(content[face])
+        #     content = _switchedge(content, move)
+        # elif move == 'u':
+        #     face = 4
+        #     content[face] = _counterclockwise(content[face])
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        # elif move == 'D':
+        #     face = 5
+        #     content[face] = _clockwise(content[face])
+        #     content = _switchedge(content, move)
+        # elif move == 'd':
+        #     face = 5
+        #     content[face] = _counterclockwise(content[face])
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        #     content = _switchedge(content, move)
+        # elif move == 'M':
+        #     content = _rotateMiddle(content)
     return content
         
 
