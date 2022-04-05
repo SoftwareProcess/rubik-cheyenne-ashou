@@ -160,9 +160,8 @@ def _formBottomCross(content):
 
 #Determines if flower is solved
 
-def getFlowerCount(content, bottomFaceColor, face):
+def getFlowerCount(content, bottomFaceColor, face, flowerCount):
     if (face == 0):
-        flowerCount = 0
         if (content[4][2][1] == bottomFaceColor):
             flowerCount += 1
         if (content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
@@ -188,7 +187,7 @@ def _solvedFlower(content):
     bottomFaceColor = content[5][1][1]
     flowerCount = 0
     for face in range(0,4):
-        flowerCount += getFlowerCount(content, bottomFaceColor, face)
+        flowerCount = getFlowerCount(content, bottomFaceColor, face, flowerCount)
         
     if(flowerCount == 4):
         return True
