@@ -6,7 +6,7 @@ Created on Feb 24, 2022
 import unittest
 import rubik.solve as solve
 import rubik.cube as cube
-#import rubik.solveBottomLayer as bottomLayer
+
 
 class SolveTest(unittest.TestCase):
 
@@ -642,10 +642,4 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
 
 
         
-        
     
-        
-    
-
-    
-        
