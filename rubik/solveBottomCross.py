@@ -29,7 +29,7 @@ def _solveBottomCross(content):
             moves += solve._movetranslator(face, move)          
             
             topFrontLayer = content[0][0][1]
-            move = _placePieceIntoFlower(content, bottomFrontLayer, 'fUl')
+            move = _placePieceIntoFlower(content, topFrontLayer, 'fUl')
             moves += solve._movetranslator(face, move)          
             
             topBottomLayer = content[5][0][1]    
