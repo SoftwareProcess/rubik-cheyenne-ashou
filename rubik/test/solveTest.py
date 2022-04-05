@@ -6,8 +6,17 @@ Created on Feb 24, 2022
 import unittest
 import rubik.solve as solve
 import rubik.cube as cube
+#import rubik.solveBottomLayer as bottomLayer
 
 class SolveTest(unittest.TestCase):
+
+
+    def setUp(self):
+        pass
+
+
+    def tearDown(self):
+        pass
 
 # Analysis:    solve
 #
@@ -610,6 +619,33 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
+#Iteration 2
+#    inputs:
+#        parms:        dictionary; mandatory; arrives validated
+#        parms['op']    string, "solve"; mandatory; arrives validated
+#        parms['cube']    string; len=54, [azAZ09], ... , mandatory, arrives unvalidated -> defensive programming
+#        parms['rotate']    string; len >= 0, [FfRrBbLlUuDd]; optional, default to "solve" mode if missing; arrives unvalidated 
+#
+#    outputs:
+#        side-effects: no state change, no external effects, nothing other than input or output 
+#        returns: dictionary
+#        nominal:
+#            If the input cube is valid and rotate is present:
+#                dictionary['cube']: string, len=54
+#                dictionary['status']: 'ok'
+#            If the input cube is valid and rotate is MISSING:
+#                dictionary['solution']: string, len >= 0
+#                dictionary['status']: 'ok'
+#        abnormal:
+#            dictionary['status']: 'error: xxx' where xxx is a dev selected message
+#        
+
+
+        
+        
+    
+        
+    
 
     
         
