@@ -235,7 +235,8 @@ def frontRotations(content, move):
 def _movecontroller(content, moves):
     for move in moves:
         content = frontRotations(content, move)
-        
+        if move == 'M':
+            content = _rotateMiddle(content)
     return content
         
 
@@ -275,69 +276,84 @@ def switchFrontEdges(cube):
     cube[1][2][0] = firstEdge[2]
     return cube
 
+
+def switchRightEdges(cube):
+    firstEdge = [cube[0][0][2], cube[0][1][2], cube[0][2][2]]
+    cube[0][0][2] = cube[5][0][2]
+    cube[0][1][2] = cube[5][1][2]
+    cube[0][2][2] = cube[5][2][2]
+    cube[5][0][2] = cube[2][2][0]
+    cube[5][1][2] = cube[2][1][0]
+    cube[5][2][2] = cube[2][0][0]
+    cube[2][0][0] = cube[4][2][2]
+    cube[2][1][0] = cube[4][1][2]
+    cube[2][2][0] = cube[4][0][2]
+    cube[4][0][2] = firstEdge[0]
+    cube[4][1][2] = firstEdge[1]
+    cube[4][2][2] = firstEdge[2]
+    return cube
+
+
+def switchLeftEdges(cube):
+    firstEdge = [cube[0][0][0], cube[0][1][0], cube[0][2][0]]
+    cube[0][0][0] = cube[4][0][0]
+    cube[0][1][0] = cube[4][1][0]
+    cube[0][2][0] = cube[4][2][0]
+    cube[4][0][0] = cube[2][2][2]
+    cube[4][1][0] = cube[2][1][2]
+    cube[4][2][0] = cube[2][0][2]
+    cube[2][0][2] = cube[5][2][0]
+    cube[2][1][2] = cube[5][1][0]
+    cube[2][2][2] = cube[5][0][0]
+    cube[5][0][0] = firstEdge[0]
+    cube[5][1][0] = firstEdge[1]
+    cube[5][2][0] = firstEdge[2]
+    return cube
+
+
+def switchBackEdges(cube):
+    firstEdge = cube[4][0]
+    cube[4][0] = [cube[1][0][2], cube[1][1][2], cube[1][2][2]]
+    cube[1][0][2] = cube[5][2][2]
+    cube[1][1][2] = cube[5][2][1]
+    cube[1][2][2] = cube[5][2][0]
+    cube[5][2] = [cube[3][0][0], cube[3][1][0], cube[3][2][0]]
+    cube[3][0][0] = firstEdge[2]
+    cube[3][1][0] = firstEdge[1]
+    cube[3][2][0] = firstEdge[0]
+    return cube
+
+
+def siwthcUpperEdges(cube):
+    firstEdge = cube[0][0]
+    cube[0][0] = cube[1][0]
+    cube[1][0] = cube[2][0]
+    cube[2][0] = cube[3][0]
+    cube[3][0] = firstEdge
+    return cube
+
+
+def switchDownwardsEdges(cube):
+    firstEdge = cube[0][2]
+    cube[0][2] = cube[3][2]
+    cube[3][2] = cube[2][2]
+    cube[2][2] = cube[1][2]
+    cube[1][2] = firstEdge
+    return cube
+
 def _switchedge(cube, action):
     if (action == 'F' or action == 'f'):
         cube = switchFrontEdges(cube)
     elif(action == 'R' or action == 'r'):
-        temp = [cube[0][0][2], cube[0][1][2], cube[0][2][2]]
-        
-        cube[0][0][2] = cube[5][0][2]
-        cube[0][1][2] = cube[5][1][2]
-        cube[0][2][2] = cube[5][2][2]
-        
-        cube[5][0][2] = cube[2][2][0]
-        cube[5][1][2] = cube[2][1][0]
-        cube[5][2][2] = cube[2][0][0]
-        
-        cube[2][0][0] = cube[4][2][2]
-        cube[2][1][0] = cube[4][1][2]
-        cube[2][2][0] = cube[4][0][2]
-        
-        cube[4][0][2] = temp[0]
-        cube[4][1][2] = temp[1]
-        cube[4][2][2] = temp[2]
+        cube = switchRightEdges(cube)
     elif(action == 'L' or action == 'l'):
-        temp = [cube[0][0][0], cube[0][1][0], cube[0][2][0]]
-        
-        cube[0][0][0] = cube[4][0][0]
-        cube[0][1][0] = cube[4][1][0]
-        cube[0][2][0] = cube[4][2][0]
-        
-        cube[4][0][0] = cube[2][2][2]
-        cube[4][1][0] = cube[2][1][2]
-        cube[4][2][0] = cube[2][0][2]
-        
-        cube[2][0][2] = cube[5][2][0]
-        cube[2][1][2] = cube[5][1][0]
-        cube[2][2][2] = cube[5][0][0]
-        
-        cube[5][0][0] = temp[0]
-        cube[5][1][0] = temp[1]
-        cube[5][2][0] = temp[2]
+        cube = switchLeftEdges(cube)
     elif(action == 'B' or action == 'b'):
-        temp = cube[4][0]
-        cube[4][0] = [cube[1][0][2], cube[1][1][2], cube[1][2][2]]
-        
-        cube[1][0][2] = cube[5][2][2]
-        cube[1][1][2] = cube[5][2][1]
-        cube[1][2][2] = cube[5][2][0]      
-        
-        cube[5][2] = [cube[3][0][0], cube[3][1][0], cube[3][2][0]]
-        
-        cube[3][0][0] = temp[2]
-        cube[3][1][0] = temp[1]
-        cube[3][2][0] = temp[0]
+        cube = switchBackEdges(cube)
     elif(action == 'U' or action == 'u'):
-        temp = cube[0][0]
-        cube[0][0] = cube[1][0]
-        cube[1][0] = cube[2][0]
-        cube[2][0] = cube[3][0]
-        cube[3][0] = temp
+        cube = siwthcUpperEdges(cube)
     elif(action == 'D' or action =='d'):
-        temp = cube[0][2]
-        cube[0][2] = cube[3][2]
-        cube[3][2] = cube[2][2]
-        cube[2][2] = cube[1][2]
-        cube[1][2] = temp
+        cube = switchDownwardsEdges(cube)
     return cube
+
 
