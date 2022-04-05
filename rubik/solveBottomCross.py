@@ -159,30 +159,36 @@ def _formBottomCross(content):
     return moves
 
 #Determines if flower is solved
+
+def getFlowerCount(content, bottomFaceColor, face):
+    if (face == 0):
+        flowerCount = 0
+        if (content[4][2][1] == bottomFaceColor):
+            flowerCount += 1
+        if (content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+            flowerCount += 1
+    if (face == 1):
+        if (content[4][1][2] == bottomFaceColor):
+            flowerCount += 1
+        if (content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+            flowerCount += 1
+    if (face == 2):
+        if (content[4][0][1] == bottomFaceColor):
+            flowerCount += 1
+        if (content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+            flowerCount += 1
+    if (face == 3):
+        if (content[4][1][0] == bottomFaceColor):
+            flowerCount += 1
+        if (content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
+            flowerCount += 1
+    return flowerCount
+
 def _solvedFlower(content):
     bottomFaceColor = content[5][1][1]
     flowerCount = 0
     for face in range(0,4):
-        if(face == 0):
-            if(content[4][2][1] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][0][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 1):
-            if(content[4][1][2] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][1][2] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 2):
-            if(content[4][0][1] == bottomFaceColor): 
-                flowerCount += 1
-            if(content[5][2][1] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
-        if(face == 3):
-            if(content[4][1][0] == bottomFaceColor):
-                flowerCount += 1
-            if(content[5][1][0] == bottomFaceColor and content[face][1][1] == content[face][2][1]):
-                flowerCount += 1
+        flowerCount += getFlowerCount(content, bottomFaceColor, face)
         
     if(flowerCount == 4):
         return True
