@@ -98,6 +98,7 @@ def _checkFlowerPieces(content):
 #Forms a bottom cross after the flower has been made
 
 def _placeFlowerPieceIntoCross(content, adjacentFlowerPiece, adjacentCrossPiece, face):
+    matching = False
     moves = ''
     move = solve._movetranslator(face, 'FF')
     translatedU = solve._movetranslator(face, 'U')
