@@ -25,3 +25,14 @@ def _checkLeftEdgePlaced(content):
     if(frontFaceEdgeColor != frontFaceColor or leftFaceEdgeColor != leftFaceColor):
         placed = False
     return placed
+
+def _checkRightEdgePlaced(content):
+    placed = True
+    frontFaceEdgeColor = content[0][1][0]
+    rightFaceEdgeColor = content[1][1][2]
+    frontFaceColor = content[0][1][1]
+    rightFaceColor = content[1][1][1]
+    
+    if(frontFaceEdgeColor != frontFaceColor or rightFaceEdgeColor != rightFaceColor):
+        placed = False
+    return placed
