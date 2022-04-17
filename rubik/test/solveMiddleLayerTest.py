@@ -9,7 +9,7 @@ import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
 class SolveMiddleLayerTest(unittest.TestCase):
     
-    def test_120_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
+    def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
@@ -27,4 +27,20 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
+    def test_011_checkMiddleLayerSolvedTest_ShouldReturnFalseBecauseMisorientedPiece(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rggbrrrrryobggggggyboooooooyybbbrbbbgyoryyyyrwwwwwwwww'
         
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = middleLayer._checkSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult)
