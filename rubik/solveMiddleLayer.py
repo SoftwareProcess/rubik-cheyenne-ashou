@@ -14,3 +14,14 @@ def _checkSolved(content):
         solved = False
     
     return solved
+
+def _checkLeftEdgePlaced(content):
+    placed = True
+    frontFaceEdgeColor = content[0][1][0]
+    leftFaceEdgeColor = content[3][1][2]
+    frontFaceColor = content[0][1][1]
+    leftFaceColor = content[3][1][1]
+    
+    if(frontFaceEdgeColor != frontFaceColor or leftFaceEdgeColor != leftFaceColor):
+        placed = False
+    return placed
