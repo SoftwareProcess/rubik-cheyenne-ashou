@@ -1,6 +1,7 @@
 from unittest import TestCase
 import rubik.check as check 
 import rubik.solve as solve
+import rubik.cube as cube
 class CheckTest(TestCase):
     #Happy
     def test_check_010_ShouldReturnOkOnSolvedCube(self):
@@ -93,5 +94,41 @@ class CheckTest(TestCase):
         expectedResult['status'] = 'error: 101 Invalid rotation'
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult['status'], actualResult['status'])
+        
+    def test_120_checkMiddleLayerSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = True
+        actualResult = check._checkMiddleLayerSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
+        
+    def test_121_checkMiddleLayerSolvedTest_ShouldReturnFalseBecauseMisorientedPiece(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rggbrrrrryobggggggyboooooooyybbbrbbbgyoryyyyrwwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = False
+        actualResult = check._checkMiddleLayerSolved(content)
+        
+        self.assertEqual(expectedResult, actualResult) 
 
     

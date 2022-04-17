@@ -58,3 +58,4 @@ def _check(parms):
                 result['status'] = 'error: 101 Invalid rotation'
     
     return result
+
