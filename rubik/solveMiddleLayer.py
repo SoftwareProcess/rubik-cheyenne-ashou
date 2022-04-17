@@ -4,7 +4,7 @@ Created on Apr 17, 2022
 @author: cheyennea.
 '''
 import rubik.check as check
-
+import rubik.solve as solve
 def _checkSolved(content):
     solved = True
     bottomSolved = check.checkBottomLayerSolved(content)
@@ -38,4 +38,18 @@ def _checkRightEdgePlaced(content):
     return placed
 
 def _findLeftEdge(content):
-    pass
+    frontFaceColor = content[0][1][1]
+    leftFaceColor = content[3][1][1]
+    sideFaces = 4
+    for face in range(sideFaces):
+        frontEdgeColor = content[0][0][1]
+        leftEdgeColor = content[4][2][1]
+        if(frontEdgeColor == frontFaceColor and leftEdgeColor == leftFaceColor):
+            solve._rotateToFrontFace(content, face)
+            return face
+        else:
+            solve._rotateCubeClockwise(content)
+    return sideFaces
+    
+        
+        
