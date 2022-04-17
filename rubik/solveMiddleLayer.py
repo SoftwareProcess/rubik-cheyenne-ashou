@@ -45,10 +45,10 @@ def _findLeftEdge(content):
         frontEdgeColor = content[0][0][1]
         leftEdgeColor = content[4][2][1]
         if(frontEdgeColor == frontFaceColor and leftEdgeColor == leftFaceColor):
-            solve._rotateToFrontFace(content, face)
+            content = solve._rotateToFrontFace(content, face)
             return face
         else:
-            solve._rotateCubeClockwise(content)
+            content = solve._rotateCubeClockwise(content)
     return sideFaces
     
         
