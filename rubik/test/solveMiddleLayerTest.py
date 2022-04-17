@@ -162,7 +162,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_041_findLeftEdge_ShouldReturnFace3(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ygyrryrrrbyybgggggoooooooooyrgbbbbbbgybgyrryrwwwwwwwww'
+        inputDict['cube'] = 'oygbbrbbbybyyrrrrrbyoggggggbbgooooooyorryyygrwwwwwwwww'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
