@@ -23,7 +23,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = True
-        actualResult = check._checkSolved(content)
+        actualResult = middleLayer._checkSolved(content)
         
         self.assertEqual(expectedResult, actualResult)
         
