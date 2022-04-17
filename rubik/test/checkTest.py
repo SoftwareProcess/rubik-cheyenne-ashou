@@ -165,7 +165,25 @@ class CheckTest(TestCase):
         expectedResult = False
         actualResult = check.checkMiddleLayerSolved(content)
     
-        self.assertEqual(expectedResult, actualResult)  
+        self.assertEqual(expectedResult, actualResult)
+        
+    def test_132_checkBottomLayerSolvedTest_FalseBecauseCorrectBottomFaceButSwitchedCorners(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'yggrrrgrbyggbggrggoybooooooybrbbybbrooyyyrbyrwwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedResult = False
+        actualResult = check.checkMiddleLayerSolved(content)
+    
+        self.assertEqual(expectedResult, actualResult)    
     
     
     
