@@ -152,8 +152,30 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         expectedResult = 4
         actualResult = middleLayer._findLeftEdge(content)
-        
         self.assertEqual(expectedResult, actualResult)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        expectedContent = myCube2._getContent()
+        self.assertEqual(expectedContent, content)
+        
+    # def test_041_findLeftEdge_ShouldReturnFace3(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'ygyrryrrrbyybgggggoooooooooyrgbbbbbbgybgyrryrwwwwwwwww'
+    #
+    #     myCube = cube.Cube()
+    #     myCube._load(inputDict['cube'])
+    #     content = myCube._getContent()
+    #
+    #     expectedCheck = {'status': 'ok'}
+    #     actualCheck = check._check(inputDict)
+    #     self.assertEqual(expectedCheck, actualCheck)
+    #
+    #     expectedResult = 4
+    #     actualResult = middleLayer._findLeftEdge(content)
+    #
+    #     self.assertEqual(expectedResult, actualResult)
     
     
         
