@@ -71,3 +71,5 @@ def checkMiddleLayerSolved(content):
             exit
     return solved
 
+def checkBottomLayerSolved(content):
+    pass
