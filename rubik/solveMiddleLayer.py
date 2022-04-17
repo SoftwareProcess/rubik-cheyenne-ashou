@@ -28,7 +28,7 @@ def _checkLeftEdgePlaced(content):
 
 def _checkRightEdgePlaced(content):
     placed = True
-    frontFaceEdgeColor = content[0][1][0]
+    frontFaceEdgeColor = content[0][1][2]
     rightFaceEdgeColor = content[1][1][2]
     frontFaceColor = content[0][1][1]
     rightFaceColor = content[1][1][1]
