@@ -27,10 +27,10 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    def test_011_checkMiddleLayerSolvedTest_ShouldReturnFalseBecauseMisorientedPiece(self):
+    def test_012_checkMiddleLayerSolvedTest_FalseBecauseMisplaceBottomEdges(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rggbrrrrryobggggggyboooooooyybbbrbbbgyoryyyyrwwwwwwwww'
+        inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
         
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
