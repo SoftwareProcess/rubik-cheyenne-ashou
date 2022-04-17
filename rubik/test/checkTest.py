@@ -109,7 +109,7 @@ class CheckTest(TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = True
-        actualResult = check._checkMiddleLayerSolved(content)
+        actualResult = check.checkMiddleLayerSolved(content)
         
         self.assertEqual(expectedResult, actualResult) 
         
@@ -127,8 +127,10 @@ class CheckTest(TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = False
-        actualResult = check._checkMiddleLayerSolved(content)
+        actualResult = check.checkMiddleLayerSolved(content)
         
         self.assertEqual(expectedResult, actualResult) 
+    
+    
 
     
