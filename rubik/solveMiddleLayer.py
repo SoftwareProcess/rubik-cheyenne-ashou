@@ -36,3 +36,6 @@ def _checkRightEdgePlaced(content):
     if(frontFaceEdgeColor != frontFaceColor or rightFaceEdgeColor != rightFaceColor):
         placed = False
     return placed
+
+def _findLeftEdge(content):
+    pass

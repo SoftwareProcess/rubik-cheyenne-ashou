@@ -99,7 +99,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
     
-    def test_030_checkLeftEdgePlaced_ShouldReturnTrueBecauseMiddleLayerAlreadySolved(self):
+    def test_030_checkRightEdgePlaced_ShouldReturnTrueBecauseMiddleLayerAlreadySolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
@@ -119,7 +119,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         
         
-    def test_031_checkLeftEdgePlaced_ShouldReturnFalseBecauseMisorientedEdge(self):
+    def test_031_checkRightEdgePlaced_ShouldReturnFalseBecauseMisorientedEdge(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ryyrrgrrroyrrgggggyooooooooyyybbbbbbgybryggbbwwwwwwwww'
@@ -136,4 +136,26 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._checkRightEdgePlaced(content)
         
         self.assertEqual(expectedResult, actualResult)
+        
+    def test_040_findLeftEdge_ReturnFace4BecauseLeftEdgeAlreadyPlaced(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ryyrrgrrroyrrgggggyooooooooyyybbbbbbgybryggbbwwwwwwwww'
+        
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+        
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = 4
+        actualResult = middleLayer._findLeftEdge(content)
+        
+        self.assertEqual(expectedResult, actualResult)
+    
+    
+        
+    
     
