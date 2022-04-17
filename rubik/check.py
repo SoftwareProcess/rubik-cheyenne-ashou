@@ -72,4 +72,22 @@ def checkMiddleLayerSolved(content):
     return solved
 
 def checkBottomLayerSolved(content):
-    pass
+    solved = True
+    sideFaces = 4
+    for face in range(sideFaces):
+        middlePiece = content[face][1][1]
+        leftPiece = content[face][2][0]
+        rightPiece = content[face][2][2]
+        if(leftPiece != middlePiece or rightPiece != middlePiece):
+            solved = False
+            exit
+    bottomFace = content[5]
+    bottomFaceColor = content[5][1][1]
+    for row in bottomFace:
+        leftPiece = row[0]
+        middlePiece = row[1]
+        rightPiece = row[2]
+        if(leftPiece != bottomFaceColor or middlePiece != bottomFaceColor or rightPiece != bottomFaceColor):
+            solved = False
+            exit
+    return solved
