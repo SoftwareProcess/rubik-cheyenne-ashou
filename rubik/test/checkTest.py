@@ -149,23 +149,23 @@ class CheckTest(TestCase):
         
         self.assertEqual(expectedResult, actualResult) 
         
-    # def test_131_checkMiddleLayerSolvedTest_ShouldReturnFalseBecauseMisorientedPiece(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'rggbrrrrryobggggggyboooooooyybbbrbbbgyoryyyyrwwwwwwwww'
-    #
-    #     myCube = cube.Cube()
-    #     myCube._load(inputDict['cube'])
-    #     content = myCube._getContent()
-    #
-    #     expectedCheck = {'status': 'ok'}
-    #     actualCheck = check._check(inputDict)
-    #     self.assertEqual(expectedCheck, actualCheck)
-    #
-    #     expectedResult = False
-    #     actualResult = check.checkMiddleLayerSolved(content)
-    #
-    #     self.assertEqual(expectedResult, actualResult)  
+    def test_131_checkBottomLayerSolvedTest_ShouldReturnFalseBecauseMisplacedCorner(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rboorryrrbggggggggyboooooooyywbbybbbgyrryybryrwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedResult = False
+        actualResult = check.checkMiddleLayerSolved(content)
+    
+        self.assertEqual(expectedResult, actualResult)  
     
     
     
