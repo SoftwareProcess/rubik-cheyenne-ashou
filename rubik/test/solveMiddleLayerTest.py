@@ -151,7 +151,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 4
-        actualResult = middleLayer._findLeftEdge(content)
+        actualResult = middleLayer._findLeftEdge(content, 'left')
         self.assertEqual(expectedResult, actualResult)
         
         myCube2 = cube.Cube()
@@ -173,7 +173,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedResult = 3
-        actualResult = middleLayer._findLeftEdge(content)
+        actualResult = middleLayer._findLeftEdge(content, 'left')
     
         self.assertEqual(expectedResult, actualResult)
         
@@ -196,8 +196,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedResult = 4
-        actualResult = middleLayer._findRightEdge(content)
-    
+        actualResult = middleLayer._findRightEdge(content, 'right')
         self.assertEqual(expectedResult, actualResult)
         
         myCube2 = cube.Cube()
@@ -219,7 +218,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedResult = 2
-        actualResult = middleLayer._findRightEdge(content)
+        actualResult = middleLayer._findRightEdge(content, 'right')
     
         self.assertEqual(expectedResult, actualResult)
         
