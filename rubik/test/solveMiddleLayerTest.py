@@ -367,23 +367,23 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_090_solve_NominalUnmixedCube(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-    
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-    
-        expectedCheck = {'status': 'ok'}
-        actualCheck = check._check(inputDict)
-        self.assertEqual(expectedCheck, actualCheck)
-        
-        expectedRotations = ''
-        actualRotations = middleLayer.solve(content)
-        
-        self.assertEqual(expectedRotations, actualRotations)
+    # def test_090_solve_NominalUnmixedCube(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+    #
+    #     myCube = cube.Cube()
+    #     myCube._load(inputDict['cube'])
+    #     content = myCube._getContent()
+    #
+    #     expectedCheck = {'status': 'ok'}
+    #     actualCheck = check._check(inputDict)
+    #     self.assertEqual(expectedCheck, actualCheck)
+    #
+    #     expectedRotations = ''
+    #     actualRotations = middleLayer.solve(content)
+    #
+    #     self.assertEqual(expectedRotations, actualRotations)
         
         
     
