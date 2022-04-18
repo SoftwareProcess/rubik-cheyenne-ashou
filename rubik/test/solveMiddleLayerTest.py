@@ -227,7 +227,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedContent, content)
     
     
-    def test_060_rotateEdgeToAdjacentFace(self):
+    def test_060_rotateEdgeToAdjacentFace_(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
@@ -243,6 +243,30 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedMoves = 'u'
         startingFace = middleLayer._findEdge(content, 'right')
         actualMoves = middleLayer._rotateEdgeToAdjacentFace(content, startingFace, 'right')
+        
+        self.assertEqual(expectedMoves, actualMoves)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        expectedContent = myCube2._getContent()
+        self.assertEqual(expectedContent, content)
+        
+    def test_061_rotateEdgeToAdjacentFace(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+    
+        expectedMoves = 'UU'
+        startingFace = middleLayer._findEdge(content, 'left')
+        actualMoves = middleLayer._rotateEdgeToAdjacentFace(content, startingFace, 'left')
         
         self.assertEqual(expectedMoves, actualMoves)
         
