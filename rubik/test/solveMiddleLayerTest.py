@@ -311,7 +311,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        expectedResult = True
+        expectedResult = 2
         actualResult = middleLayer._checkTopColorEdgePieceInTopLayer(content)
         
         self.assertEqual(expectedResult, actualResult)
