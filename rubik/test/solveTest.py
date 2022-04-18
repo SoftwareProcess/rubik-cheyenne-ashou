@@ -519,7 +519,7 @@ class SolveTest(unittest.TestCase):
         actualResult = solve._switchedge(cube, action)
         self.assertEqual(expectedResult, actualResult)
         
-def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
+    def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -535,7 +535,7 @@ def test_rotateMiddle_140_ShouldRotateMiddleLayer(self):
         
         self.assertEqual(expectedResult, actualResult)
         
-def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
+    def test_rotateCubeClockwise_150_ShouldRotateEntireCubeClockWise(self):
         inputDict = {}
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
         inputDict['op'] = 'solve'
@@ -579,8 +579,7 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
-        
-def test_optimalUpperRotation_uBecauseLessMovesThanUUU(self):
+    def test_optimalUpperRotation_uBecauseLessMovesThanUUU(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'

@@ -251,5 +251,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
+  
     
     
