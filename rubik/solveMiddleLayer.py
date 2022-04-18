@@ -15,6 +15,24 @@ def _checkSolved(content):
     
     return solved
 
+def _checkEdgePlaced(content, edge):
+    if(edge == 'left'):
+        frontFaceEdgeColor = content[0][1][0]
+        sideFaceEdgeColor = content[3][1][2]
+        frontFaceColor = content[0][1][1]
+        sideFaceColor = content[3][1][1]
+    elif(edge == 'right'):
+        frontFaceEdgeColor = content[0][1][2]
+        sideFaceEdgeColor = content[1][1][2]
+        frontFaceColor = content[0][1][1]
+        sideFaceColor = content[1][1][1]
+    else:
+        print('Check edge input for _checkEdgePlaced')
+    placed = True
+    if(frontFaceEdgeColor != frontFaceColor or sideFaceEdgeColor != sideFaceColor):
+        placed = False
+    return placed
+
 def _checkLeftEdgePlaced(content):
     placed = True
     frontFaceEdgeColor = content[0][1][0]
