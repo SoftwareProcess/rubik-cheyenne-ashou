@@ -242,7 +242,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedMoves = 'u'
-        actualMoves = middleLayer._rotateEdgeToAdjacentFace(content, 'right')
+        startingFace = middleLayer._findEdge(content, 'right')
+        actualMoves = middleLayer._rotateEdgeToAdjacentFace(content, startingFace, 'right')
         
         self.assertEqual(expectedMoves, actualMoves)
         
