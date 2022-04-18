@@ -62,7 +62,7 @@ def _rotateEdgeToAdjacentFace(content, startingFace, edge):
         moves = ''
     return moves
 
-def _checkOkayToFixMisplacedEdge(content):
+def _checkTopColorEdgePieceInTopLayer(content):
     #it is okay when there is atleast 1 yellow edge available
     #if no yellow edges available, take edge misplaced edge out
     sideFaces = 4
@@ -77,3 +77,5 @@ def _checkOkayToFixMisplacedEdge(content):
             content = solve._rotateCubeClockwise(content)
     okay = False
     return okay
+
+def _
