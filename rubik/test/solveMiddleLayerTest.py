@@ -195,7 +195,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
     
-        expectedResult = 3
+        expectedResult = 4
         actualResult = middleLayer._findRightEdge(content)
     
         self.assertEqual(expectedResult, actualResult)
