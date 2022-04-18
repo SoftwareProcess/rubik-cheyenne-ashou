@@ -64,5 +64,22 @@ def _findRightEdge(content):
         else:
             content = solve._rotateCubeClockwise(content)
     return sideFaces
+
+def _findEdge(content, edge):
+    frontFaceColor = content[0][1][1]
+    if(edge == 'left'):
+        sideFaceColor = content[1][1][1]
+    elif(edge == 'right'):
+        sideFaceColor = content[3][1][1]
+    sideFaces = 4
+    for face in range(sideFaces):
+        frontEdgeColor = content[0][0][1]
+        rightEdgeColor = content[4][2][1]
+        if(frontEdgeColor == frontFaceColor and rightEdgeColor == sideFaceColor):
+            content = solve._rotateToFrontFace(content, face)
+            return face
+        else:
+            content = solve._rotateCubeClockwise(content)
+    return sideFaces
         
         
