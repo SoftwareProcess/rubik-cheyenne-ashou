@@ -94,7 +94,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = True
-        actualResult = middleLayer._checkLeftEdgePlaced(content)
+        actualResult = middleLayer._checkEdgePlaced(content, 'left')
         
         self.assertEqual(expectedResult, actualResult)
         
@@ -112,11 +112,11 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = False
-        actualResult = middleLayer._checkLeftEdgePlaced(content)
+        actualResult = middleLayer._checkEdgePlaced(content, 'left')
         
         self.assertEqual(expectedResult, actualResult)
     
-    def test_030_checkRightEdgePlaced_ShouldReturnTrueBecauseMiddleLayerAlreadySolved(self):
+    def test_022_checkRightEdgePlaced_ShouldReturnTrueBecauseMiddleLayerAlreadySolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
@@ -130,13 +130,13 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = True
-        actualResult = middleLayer._checkRightEdgePlaced(content)
+        actualResult = middleLayer._checkEdgePlaced(content, 'right')
         
         self.assertEqual(expectedResult, actualResult)
         
         
         
-    def test_031_checkRightEdgePlaced_ShouldReturnFalseBecauseMisorientedEdge(self):
+    def test_023_checkRightEdgePlaced_ShouldReturnFalseBecauseMisorientedEdge(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ryyrrgrrroyrrgggggyooooooooyyybbbbbbgybryggbbwwwwwwwww'
@@ -150,7 +150,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = False
-        actualResult = middleLayer._checkRightEdgePlaced(content)
+        actualResult = middleLayer._checkEdgePlaced(content, 'right')
         
         self.assertEqual(expectedResult, actualResult)
         
