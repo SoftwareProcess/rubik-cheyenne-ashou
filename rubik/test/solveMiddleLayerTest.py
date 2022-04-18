@@ -275,7 +275,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_070_checkTopColorEdgePieceInTopLayer_NoEdgePiecesOnTopFace(self):
+    def test_070_findTopColorEdgePieceInTopLayer_NoEdgePiecesOnTopFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rbryrbrrryggygrgggoooyoyooobgyobgbbbybyryogrbwwwwwwwww'
@@ -289,7 +289,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 4
-        actualResult = middleLayer._checkTopColorEdgePieceInTopLayer(content)
+        actualResult = middleLayer._findTopColorEdgePieceInTopLayer(content)
         
         self.assertEqual(expectedResult, actualResult)
         
@@ -298,7 +298,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_071_checkTopColorEdgePieceInTopLayer_OneEdgePiecesOnTopFace(self):
+    def test_071_findTopColorEdgePieceInTopLayer_OneEdgePiecesOnTopFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'boyyrgrrrrggrgrgggoyyyoyooooryobgbbbbbybyorbgwwwwwwwww'
@@ -312,7 +312,30 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 2
-        actualResult = middleLayer._checkTopColorEdgePieceInTopLayer(content)
+        actualResult = middleLayer._findTopColorEdgePieceInTopLayer(content)
+        
+        self.assertEqual(expectedResult, actualResult)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        expectedContent = myCube2._getContent()
+        self.assertEqual(expectedContent, content)
+        
+    def test_080_movesToInsertEdge_rightEdge(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'boyyrgrrrrggrgrgggoyyyoyooooryobgbbbbbybyorbgwwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = 'RurufUF'
+        actualResult = middleLayer._movesToInsertEdge('right')
         
         self.assertEqual(expectedResult, actualResult)
         

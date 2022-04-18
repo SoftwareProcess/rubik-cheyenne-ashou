@@ -62,7 +62,7 @@ def _rotateEdgeToAdjacentFace(content, startingFace, edge):
         moves = ''
     return moves
 
-def _checkTopColorEdgePieceInTopLayer(content):
+def _findTopColorEdgePieceInTopLayer(content):
     #it is okay when there is atleast 1 yellow edge available
     #if no yellow edges available, take edge misplaced edge out
     sideFaces = 4
@@ -70,13 +70,15 @@ def _checkTopColorEdgePieceInTopLayer(content):
     topFaceColor = content[4][1][1]
     okay = True
     for face in range(sideFaces):
-        topFaceEdgePiece = content[4][2][1]
-        print('topFaceEdgePiece ', topFaceEdgePiece)
-        print('edgepiece: ',content[face][0][1])
-        if(content[0][0][1] == topFaceColor or topFaceEdgePiece == topFaceColor):
+        topFaceLowerEdgePiece = content[4][2][1]
+        frontFaceUpperEdgePiece = content[0][0][1]
+        if(frontFaceUpperEdgePiece == topFaceColor or topFaceLowerEdgePiece == topFaceColor):
             content = solve._rotateToFrontFace(content, face)
             return face
         else:
             content = solve._rotateCubeClockwise(content)
     okay = False
     return sideFaces
+
+
+
