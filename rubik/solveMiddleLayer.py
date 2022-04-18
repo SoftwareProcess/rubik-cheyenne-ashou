@@ -76,6 +76,4 @@ def _checkTopColorEdgePieceInTopLayer(content):
         else:
             content = solve._rotateCubeClockwise(content)
     okay = False
-    return okay
-
-def _
+    return sideFaces
