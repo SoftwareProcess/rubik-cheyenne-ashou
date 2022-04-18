@@ -552,7 +552,7 @@ class SolveTest(unittest.TestCase):
  
         self.assertEqual(expectedContent, actualContent)
         
-def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
+    def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         inputMoves = 'FfBbLlRrUuDd'
         face = 1
         expectedMoves = 'RrLlFfBbUuDd'
