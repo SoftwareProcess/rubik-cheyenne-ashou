@@ -635,6 +635,27 @@ class SolveTest(unittest.TestCase):
         endingFace = 1
         actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
         self.assertEqual(expectedRotations, actualRotations)
+        
+    def test_optimalUpperRotation_173_uBecauseSameAsUUU(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedRotations = 'u'
+        startingFace = 3
+        endingFace = 0
+        actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
+        self.assertEqual(expectedRotations, actualRotations)
+        
+    
     
 
         
