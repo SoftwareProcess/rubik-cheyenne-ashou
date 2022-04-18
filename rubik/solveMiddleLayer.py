@@ -68,7 +68,6 @@ def _findTopColorEdgePieceInTopLayer(content):
     sideFaces = 4
     
     topFaceColor = content[4][1][1]
-    okay = True
     for face in range(sideFaces):
         topFaceLowerEdgePiece = content[4][2][1]
         frontFaceUpperEdgePiece = content[0][0][1]
@@ -77,7 +76,6 @@ def _findTopColorEdgePieceInTopLayer(content):
             return face
         else:
             content = solve._rotateCubeClockwise(content)
-    okay = False
     return sideFaces
 
 def _movesToInsertEdge(edge):
