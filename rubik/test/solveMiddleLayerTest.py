@@ -381,7 +381,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedRotations = ''
-        actualRotations = middleLayer._solve(content)
+        actualRotations = middleLayer.solve(content)
         
         self.assertEqual(expectedRotations, actualRotations)
         
