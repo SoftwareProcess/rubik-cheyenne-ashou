@@ -66,13 +66,14 @@ def _checkTopColorEdgePieceInTopLayer(content):
     #it is okay when there is atleast 1 yellow edge available
     #if no yellow edges available, take edge misplaced edge out
     sideFaces = 4
-    topFaceEdgePiece = content[4][2][1]
+    
     topFaceColor = content[4][1][1]
     okay = True
     for face in range(sideFaces):
+        topFaceEdgePiece = content[4][2][1]
         if(content[face][0][1] == topFaceColor or topFaceEdgePiece == topFaceColor):
             content = solve._rotateToFrontFace(content, face)
-            return content[face][0][1]
+            return face
         else:
             content = solve._rotateCubeClockwise(content)
     okay = False
