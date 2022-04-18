@@ -219,7 +219,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedResult = 2
-        actualResult = middleLayer._findLeftEdge(content)
+        actualResult = middleLayer._findRightEdge(content)
     
         self.assertEqual(expectedResult, actualResult)
         
