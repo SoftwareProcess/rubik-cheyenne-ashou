@@ -83,9 +83,8 @@ def _findEdge(content, edge):
     return sideFaces
 
 def _rotateEdgeToAdjacentFace(content, startingFace, edge):
+    pass
     # if(edge == 'left'):
     #     startingFace =
     #     endingFace = 1
     #     solve.optimalUpperRotation(content, startingFace, endingFace)
-        
-        

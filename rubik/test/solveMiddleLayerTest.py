@@ -7,8 +7,7 @@ import unittest
 import rubik.cube as cube
 import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
-class SolveMiddleLayerTest(unittest.TestCase):
-    
+class SolveMiddleLayerTest(unittest.TestCase):  
     def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
