@@ -80,5 +80,8 @@ def _findTopColorEdgePieceInTopLayer(content):
     okay = False
     return sideFaces
 
-
+def _movesToInsertEdge(edge):
+    if(edge == 'right'):
+        moves = 'RurufUF'
+    return moves
 
