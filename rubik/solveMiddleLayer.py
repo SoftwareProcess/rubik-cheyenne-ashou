@@ -37,34 +37,6 @@ def _checkRightEdgePlaced(content):
         placed = False
     return placed
 
-def _findLeftEdge(content):
-    frontFaceColor = content[0][1][1]
-    leftFaceColor = content[3][1][1]
-    sideFaces = 4
-    for face in range(sideFaces):
-        frontEdgeColor = content[0][0][1]
-        leftEdgeColor = content[4][2][1]
-        if(frontEdgeColor == frontFaceColor and leftEdgeColor == leftFaceColor):
-            content = solve._rotateToFrontFace(content, face)
-            return face
-        else:
-            content = solve._rotateCubeClockwise(content)
-    return sideFaces
-    
-def _findRightEdge(content):
-    frontFaceColor = content[0][1][1]
-    rightFaceColor = content[1][1][1]
-    sideFaces = 4
-    for face in range(sideFaces):
-        frontEdgeColor = content[0][0][1]
-        rightEdgeColor = content[4][2][1]
-        if(frontEdgeColor == frontFaceColor and rightEdgeColor == rightFaceColor):
-            content = solve._rotateToFrontFace(content, face)
-            return face
-        else:
-            content = solve._rotateCubeClockwise(content)
-    return sideFaces
-
 def _findEdge(content, edge):
     frontFaceColor = content[0][1][1]
     if(edge == 'left'):
