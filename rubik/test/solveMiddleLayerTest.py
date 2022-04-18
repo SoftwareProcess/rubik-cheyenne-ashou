@@ -275,7 +275,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_070_checkOkayToFixMisplacedEdge(self):
+    def test_070_checkOkayToFixMisplacedEdge_NoEdgePiecesOnTopFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rbryrbrrryggygrgggoooyoyooobgyobgbbbybyryogrbwwwwwwwww'
@@ -288,7 +288,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        expectedResult = True
+        expectedResult = False
         actualResult = middleLayer._checkOkayToFixMisplacedEdge(content)
         
         self.assertEqual(expectedResult, actualResult)
