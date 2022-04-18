@@ -579,7 +579,7 @@ class SolveTest(unittest.TestCase):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
-    def test_optimalUpperRotation_uBecauseLessMovesThanUUU(self):
+    def test_optimalUpperRotation_170_uBecauseLessMovesThanUUU(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
@@ -597,6 +597,45 @@ class SolveTest(unittest.TestCase):
         endingFace = 3
         actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
         self.assertEqual(expectedRotations, actualRotations)
+        
+    def test_optimalUpperRotation_171_UUBecauseSameAsuu(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedRotations = 'UU'
+        startingFace = 2
+        endingFace = 0
+        actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
+        self.assertEqual(expectedRotations, actualRotations)
+        
+    def test_optimalUpperRotation_172_UUBecauseSameAsuu(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedRotations = 'U'
+        startingFace = 2
+        endingFace = 1
+        actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
+        self.assertEqual(expectedRotations, actualRotations)
+    
 
         
     
