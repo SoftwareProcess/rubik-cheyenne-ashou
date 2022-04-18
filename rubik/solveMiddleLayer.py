@@ -33,28 +33,6 @@ def _checkEdgePlaced(content, edge):
         placed = False
     return placed
 
-def _checkLeftEdgePlaced(content):
-    placed = True
-    frontFaceEdgeColor = content[0][1][0]
-    leftFaceEdgeColor = content[3][1][2]
-    frontFaceColor = content[0][1][1]
-    leftFaceColor = content[3][1][1]
-    
-    if(frontFaceEdgeColor != frontFaceColor or leftFaceEdgeColor != leftFaceColor):
-        placed = False
-    return placed
-
-def _checkRightEdgePlaced(content):
-    placed = True
-    frontFaceEdgeColor = content[0][1][2]
-    rightFaceEdgeColor = content[1][1][2]
-    frontFaceColor = content[0][1][1]
-    rightFaceColor = content[1][1][1]
-    
-    if(frontFaceEdgeColor != frontFaceColor or rightFaceEdgeColor != rightFaceColor):
-        placed = False
-    return placed
-
 def _findEdge(content, edge):
     frontFaceColor = content[0][1][1]
     if(edge == 'left'):
@@ -83,3 +61,6 @@ def _rotateEdgeToAdjacentFace(content, startingFace, edge):
         print('error: 600 Check _rotateEdgeToAdjacentFace edge input')
         moves = ''
     return moves
+
+def _checkOkayToFixMisplacedEdge(content):
+    pass
