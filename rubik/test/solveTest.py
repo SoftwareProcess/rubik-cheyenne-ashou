@@ -6,7 +6,7 @@ Created on Feb 24, 2022
 import unittest
 import rubik.solve as solve
 import rubik.cube as cube
-
+import rubik.check as check
 
 class SolveTest(unittest.TestCase):
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
@@ -579,6 +579,23 @@ def test_movetranslator_160_ShouldTranslateMovesBasedOnCurrentFace(self):
         actualMoves = solve._movetranslator(face, inputMoves)
         self.assertEqual(expectedMoves, actualMoves)
         
+        
+def test_optimalUpperRotation_uBecauseLessMovesThanUUU(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedRotations = 'u'
+        actualRotations = solve._optimalUpperRotation(content, face)
+        self.assertEqual(expectedRotations, actualRotations)
 
         
     

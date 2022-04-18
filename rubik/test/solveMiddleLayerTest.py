@@ -137,7 +137,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-    def test_040_findLeftEdge_ReturnFace4BecauseLeftEdgeAlreadyPlaced(self):
+    def test_040_findEdge_ReturnFace4BecauseLeftEdgeAlreadyPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'ryyrrgrrroyrrgggggyooooooooyyybbbbbbgybryggbbwwwwwwwww'
@@ -159,7 +159,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_041_findLeftEdge_ShouldReturnFace3(self):
+    def test_041_findEdge_Left(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
@@ -182,7 +182,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    def test_050_findRightEdge_ReturnFace4BecauseRightEdgeAlreadyPlaced(self):
+    def test_050_findEdge_ReturnFace4BecauseRightEdgeAlreadyPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
@@ -204,7 +204,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
            
-    def test_051_findRightEdge_ShouldReturnFace3(self):
+    def test_051_findEdge_Right(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
@@ -227,10 +227,11 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
     
-    def test_060_findEdge_ReturnFace4BecauseLeftEdgeAlreadyPlaced(self):
+    @unittest.skip('skip while making optimalUpperRotation method')
+    def test_060_rotateEdgeToFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
@@ -240,16 +241,15 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
     
-        expectedResult = 4
-        actualResult = middleLayer._findEdge(content, 'left')
-    
-        self.assertEqual(expectedResult, actualResult)
+        expectedMoves = 'u'
+        actualMoves = middleLayer._rotateEdgeToFace(content, 'right')
+        
+        self.assertEqual(expectedMoves, actualMoves)
         
         myCube2 = cube.Cube()
         myCube2._load(inputDict['cube'])
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
-    
         
     
     
