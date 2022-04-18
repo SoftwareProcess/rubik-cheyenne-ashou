@@ -83,5 +83,10 @@ def _findTopColorEdgePieceInTopLayer(content):
 def _movesToInsertEdge(edge):
     if(edge == 'right'):
         moves = 'RurufUF'
+    elif(edge == 'left'):
+        moves = 'lULUFuf'
+    else:
+        moves = ''
+        print('error: 601 Check _movesToInsertEdge edge input')
     return moves
 
