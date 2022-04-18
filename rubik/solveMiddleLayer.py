@@ -73,7 +73,7 @@ def _checkTopColorEdgePieceInTopLayer(content):
         topFaceEdgePiece = content[4][2][1]
         print('topFaceEdgePiece ', topFaceEdgePiece)
         print('edgepiece: ',content[face][0][1])
-        if(content[face][0][1] == topFaceColor or topFaceEdgePiece == topFaceColor):
+        if(content[0][0][1] == topFaceColor or topFaceEdgePiece == topFaceColor):
             content = solve._rotateToFrontFace(content, face)
             return face
         else:
