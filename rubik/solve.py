@@ -356,4 +356,22 @@ def _switchedge(cube, action):
         cube = switchDownwardsEdges(cube)
     return cube
 
+def optimalUpperRotation(content, startingFace, endingFace):
+    difference = endingFace - startingFace
+    if(abs(difference) == 2):
+        rotations = 'UU'
+    elif(difference <= -3):
+        rotations = 'u'
+    elif(difference >= 3):
+        rotations = 'U'
+    elif(difference == -1):
+        rotations = 'U'
+    elif(difference == 1):
+        rotations = 'u'
+    elif(difference == -3):
+        rotations = 'u'
+    return rotations
+    
+    
+    
 

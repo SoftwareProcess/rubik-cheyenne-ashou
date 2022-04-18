@@ -593,7 +593,9 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedRotations = 'u'
-        actualRotations = solve._optimalUpperRotation(content, face)
+        startingFace = 2
+        endingFace = 3
+        actualRotations = solve.optimalUpperRotation(content, startingFace, endingFace)
         self.assertEqual(expectedRotations, actualRotations)
 
         
