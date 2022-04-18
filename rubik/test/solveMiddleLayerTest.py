@@ -227,8 +227,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
     
-    @unittest.skip('skip while making optimalUpperRotation method')
-    def test_060_rotateEdgeToFace(self):
+    
+    def test_060_rotateEdgeToAdjacentFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
@@ -242,7 +242,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
     
         expectedMoves = 'u'
-        actualMoves = middleLayer._rotateEdgeToFace(content, 'right')
+        actualMoves = middleLayer._rotateEdgeToAdjacentFace(content, 'right')
         
         self.assertEqual(expectedMoves, actualMoves)
         

@@ -81,5 +81,8 @@ def _findEdge(content, edge):
         else:
             content = solve._rotateCubeClockwise(content)
     return sideFaces
+
+def _rotateEdgeToAdjacentFace(content, edge):
+    pass
         
         
