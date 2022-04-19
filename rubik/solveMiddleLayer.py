@@ -146,8 +146,9 @@ def _checkMisorientedEdge(content):
     if(leftEdgeColors['frontFace'] != topFaceColor and 
        leftEdgeColors['leftFace'] != topFaceColor):
         edge = 'left'
-    elif(False):
-        pass
+    elif(rightEdgeColors['frontFace'] != topFaceColor and
+         rightEdgeColors['rightFace'] != topFaceColor):
+        edge = 'right'
     else:
         edge = 'none'
     return edge
