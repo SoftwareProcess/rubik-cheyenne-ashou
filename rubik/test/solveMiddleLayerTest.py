@@ -602,7 +602,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        expectedResult = 'UUlULUFuf'
+        expectedResult = 'UURurufUF'
         edgesPlaced = _checkGoToNextFace(content)
         rightEdgePlaced = edgesPlaced['rightEdge']
         self.assertEqual(rightEdgePlaced, False)
