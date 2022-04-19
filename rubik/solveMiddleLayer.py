@@ -158,7 +158,7 @@ def _checkGoToNextFace(content):
     rightEdgePlaced = _checkEdgePlaced(content, 'right')
     goToNextFace = False
     
-    if(leftEdgePlaced and rightEdgePlaced):
+    if(leftEdgePlaced == True and rightEdgePlaced == True):
         goToNextFace = True
     
     return goToNextFace
