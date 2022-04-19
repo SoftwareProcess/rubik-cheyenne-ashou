@@ -8,7 +8,7 @@ import rubik.cube as cube
 import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
 import rubik.solve as solve
-from rubik.solveMiddleLayer import _checkGoToNextFace
+from rubik.solveMiddleLayer import _checkGoToNextFace, _checkMisorientedEdge
 class SolveMiddleLayerTest(unittest.TestCase):  
     def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
@@ -589,7 +589,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._insertRightEdge(content, rightEdgePlaced)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_130_insertRightEdge_RightEdgeNotPlacedYet(self):
+    def test_131_insertRightEdge_RightEdgeNotPlacedYet(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'gyyybbbbbbbgorrrrryobggbgggyyyyoooooogrryrogrwwwwwwwww'
@@ -607,6 +607,47 @@ class SolveMiddleLayerTest(unittest.TestCase):
         rightEdgePlaced = edgesPlaced['rightEdge']
         self.assertEqual(rightEdgePlaced, False)
         actualResult = middleLayer._insertRightEdge(content, rightEdgePlaced)
+        self.assertEqual(expectedResult, actualResult)
+        
+    def test_140_removeMisorientedLeftEdge_noMisorientedEdge(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'yobggbgggyyyyooooogyyybbbbbbbgorrrrrrgoryrrgowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        actualMisorientedEdge = _checkMisorientedEdge(content)
+        expectedMisorientedEdge = 'none'
+        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
+        expectedResult = ''
+        actualResult = middleLayer._removeMisorientedLeftEdge(content)
+        self.assertEqual(expectedResult, actualResult)
+
+    @unittest.skip('skip while making other test case for this method')    
+    def test_141_removeMisorientedLeftEdge_actualMisorientedEdge(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bbgorrrrryobggbgggyyyyooooogyyybbbbborogygrrrwwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        actualMisorientedEdge = _checkMisorientedEdge(content)
+        expectedMisorientedEdge = 'left'
+        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
+        expectedResult = 'UlULUFuf'
+        actualResult = middleLayer._removeMisorientedLeftEdge(content)
         self.assertEqual(expectedResult, actualResult)
     
     
