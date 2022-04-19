@@ -386,10 +386,10 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedRotations, actualRotations)
         
-    def test_091_solve_NominalMixedCube(self):
+    def test_091_solve_NominalMixedCubeWithBottomLayerSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        inputDict['cube'] = 'yrooryrrryroggbgggbygyoooooygrybbbbbrryoybbggwwwwwwwww'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
