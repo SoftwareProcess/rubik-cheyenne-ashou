@@ -171,11 +171,17 @@ def _insertLeftEdge(content, leftEdgePlaced):
     moves = ''
     if(leftEdgePlaced == False):
         leftEdgeFace = _findEdge(content, 'left')
-        print(leftEdgeFace)
         if(leftEdgeFace != NO_EDGE):
             edge = 'left'
             moves = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
             moves += _movesToInsertEdge(edge)
             content = solve._movecontroller(content, moves)  
+    return moves
+
+def _insertRightEdge(content, rightEdgePlaced):
+    NO_EDGE = 4
+    moves = ''
+    if(rightEdgePlaced == False):
+        moves = 'test'
     return moves
 
