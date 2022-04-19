@@ -8,6 +8,7 @@ import rubik.cube as cube
 import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
 import rubik.solve as solve
+from rubik.solveMiddleLayer import _checkGoToNextFace
 class SolveMiddleLayerTest(unittest.TestCase):  
     def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
@@ -540,7 +541,9 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = ''
-        actualResult = middleLayer._insertLeftEdge(content)
+        edgesPlaced = _checkGoToNextFace(content)
+        leftEdgePlaced = edgesPlaced[1]
+        actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
         
         self.assertEqual(expectedResult, actualResult)
         

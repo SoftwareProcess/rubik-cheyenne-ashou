@@ -165,3 +165,14 @@ def _checkGoToNextFace(content):
     goToNextFace = {'face': facePlaced, 'leftEdge': leftEdgePlaced, 'rightEdge': rightEdgePlaced}
     
     return goToNextFace
+
+# def _insertLeftEdge(content, leftEdgePlaced):
+#     if(leftEdgePlaced == False):
+#         leftEdgeFace = _findEdge(content, 'left')
+#         if(leftEdgeFace != NO_EDGE):
+#             edge = 'left'
+#             move = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
+#             move += _movesToInsertEdge(edge)
+#             content = solve._movecontroller(content, move)  
+#             totalMoves += solve._movetranslator(face, move) 
+    
