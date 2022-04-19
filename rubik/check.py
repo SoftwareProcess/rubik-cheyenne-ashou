@@ -80,7 +80,7 @@ def checkBottomLayerSolved(content):
         rightPiece = content[face][2][2]
         if(leftPiece != middlePiece or rightPiece != middlePiece):
             solved = False
-            exit
+            break
     bottomFace = content[5]
     bottomFaceColor = content[5][1][1]
     for row in bottomFace:
@@ -89,5 +89,5 @@ def checkBottomLayerSolved(content):
         rightPiece = row[2]
         if(leftPiece != bottomFaceColor or middlePiece != bottomFaceColor or rightPiece != bottomFaceColor):
             solved = False
-            exit
+            break
     return solved

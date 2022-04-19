@@ -93,7 +93,7 @@ def _solve(content):
     solved = _checkSolved(content)
     while(solved == False):
         moves += 'uuuuuuuuu'
-        exit
+        break
     return moves
 
 
