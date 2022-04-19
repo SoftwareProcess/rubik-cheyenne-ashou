@@ -162,8 +162,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_041_findEdge_Left(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
-    
+        #inputDict['cube'] = 'royoryrrrgbyogygggrrygoyoooorbrbgbbbbggbyyybowwwwwwwww'
+        inputDict['cube'] = 'yyyorrrrrgyyggbgggbbgyoooooyobybbbbbrrrgygorowwwwwwwww'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
@@ -172,7 +172,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
     
-        expectedResult = 3
+        #expectedResult = 3
+        expectedResult = 2
         actualResult = middleLayer._findEdge(content, 'left')
     
         self.assertEqual(expectedResult, actualResult)
@@ -547,7 +548,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
         
         self.assertEqual(expectedResult, actualResult)
-        
+    @unittest.skip('skip while checking _findEdgeMethod')    
     def test_121_insertLeftEdge_LeftEdgeNotPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
