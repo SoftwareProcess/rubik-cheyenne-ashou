@@ -367,7 +367,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         myCube2._load(inputDict['cube'])
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
-        
+    @unittest.skip('skip while making methods for misplaced edges')    
     def test_090_solve_NominalUnmixedCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -386,6 +386,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedRotations, actualRotations)
         
+    @unittest.skip('skip while making methods for misplaced edges')    
     def test_091_solve_NominalMixedCubeWithBottomLayerSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -410,7 +411,29 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
+    def test_100_checkMisoriented_noMisorientedEdgePieceOnFrontFace(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'broyryrrryoyggbgggbgryooooogooybrbbbyrrgybybgwwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
         
+        expectedResult = 'none'
+        actualResult = middleLayer._checkMisorientedEdge(content)
+        
+        self.assertEqual(expectedResult, actualResult)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        expectedContent = myCube2._getContent()
+        self.assertEqual(expectedContent, content)
+    
         
     
     
