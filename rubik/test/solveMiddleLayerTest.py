@@ -629,7 +629,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._removeMisorientedLeftEdge(content)
         self.assertEqual(expectedResult, actualResult)
 
-    @unittest.skip('skip while making other test case for this method')    
+    
     def test_141_removeMisorientedLeftEdge_actualMisorientedEdge(self):
         inputDict = {}
         inputDict['op'] = 'solve'
