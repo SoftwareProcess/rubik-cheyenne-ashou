@@ -7,6 +7,7 @@ import unittest
 import rubik.cube as cube
 import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
+import rubik.solve as solve
 class SolveMiddleLayerTest(unittest.TestCase):  
     def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
@@ -384,6 +385,31 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualRotations = middleLayer._solve(content)
         
         self.assertEqual(expectedRotations, actualRotations)
+        
+    def test_091_solve_NominalMixedCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        content2 = myCube2._getContent()
+        
+        rotations = middleLayer._solve(content)
+        resultingCube = solve._movecontroller(content2, rotations)
+        expectedResult = True
+        actualResult = check.checkMiddleLayerSolved(resultingCube)
+        
+        self.assertEqual(expectedResult, actualResult)
+        
         
         
     
