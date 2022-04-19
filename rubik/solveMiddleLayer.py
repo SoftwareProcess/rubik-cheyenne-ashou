@@ -153,3 +153,12 @@ def _checkMisorientedEdge(content):
         edge = 'none'
     return edge
 
+def _checkGoToNextFace(content):
+    leftEdgePlaced = _checkEdgePlaced(content, 'left')
+    rightEdgePlaced = _checkEdgePlaced(content, 'right')
+    goToNextFace = False
+    
+    if(leftEdgePlaced and rightEdgePlaced):
+        goToNextFace = True
+    
+    return goToNextFace
