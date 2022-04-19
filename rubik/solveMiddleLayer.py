@@ -179,9 +179,9 @@ def _insertLeftEdge(content, leftEdgePlaced):
     return moves
 
 def _insertRightEdge(content, rightEdgePlaced):
-    # NO_EDGE = 4
-    # moves = ''
-    # if(rightEdgePlaced == False):
-    #     moves = 'test'
-    # return moves
+    NO_EDGE = 4
+    moves = ''
+    if(rightEdgePlaced == False):
+        moves = 'test'
+    return moves
 
