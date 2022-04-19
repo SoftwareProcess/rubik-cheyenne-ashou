@@ -572,7 +572,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_130_insertRightEdge_RightEdgeAlreadyPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'gyyyooooobbgybbbbbyoborrrrryyyggbgggogrryrogrwwwwwwwww'
+        inputDict['cube'] = 'yoborrrrryyyggbggggyyyooooobbgybbbbbrgoryrrgowwwwwwwww'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
