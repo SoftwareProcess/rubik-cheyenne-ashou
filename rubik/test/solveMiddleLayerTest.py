@@ -543,6 +543,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedResult = ''
         edgesPlaced = _checkGoToNextFace(content)
         leftEdgePlaced = edgesPlaced['leftEdge']
+        self.assertEqual(leftEdgePlaced, True)
         actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
         
         self.assertEqual(expectedResult, actualResult)
