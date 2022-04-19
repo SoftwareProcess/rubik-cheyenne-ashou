@@ -134,7 +134,23 @@ def _solve(content):
     content = solve._rotateToFrontFace(content, face)
     return totalMoves
 
-
-
-
+def _checkMisorientedEdge(content):
+    topFaceColor = content[4][1][1]
+    leftEdgeColors = {'frontFace': content[0][1][0],
+                      'leftFace': content[3][1][2]
+                    }
+    rightEdgeColors = {'frontFace': content[0][1][2],
+                    'rightFace': content[1][1][0]
+                    } 
+    
+    # if(leftEdgeColors['frontFace'] != topFaceColor and
+       # leftEdgeColors['leftFace'] != topFaceColor):
+       #  edge = 'left'
+    if(False):
+       pass
+    elif(False):
+        pass
+    else:
+        edge = 'none'
+    return edge
 
