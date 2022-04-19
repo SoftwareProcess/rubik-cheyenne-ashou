@@ -49,7 +49,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
-        
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
@@ -66,8 +65,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_020_checkLeftEdgePlaced_ShouldReturnTrueBecauseMiddleLayerAlreadySolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
-        
+        #inputDict['cube'] = 'byyrrrgrbrgggggrggorrooooooyyobbbbbrbyyoyyybgwwwwwwwww'
+        inputDict['cube'] = 'ogbrrrrrryorggbgggyygyoooooyogybbbbbrrbgybyyowwwwwwwww'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
@@ -502,7 +501,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         myCube2._load(inputDict['cube'])
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
-        
+    @unittest.skip('skip while checking checkEdgeSolvedMethod')    
     def test_110_checkGoToNextFace_FaceAlreadySolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'

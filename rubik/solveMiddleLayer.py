@@ -23,7 +23,7 @@ def _checkEdgePlaced(content, edge):
         sideFaceColor = content[3][1][1]
     elif(edge == 'right'):
         frontFaceEdgeColor = content[0][1][2]
-        sideFaceEdgeColor = content[1][1][2]
+        sideFaceEdgeColor = content[1][1][0]
         frontFaceColor = content[0][1][1]
         sideFaceColor = content[1][1][1]
     else:
