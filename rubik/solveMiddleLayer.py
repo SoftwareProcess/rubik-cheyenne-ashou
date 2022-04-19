@@ -159,6 +159,8 @@ def _checkGoToNextFace(content):
     
     if(leftEdgePlaced == True and rightEdgePlaced == True):
         facePlaced = True
+    else:
+        facePlaced = False
     
     goToNextFace = {'face': facePlaced, 'leftEdge': leftEdgePlaced, 'rightEdge': rightEdgePlaced}
     
