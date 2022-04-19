@@ -548,10 +548,26 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
-        # myCube2 = cube.Cube()
-        # myCube2._load(inputDict['cube'])
-        # expectedContent = myCube2._getContent()
-        # self.assertEqual(expectedContent, content)
+    def test_121_insertLeftEdge_LeftEdgeNotPlaced(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'yyyorrrrrgyyggbgggbbgyoooooyobybbbbbrrrgygorowwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = 'UlULUFuf'
+        edgesPlaced = _checkGoToNextFace(content)
+        leftEdgePlaced = edgesPlaced['leftEdge']
+        self.assertEqual(leftEdgePlaced, True)
+        actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
+        self.assertEqual(expectedResult, actualResult)
+    
     
     
         
