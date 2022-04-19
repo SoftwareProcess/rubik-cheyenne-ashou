@@ -192,3 +192,12 @@ def _insertRightEdge(content, rightEdgePlaced):
             content = solve._movecontroller(content, moves)  
     return moves
 
+def _removeMisorientedLeftEdge(content):
+    misoriented = _checkMisorientedEdge(content)
+    moves = ''
+    if(misoriented == 'left'):
+        pass
+    else:
+        pass
+    return moves
+        
