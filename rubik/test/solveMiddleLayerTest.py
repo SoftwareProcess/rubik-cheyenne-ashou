@@ -501,7 +501,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         myCube2._load(inputDict['cube'])
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
-    @unittest.skip('skip while checking checkEdgeSolvedMethod')    
+    
     def test_110_checkGoToNextFace_FaceAlreadySolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
