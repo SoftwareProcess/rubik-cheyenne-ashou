@@ -88,7 +88,7 @@ def _movesToInsertEdge(edge):
         print('error: 601 Check _movesToInsertEdge edge input')
     return moves
 
-def solve(content):
+def _solve(content):
     moves = ''
     solved = _checkSolved(content)
     while(solved == False):
