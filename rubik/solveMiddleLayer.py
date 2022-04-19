@@ -171,6 +171,7 @@ def _insertLeftEdge(content, leftEdgePlaced):
     moves = ''
     if(leftEdgePlaced == False):
         leftEdgeFace = _findEdge(content, 'left')
+        print(leftEdgeFace)
         if(leftEdgeFace != NO_EDGE):
             edge = 'left'
             moves = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
