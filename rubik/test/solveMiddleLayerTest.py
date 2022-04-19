@@ -437,7 +437,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_101_checkMisoriented_misorientedLedgeEdgePieceOnFrontFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ygyoryoooobbggbgggrrryooooogooybbbbbyyygyrgrbwwwwwwwww'
+        inputDict['cube'] = 'ygyoryrrrobbggbgggrrryooooogooybbbbbyyygyrgrbwwwwwwwww'
     
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
