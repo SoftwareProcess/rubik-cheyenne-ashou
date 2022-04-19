@@ -479,7 +479,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    @unittest.skip('skip while making adjustments to current method')
+    
     def test_110_checkGoToNextFace_StayOnFaceEdgesNotPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -493,7 +493,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        expectedResult = False
+        expectedResult = {'face': False, 'leftEdge': False, 'rightEdge': False}
         actualResult = middleLayer._checkGoToNextFace(content)
         
         self.assertEqual(expectedResult, actualResult)
