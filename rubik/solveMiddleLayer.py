@@ -95,7 +95,7 @@ def _solve(content):
         edgesPlaced = _checkGoToNextFace(content)
         goToNextFace = edgesPlaced['face']
         if(goToNextFace == True):
-            content = solve._rotateCubeClockwise(content, face)
+            content = solve._rotateCubeClockwise(content)
         moves = _insertEdges(content)
         totalMoves += solve._movetranslator(face, moves)
         moves = _removeMisorientedEdges(content)
