@@ -102,7 +102,7 @@ class SolveTest(unittest.TestCase):
         
         myCube2 = cube.Cube()     
         resultingCubeDict = solve._solve(solveDict)
-        
+        print(resultingCubeDict)
         myCube2._load(resultingCubeDict['cube'])
         resultingCube = myCube2._getContent()
         
