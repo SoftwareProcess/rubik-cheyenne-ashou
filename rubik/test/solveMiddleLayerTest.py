@@ -410,6 +410,30 @@ class SolveMiddleLayerTest(unittest.TestCase):
         
         self.assertEqual(expectedResult, actualResult)
         
+    def test_092_solve_NominalMixedCubeWithBottomLayerSolved(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'oyrorgrrrgbrrgbgggyygyoboooooyrbgbbbyrbyyobgywwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        myCube2 = cube.Cube()
+        myCube2._load(inputDict['cube'])
+        content2 = myCube2._getContent()
+        
+        rotations = middleLayer._solve(content)
+        resultingCube = solve._movecontroller(content2, rotations)
+        expectedResult = True
+        actualResult = check.checkMiddleLayerSolved(resultingCube)
+        
+        self.assertEqual(expectedResult, actualResult)
+        
     def test_100_checkMisoriented_noMisorientedEdgePieceOnFrontFace(self):
         inputDict = {}
         inputDict['op'] = 'solve'
