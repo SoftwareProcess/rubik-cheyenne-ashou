@@ -232,3 +232,12 @@ def _removeMisorientedEdge(content):
     moves += _removeMisorientedLeftEdge(content)
     moves += _removeMisorientedRightEdge(content)
     return moves
+
+def _insertEdges(content):
+    edgesPlaced = _checkGoToNextFace(content)
+    leftEdgePlaced = edgesPlaced['leftEdge']
+    rightEdgePlaced = edgesPlaced['rightEdge']
+    moves = ''
+    moves += _insertLeftEdge(content, leftEdgePlaced)
+    moves += _insertRightEdge(content, rightEdgePlaced)
+    return moves
