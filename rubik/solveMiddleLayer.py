@@ -124,19 +124,6 @@ def _checkMisorientedEdge(content):
         edge = 'none'
     return edge
 
-def _checkGoToNextFace(content):
-    leftEdgePlaced = _checkEdgePlaced(content, 'left')
-    rightEdgePlaced = _checkEdgePlaced(content, 'right')
-    
-    if(leftEdgePlaced == True and rightEdgePlaced == True):
-        facePlaced = True
-    else:
-        facePlaced = False
-    
-    goToNextFace = {'face': facePlaced, 'leftEdge': leftEdgePlaced, 'rightEdge': rightEdgePlaced}
-    
-    return goToNextFace
-
 def _insertLeftEdge(content, leftEdgePlaced):
     NO_EDGE = 4
     moves = ''
