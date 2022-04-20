@@ -197,10 +197,10 @@ def _removeMisorientedLeftEdge(content):
     moves = ''
     topFaceColor = content[4][1][1]
     if(misorientedEdge == 'left'):
-        adjacentLeftEdgePiece = content[3][0][2]
-        adjacentLeftUpperEdgePiece = content[4][1][0]
-        if(adjacentLeftEdgePiece != topFaceColor
-           and adjacentLeftUpperEdgePiece != topFaceColor):
+        adjacentRightFaceEdgePiece = content[1][0][1]
+        adjacentRightFaceUpperEdgePiece = content[4][1][2]
+        if(adjacentRightFaceEdgePiece != topFaceColor
+           and adjacentRightFaceUpperEdgePiece != topFaceColor):
             replacementEdgeFace = _findTopColorEdgePieceInTopLayer(content)
         else:
             replacementEdgeFace = 3
