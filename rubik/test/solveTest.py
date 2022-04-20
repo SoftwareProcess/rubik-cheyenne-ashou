@@ -24,7 +24,7 @@ class SolveTest(unittest.TestCase):
         
         solveResult = solve._solve(inputDict)
         rotations = solveResult['solution']
-        print(rotations)
+        
         solveDict = {}
         solveDict['op'] = 'solve'
         solveDict['cube'] = inputDict['cube']
@@ -32,16 +32,50 @@ class SolveTest(unittest.TestCase):
          
         myCube2 = cube.Cube()     
         resultingCubeDict = solve._solve(solveDict)
-        print(resultingCubeDict)
+        
         myCube2._load(resultingCubeDict['cube'])
         resultingCube = myCube2._getContent()
-        print(resultingCube)
+        
         bottomLayerResult = check.checkBottomLayerSolved(resultingCube)
         middleLayerResult = check.checkMiddleLayerSolved(resultingCube)
         
         expectedResult = True
         self.assertEqual(expectedResult, bottomLayerResult)
         self.assertEqual(expectedResult, middleLayerResult)
+        
+    def test_solve_001_ShouldSolvedBottomAndMiddleLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'rggorbobgrobrbgryyrggrobbrywrwogwoywowyywgbywbwybyogwo'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        solveResult = solve._solve(inputDict)
+        rotations = solveResult['solution']
+        
+        solveDict = {}
+        solveDict['op'] = 'solve'
+        solveDict['cube'] = inputDict['cube']
+        solveDict['rotate'] = rotations
+         
+        myCube2 = cube.Cube()     
+        resultingCubeDict = solve._solve(solveDict)
+        
+        myCube2._load(resultingCubeDict['cube'])
+        resultingCube = myCube2._getContent()
+        
+        bottomLayerResult = check.checkBottomLayerSolved(resultingCube)
+        middleLayerResult = check.checkMiddleLayerSolved(resultingCube)
+        
+        expectedResult = True
+        self.assertEqual(expectedResult, bottomLayerResult)
+        self.assertEqual(expectedResult, middleLayerResult)
+        
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'
