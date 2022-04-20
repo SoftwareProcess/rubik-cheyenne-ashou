@@ -202,4 +202,10 @@ def _removeMisorientedLeftEdge(content):
         content = solve._movecontroller(content, moves)
 
     return moves
-        
+
+def _removeMisorientedRightEdge(content):
+    misorientedEdge = _checkMisorientedEdge(content)
+    moves = ''
+    if(misorientedEdge == 'right'):
+        moves = 'test'
+    return moves
