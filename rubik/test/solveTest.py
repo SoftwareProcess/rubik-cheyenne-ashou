@@ -47,7 +47,7 @@ class SolveTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'solve'
         
-        inputDict['cube'] = 'rggorbobgrobrbgryyrggrobbrywrwogwoywowyywgbywbwybyogwo'
+        inputDict['cube'] = 'rrwbrbrwrrooobbbygbggwoyorworgggyowgywyywgwgbyryoyobbw'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
     
