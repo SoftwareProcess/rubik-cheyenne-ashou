@@ -385,8 +385,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualRotations = middleLayer._solve(content)
         
         self.assertEqual(expectedRotations, actualRotations)
-        
-    @unittest.skip('skip while making methods for misplaced edges')    
+          
     def test_091_solve_NominalMixedCubeWithBottomLayerSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
