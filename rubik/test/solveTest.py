@@ -46,8 +46,8 @@ class SolveTest(unittest.TestCase):
     def test_solve_001_ShouldSolvedBottomAndMiddleLayer(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'gbbwrbywrroywgrgggobwyoboowbgyobgboroybyyyorygrwgwrrww'
-        #inputDict['cube'] = 'rrwbrbrwrrooobbbygbggwoyorworgggyowgywyywgwgbyryoyobbw'
+        #inputDict['cube'] = 'gbbwrbywrroywgrgggobwyoboowbgyobgboroybyyyorygrwgwrrww'
+        inputDict['cube'] = 'rrwbrbrwrrooobbbygbggwoyorworgggyowgywyywgwgbyryoyobbw'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
     
