@@ -5,6 +5,9 @@ Created on Apr 17, 2022
 '''
 import rubik.check as check
 import rubik.solve as solve
+
+NO_EDGE = 4
+
 def _checkSolved(content):
     solved = True
     bottomSolved = check.checkBottomLayerSolved(content)
@@ -87,7 +90,6 @@ def _movesToInsertEdge(edge):
     return moves
 
 def _solve(content):
-    NO_EDGE = 4
     totalMoves = ''
     face = 0
     solved = _checkSolved(content)
@@ -125,7 +127,6 @@ def _checkMisorientedEdge(content):
     return edge
 
 def _insertLeftEdge(content, leftEdgePlaced):
-    NO_EDGE = 4
     moves = ''
     if(leftEdgePlaced == False):
         leftEdgeFace = _findEdge(content, 'left')
@@ -137,7 +138,6 @@ def _insertLeftEdge(content, leftEdgePlaced):
     return moves
 
 def _insertRightEdge(content, rightEdgePlaced):
-    NO_EDGE = 4
     moves = ''
     if(rightEdgePlaced == False):
         rightEdgeFace = _findEdge(content, 'right')
