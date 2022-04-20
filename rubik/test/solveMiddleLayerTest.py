@@ -727,7 +727,22 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._removeMisorientedEdge(content)
         self.assertEqual(expectedResult, actualResult)
     
+    def test_170_insertEdges_noEdgesToInsert(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ygbgrbrrrroyrgbgggorgyoooooobgybrbbbyyboygryywwwwwwwww'
     
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        expectedResult = ''
+        actualResult = middleLayer._insertEdges(content)
+        self.assertEqual(expectedResult, actualResult)
     
         
     
