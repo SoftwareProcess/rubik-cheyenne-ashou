@@ -74,6 +74,7 @@ class SolveTest(unittest.TestCase):
         
         expectedResult = True
         self.assertEqual(expectedResult, bottomLayerResult)
+        print(resultingCube)
         self.assertEqual(expectedResult, middleLayerResult)
         
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
