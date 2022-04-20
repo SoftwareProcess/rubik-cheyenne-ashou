@@ -684,7 +684,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'left'
+        expectedMisorientedEdge = 'right'
         self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = 'RurufUF'
         actualResult = middleLayer._removeMisorientedLeftEdge(content)
