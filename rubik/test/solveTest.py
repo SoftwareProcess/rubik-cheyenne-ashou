@@ -23,7 +23,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         rotations = solve._solve(inputDict)
-        
+        print(rotations)
         solveDict = {}
         solveDict['op'] = 'solve'
         solveDict['cube'] = inputDict['cube']
