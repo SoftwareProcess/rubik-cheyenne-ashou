@@ -216,16 +216,13 @@ def _removeMisorientedRightEdge(content):
     topFaceColor = content[4][1][1]
     print(misorientedEdge)
     if(misorientedEdge == 'right'):
-        print('yuh')
         adjacentRightFaceEdgePiece = content[3][0][1]
         adjacentRightFaceUpperEdgePiece = content[4][1][0]
         if(adjacentRightFaceEdgePiece != topFaceColor
            and adjacentRightFaceUpperEdgePiece != topFaceColor):
-            print('hbh')
             replacementEdgeFace = _findTopColorEdgePieceInTopLayer(content)
         else:
             replacementEdgeFace = 3
-            print('yuyuyuyuyu')
         moves = _rotateEdgeToAdjacentFace(content, replacementEdgeFace, misorientedEdge)
         moves += _movesToInsertEdge(misorientedEdge)
         content = solve._movecontroller(content, moves)
