@@ -193,11 +193,13 @@ def _insertRightEdge(content, rightEdgePlaced):
     return moves
 
 def _removeMisorientedLeftEdge(content):
-    misoriented = _checkMisorientedEdge(content)
+    misorientedEdge = _checkMisorientedEdge(content)
     moves = ''
-    if(misoriented == 'left'):
-        pass
-    else:
-        pass
+    if(misorientedEdge == 'left'):
+        replacementEdgeFace = _findTopColorEdgePieceInTopLayer(content)
+        moves = _rotateEdgeToAdjacentFace(content, replacementEdgeFace, misorientedEdge)
+        moves += _movesToInsertEdge(misorientedEdge)
+        content = solve._movecontroller(content, moves)
+
     return moves
         
