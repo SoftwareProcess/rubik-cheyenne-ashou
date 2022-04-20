@@ -8,7 +8,7 @@ import rubik.cube as cube
 import rubik.check as check
 import rubik.solveMiddleLayer as middleLayer
 import rubik.solve as solve
-from rubik.solveMiddleLayer import _checkGoToNextFace, _checkMisorientedEdge
+
 class SolveMiddleLayerTest(unittest.TestCase):  
     def test_010_checkSolvedTest_ShouldReturnTrueForFullySolvedCube(self):
         inputDict = {}
@@ -501,53 +501,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
         
-    
-    def test_110_checkGoToNextFace_StayOnFaceEdgesNotPlaced(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'brbrrgrrrroyogbggggggyoooooyroybybbbryobybygywwwwwwwww'
-    
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-    
-        expectedCheck = {'status': 'ok'}
-        actualCheck = check._check(inputDict)
-        self.assertEqual(expectedCheck, actualCheck)
-        
-        expectedResult = {'face': False, 'leftEdge': False, 'rightEdge': False}
-        actualResult = middleLayer._checkGoToNextFace(content)
-        
-        self.assertEqual(expectedResult, actualResult)
-        
-        myCube2 = cube.Cube()
-        myCube2._load(inputDict['cube'])
-        expectedContent = myCube2._getContent()
-        self.assertEqual(expectedContent, content)
-    
-    def test_111_checkGoToNextFace_FaceAlreadySolved(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ogbrrrrrryorggbgggyygyoooooyogybbbbbrrbgybyyowwwwwwwww'
-    
-        myCube = cube.Cube()
-        myCube._load(inputDict['cube'])
-        content = myCube._getContent()
-    
-        expectedCheck = {'status': 'ok'}
-        actualCheck = check._check(inputDict)
-        self.assertEqual(expectedCheck, actualCheck)
-        
-        expectedResult = {'face': True, 'leftEdge': True, 'rightEdge': True}
-        actualResult = middleLayer._checkGoToNextFace(content)
-        
-        self.assertEqual(expectedResult, actualResult)
-        
-        myCube2 = cube.Cube()
-        myCube2._load(inputDict['cube'])
-        expectedContent = myCube2._getContent()
-        self.assertEqual(expectedContent, content)
-        
     def test_120_insertLeftEdge_LeftEdgeAlreadyPlaced(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -562,8 +515,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = ''
-        edgesPlaced = _checkGoToNextFace(content)
-        leftEdgePlaced = edgesPlaced['leftEdge']
+        edgesPlaced = middleLayer._checkEdgePlaced(content, 'left')
+        leftEdgePlaced = edgesPlaced
         self.assertEqual(leftEdgePlaced, True)
         actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
         
@@ -584,8 +537,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 'UlULUFuf'
-        edgesPlaced = _checkGoToNextFace(content)
-        leftEdgePlaced = edgesPlaced['leftEdge']
+        edgesPlaced = middleLayer._checkEdgePlaced(content, 'left')
+        leftEdgePlaced = edgesPlaced
         self.assertEqual(leftEdgePlaced, False)
         actualResult = middleLayer._insertLeftEdge(content, leftEdgePlaced)
         self.assertEqual(expectedResult, actualResult)
@@ -604,8 +557,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = ''
-        edgesPlaced = _checkGoToNextFace(content)
-        rightEdgePlaced = edgesPlaced['rightEdge']
+        edgesPlaced = middleLayer._checkEdgePlaced(content, 'right')
+        rightEdgePlaced = edgesPlaced
         self.assertEqual(rightEdgePlaced, True)
         actualResult = middleLayer._insertRightEdge(content, rightEdgePlaced)
         self.assertEqual(expectedResult, actualResult)
@@ -624,8 +577,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 'UURurufUF'
-        edgesPlaced = _checkGoToNextFace(content)
-        rightEdgePlaced = edgesPlaced['rightEdge']
+        edgesPlaced = middleLayer._checkEdgePlaced(content, 'right')
+        rightEdgePlaced = edgesPlaced
         self.assertEqual(rightEdgePlaced, False)
         actualResult = middleLayer._insertRightEdge(content, rightEdgePlaced)
         self.assertEqual(expectedResult, actualResult)
@@ -643,9 +596,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'none'
-        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = ''
         actualResult = middleLayer._removeMisorientedLeftEdge(content)
         self.assertEqual(expectedResult, actualResult)
@@ -664,9 +614,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'left'
-        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = 'UlULUFuf'
         actualResult = middleLayer._removeMisorientedLeftEdge(content)
         self.assertEqual(expectedResult, actualResult)
@@ -684,9 +631,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'none'
-        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = ''
         actualResult = middleLayer._removeMisorientedRightEdge(content)
         self.assertEqual(expectedResult, actualResult)
@@ -704,9 +648,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'right'
-        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = 'RurufUF'
         actualResult = middleLayer._removeMisorientedRightEdge(content)
         self.assertEqual(expectedResult, actualResult)
@@ -724,9 +665,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        actualMisorientedEdge = _checkMisorientedEdge(content)
-        expectedMisorientedEdge = 'none'
-        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = ''
         actualResult = middleLayer._removeMisorientedEdges(content)
         self.assertEqual(expectedResult, actualResult)
