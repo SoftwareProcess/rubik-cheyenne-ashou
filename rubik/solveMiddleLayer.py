@@ -96,7 +96,7 @@ def _solve(content):
     solved = _checkSolved(content)
     while(solved == False):
         edgesPlaced = _checkGoToNextFace(content)
-        goToNextFace = edgesPlaced[0]
+        goToNextFace = edgesPlaced['face']
         if(goToNextFace == True):
             _rotateCubeClockwise(content, face)
         moves = _insertEdges(content)
