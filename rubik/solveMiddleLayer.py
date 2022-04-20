@@ -64,8 +64,6 @@ def _rotateEdgeToAdjacentFace(content, startingFace, edge):
     return moves
 
 def _findTopColorEdgePieceInTopLayer(content):
-    #it is okay when there is atleast 1 yellow edge available
-    #if no yellow edges available, take edge misplaced edge out
     sideFaces = 4
     
     topFaceColor = content[4][1][1]
@@ -101,7 +99,7 @@ def _solve(content):
             content = _rotateCubeClockwise(content, face)
         moves = _insertEdges(content)
         totalMoves += _movetranslator(face, moves)
-        moves = _removeMisorientedEdge(content)
+        moves = _removeMisorientedEdges(content)
         totalMoves += _movetranslator(face, moves)
         solved = _checkSolved(content)
         if(solved == False):
@@ -203,7 +201,7 @@ def _removeMisorientedRightEdge(content):
         content = solve._movecontroller(content, moves)
     return moves
 
-def _removeMisorientedEdge(content):
+def _removeMisorientedEdges(content):
     moves = ''
     moves += _removeMisorientedLeftEdge(content)
     moves += _removeMisorientedRightEdge(content)

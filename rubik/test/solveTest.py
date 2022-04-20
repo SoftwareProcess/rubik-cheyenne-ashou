@@ -7,8 +7,39 @@ import unittest
 import rubik.solve as solve
 import rubik.cube as cube
 import rubik.check as check
+import rubik.solveMiddleLayer as middleLayer
 
 class SolveTest(unittest.TestCase):
+    def test_solve_000_ShouldSolvedBottomAndMiddleLayer(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wogwryybgrbrggrrbbbrggooyybwrowbgowgobwyyybgwowyrwoyor'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        rotations = solve._solve(inputDict)
+        
+        solveDict = {}
+        solveDict['op'] = 'solve'
+        solveDict['cube'] = inputDict['cube']
+        solveDict['rotate'] = rotations
+         
+        myCube2 = cube.Cube()     
+        resultingCubeDict = solve._solve(solveDict)
+        myCube2._load(resultingCubeDict['cube'])
+        resultingCube = myCube2._getContent()
+        print(resultingCube)
+        bottomLayerResult = check.checkBottomLayerSolved(resultingCube)
+        middleLayerResult = check.checkMiddleLayerSolved(resultingCube)
+        
+        expectedResult = True
+        self.assertEqual(expectedResult, bottomLayerResult)
+        self.assertEqual(expectedResult, middleLayerResult)
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['cube'] = 'bggwbybyrwogorrybwogrbgooggbwoworworwwybygyyoyrgbwyrrb'

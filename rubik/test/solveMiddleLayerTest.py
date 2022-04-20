@@ -426,7 +426,6 @@ class SolveMiddleLayerTest(unittest.TestCase):
         myCube2 = cube.Cube()
         myCube2._load(inputDict['cube'])
         content2 = myCube2._getContent()
-        
         rotations = middleLayer._solve(content)
         resultingCube = solve._movecontroller(content2, rotations)
         expectedResult = True
@@ -713,7 +712,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         actualResult = middleLayer._removeMisorientedRightEdge(content)
         self.assertEqual(expectedResult, actualResult)
         
-    def test_160_removeMisorientedEdge_noMisorientedLeftOrRightEdge(self):
+    def test_160_removeMisorientedEdges_noMisorientedLeftOrRightEdge(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yobggbgggyyyyooooogyyybbbbbbbgorrrrrrgoryrrgowwwwwwwww'
@@ -730,7 +729,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedMisorientedEdge = 'none'
         self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
         expectedResult = ''
-        actualResult = middleLayer._removeMisorientedEdge(content)
+        actualResult = middleLayer._removeMisorientedEdges(content)
         self.assertEqual(expectedResult, actualResult)
         
     def test_161_removeMisorientedEdge_misorientedLeftAndRightEdge(self):
@@ -747,7 +746,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedCheck, actualCheck)
         
         expectedResult = 'lULUFufUURurufUF'
-        actualResult = middleLayer._removeMisorientedEdge(content)
+        actualResult = middleLayer._removeMisorientedEdges(content)
         self.assertEqual(expectedResult, actualResult)
     
     def test_170_insertEdges_noEdgesToInsert(self):
