@@ -94,6 +94,7 @@ def _solve(content):
     while(solved == False):
         edgesPlaced = _checkGoToNextFace(content)
         goToNextFace = edgesPlaced['face']
+        print(goToNextFace)
         if(goToNextFace == True):
             solved = _checkSolved(content)
             if(solved == True):
