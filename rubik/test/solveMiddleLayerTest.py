@@ -669,6 +669,27 @@ class SolveMiddleLayerTest(unittest.TestCase):
         expectedResult = ''
         actualResult = middleLayer._removeMisorientedRightEdge(content)
         self.assertEqual(expectedResult, actualResult)
+        
+    @unittest.skip('skip while editing _findTopColorEdgePieceInTopLayer method')    
+    def test_141_removeMisorientedRightEdge_actualMisorientedEdge(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'gyyybbbbbbbgorrrrryobggbgggyyyyoooooogrryrogrwwwwwwwww'
+    
+        myCube = cube.Cube()
+        myCube._load(inputDict['cube'])
+        content = myCube._getContent()
+    
+        expectedCheck = {'status': 'ok'}
+        actualCheck = check._check(inputDict)
+        self.assertEqual(expectedCheck, actualCheck)
+        
+        actualMisorientedEdge = _checkMisorientedEdge(content)
+        expectedMisorientedEdge = 'left'
+        self.assertEqual(expectedMisorientedEdge, actualMisorientedEdge)
+        expectedResult = 'RurufUF'
+        actualResult = middleLayer._removeMisorientedLeftEdge(content)
+        self.assertEqual(expectedResult, actualResult)
     
     
     
