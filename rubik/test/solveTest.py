@@ -57,7 +57,7 @@ class SolveTest(unittest.TestCase):
         
         solveResult = solve._solve(inputDict)
         rotations = solveResult['solution']
-        print(rotations)
+       
         solveDict = {}
         solveDict['op'] = 'solve'
         solveDict['cube'] = inputDict['cube']
@@ -74,7 +74,7 @@ class SolveTest(unittest.TestCase):
         
         expectedResult = True
         self.assertEqual(expectedResult, bottomLayerResult)
-        print(resultingCube)
+
         self.assertEqual(expectedResult, middleLayerResult)
         
     def test_solve_002_NominalUnmixedCubeNoMovesRequired(self):
@@ -91,7 +91,6 @@ class SolveTest(unittest.TestCase):
         
         solveResult = solve._solve(inputDict)
         rotations = solveResult['solution']
-        print(rotations)
         solveDict = {}
         solveDict['op'] = 'solve'
         solveDict['cube'] = inputDict['cube']
