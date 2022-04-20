@@ -98,49 +98,15 @@ def _solve(content):
         edgesPlaced = _checkGoToNextFace(content)
         goToNextFace = edgesPlaced['face']
         if(goToNextFace == True):
-            _rotateCubeClockwise(content, face)
+            content = _rotateCubeClockwise(content, face)
         moves = _insertEdges(content)
         totalMoves += _movetranslator(face, moves)
         moves = _removeMisorientedEdge(content)
         totalMoves += _movetranslator(face, moves)
-        # leftEdgePlaced = _checkEdgePlaced(content, 'left')
-        # rightEdgePlaced = _checkEdgePlaced(content, 'right')
-        # if(leftEdgePlaced == True and rightEdgePlaced == True):
-        #     solved = _checkSolved(content)
-        #     content = solve._rotateCubeClockwise(content)
-        #     face = (face + 1) % 4
-        #     continue
-        # if(leftEdgePlaced == False):
-        #     leftEdgeFace = _findEdge(content, 'left')
-        #     if(leftEdgeFace != NO_EDGE):
-        #         edge = 'left'
-        #         move = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
-        #         move += _movesToInsertEdge(edge)
-        #         content = solve._movecontroller(content, move)  
-        #         totalMoves += solve._movetranslator(face, move)       
-        # if(rightEdgePlaced == False):
-        #     rightEdgeFace = _findEdge(content, 'right')
-        #     if(rightEdgeFace != NO_EDGE):
-        #         edge = 'right'
-        #         move = _rotateEdgeToAdjacentFace(content, rightEdgeFace, edge)
-        #         move += _movesToInsertEdge(edge)
-        #         content = solve._movecontroller(content, move)
-        #         totalMoves += solve._movetranslator(face, move)
-        
-        #if piece is valid edge piece, remove it, but make sure you switch it with yellow edge or correct edge
-        # make sure to do checkEdgePlaced first so you don't remove the edge you just placed
-        
-        
-        # if(_checkEdgePlaced(content, 'left') == False):
-        #     topLayerEdgePieceFace = _findTopColorEdgePieceInTopLayer(content)
-        #     if(topLayerEdgePieceFace != NO_EDGE):
-        #         move = _rotateEdgeToAdjacentFace(content, topLayerEdgePieceFace, edge)
-        #         move += _movesToInsertEdge(edge)
-        #     else:
-        #         move = _rotateEdgeToAdjacentFace(content, startingFace, edge)
         solved = _checkSolved(content)
         if(solved == False):
             face = (face + 1) % 4
+            content = _rotateCubeClockwise(content)
     content = solve._rotateToFrontFace(content, face)
     return totalMoves
 
