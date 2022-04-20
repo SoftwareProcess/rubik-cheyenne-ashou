@@ -97,6 +97,7 @@ def _solve(content):
         print(edgesPlaced)
         if(goToNextFace == True):
             solved = _checkSolved(content)
+            print(solved)
             if(solved == True):
                 break
             face = (face + 1) % 4
