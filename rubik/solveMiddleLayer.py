@@ -214,6 +214,7 @@ def _removeMisorientedRightEdge(content):
     misorientedEdge = _checkMisorientedEdge(content)
     moves = ''
     topFaceColor = content[4][1][1]
+    print(misorientedEdge)
     if(misorientedEdge == 'right'):
         print('yuh')
         adjacentRightFaceEdgePiece = content[3][0][1]
