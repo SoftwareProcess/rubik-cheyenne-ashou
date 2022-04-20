@@ -95,15 +95,15 @@ def _solve(content):
         edgesPlaced = _checkGoToNextFace(content)
         goToNextFace = edgesPlaced['face']
         if(goToNextFace == True):
-            content = _rotateCubeClockwise(content, face)
+            content = solve._rotateCubeClockwise(content, face)
         moves = _insertEdges(content)
-        totalMoves += _movetranslator(face, moves)
+        totalMoves += solve._movetranslator(face, moves)
         moves = _removeMisorientedEdges(content)
-        totalMoves += _movetranslator(face, moves)
+        totalMoves += solve._movetranslator(face, moves)
         solved = _checkSolved(content)
         if(solved == False):
             face = (face + 1) % 4
-            content = _rotateCubeClockwise(content)
+            content = solve._rotateCubeClockwise(content)
     content = solve._rotateToFrontFace(content, face)
     return totalMoves
 
