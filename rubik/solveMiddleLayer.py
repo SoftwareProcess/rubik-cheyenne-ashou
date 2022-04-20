@@ -231,5 +231,5 @@ def _removeMisorientedRightEdge(content):
 def _removeMisorientedEdge(content):
     moves = ''
     moves += _removeMisorientedLeftEdge(content)
-    moves += _removeMisorientedEdge(content)
+    moves += _removeMisorientedRightEdge(content)
     return moves
