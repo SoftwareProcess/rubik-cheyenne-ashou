@@ -227,3 +227,9 @@ def _removeMisorientedRightEdge(content):
         moves += _movesToInsertEdge(misorientedEdge)
         content = solve._movecontroller(content, moves)
     return moves
+
+def _removeMisorientedEdge(content):
+    moves = ''
+    moves += _removeMisorientedLeftEdge(content)
+    moves += _removeMisorientedEdge(content)
+    return moves
