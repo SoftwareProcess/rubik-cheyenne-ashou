@@ -94,29 +94,30 @@ def _solve(content):
     face = 0
     solved = _checkSolved(content)
     while(solved == False):
-        leftEdgePlaced = _checkEdgePlaced(content, 'left')
-        rightEdgePlaced = _checkEdgePlaced(content, 'right')
-        if(leftEdgePlaced == True and rightEdgePlaced == True):
-            solved = _checkSolved(content)
-            content = solve._rotateCubeClockwise(content)
-            face = (face + 1) % 4
-            continue
-        if(leftEdgePlaced == False):
-            leftEdgeFace = _findEdge(content, 'left')
-            if(leftEdgeFace != NO_EDGE):
-                edge = 'left'
-                move = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
-                move += _movesToInsertEdge(edge)
-                content = solve._movecontroller(content, move)  
-                totalMoves += solve._movetranslator(face, move)       
-        if(rightEdgePlaced == False):
-            rightEdgeFace = _findEdge(content, 'right')
-            if(rightEdgeFace != NO_EDGE):
-                edge = 'right'
-                move = _rotateEdgeToAdjacentFace(content, rightEdgeFace, edge)
-                move += _movesToInsertEdge(edge)
-                content = solve._movecontroller(content, move)
-                totalMoves += solve._movetranslator(face, move)
+        break
+        # leftEdgePlaced = _checkEdgePlaced(content, 'left')
+        # rightEdgePlaced = _checkEdgePlaced(content, 'right')
+        # if(leftEdgePlaced == True and rightEdgePlaced == True):
+        #     solved = _checkSolved(content)
+        #     content = solve._rotateCubeClockwise(content)
+        #     face = (face + 1) % 4
+        #     continue
+        # if(leftEdgePlaced == False):
+        #     leftEdgeFace = _findEdge(content, 'left')
+        #     if(leftEdgeFace != NO_EDGE):
+        #         edge = 'left'
+        #         move = _rotateEdgeToAdjacentFace(content, leftEdgeFace, edge)
+        #         move += _movesToInsertEdge(edge)
+        #         content = solve._movecontroller(content, move)  
+        #         totalMoves += solve._movetranslator(face, move)       
+        # if(rightEdgePlaced == False):
+        #     rightEdgeFace = _findEdge(content, 'right')
+        #     if(rightEdgeFace != NO_EDGE):
+        #         edge = 'right'
+        #         move = _rotateEdgeToAdjacentFace(content, rightEdgeFace, edge)
+        #         move += _movesToInsertEdge(edge)
+        #         content = solve._movecontroller(content, move)
+        #         totalMoves += solve._movetranslator(face, move)
         
         #if piece is valid edge piece, remove it, but make sure you switch it with yellow edge or correct edge
         # make sure to do checkEdgePlaced first so you don't remove the edge you just placed

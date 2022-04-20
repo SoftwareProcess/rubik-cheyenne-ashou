@@ -367,7 +367,7 @@ class SolveMiddleLayerTest(unittest.TestCase):
         myCube2._load(inputDict['cube'])
         expectedContent = myCube2._getContent()
         self.assertEqual(expectedContent, content)
-    @unittest.skip('skip while making methods for misplaced edges')    
+       
     def test_090_solve_NominalUnmixedCube(self):
         inputDict = {}
         inputDict['op'] = 'solve'
