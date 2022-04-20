@@ -370,6 +370,8 @@ def optimalUpperRotation(content, startingFace, endingFace):
         rotations = 'u'
     elif(difference == -3):
         rotations = 'u'
+    else:
+        rotations = ''
     return rotations
     
     
