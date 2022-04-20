@@ -5,6 +5,7 @@ Created on Apr 17, 2022
 '''
 import rubik.check as check
 import rubik.solve as solve
+from rubik.solve import _rotateCubeClockwise, _movetranslator
 def _checkSolved(content):
     solved = True
     bottomSolved = check.checkBottomLayerSolved(content)
@@ -94,7 +95,14 @@ def _solve(content):
     face = 0
     solved = _checkSolved(content)
     while(solved == False):
-        break
+        edgesPlaced = _checkGoToNextFace(content)
+        goToNextFace = edgesPlaced[0]
+        if(goToNextFace == True):
+            _rotateCubeClockwise(content, face)
+        moves = _insertEdges(content)
+        totalMoves += _movetranslator(face, moves)
+        moves = _removeMisorientedEdge(content)
+        totalMoves += _movetranslator(face, moves)
         # leftEdgePlaced = _checkEdgePlaced(content, 'left')
         # rightEdgePlaced = _checkEdgePlaced(content, 'right')
         # if(leftEdgePlaced == True and rightEdgePlaced == True):
@@ -131,7 +139,8 @@ def _solve(content):
         #     else:
         #         move = _rotateEdgeToAdjacentFace(content, startingFace, edge)
         solved = _checkSolved(content)
-        face = (face + 1) % 4
+        if(solved == False):
+            face = (face + 1) % 4
     content = solve._rotateToFrontFace(content, face)
     return totalMoves
 
