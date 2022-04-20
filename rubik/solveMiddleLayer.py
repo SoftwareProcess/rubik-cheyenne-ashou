@@ -94,10 +94,8 @@ def _solve(content):
     while(solved == False):
         edgesPlaced = _checkGoToNextFace(content)
         goToNextFace = edgesPlaced['face']
-        print(edgesPlaced)
         if(goToNextFace == True):
             solved = _checkSolved(content)
-            #print(solved)
             if(solved == True):
                 break
             face = (face + 1) % 4
@@ -107,7 +105,6 @@ def _solve(content):
         moves = _removeMisorientedEdges(content)
         totalMoves += solve._movetranslator(face, moves)
         solved = _checkSolved(content)
-        print(totalMoves)
         if(solved == False):
             face = (face + 1) % 4
             content = solve._rotateCubeClockwise(content)

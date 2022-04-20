@@ -100,19 +100,6 @@ class SolveTest(unittest.TestCase):
         expectedRotations = ''
         self.assertEqual(expectedRotations, rotations)
         
-        myCube2 = cube.Cube()     
-        resultingCubeDict = solve._solve(solveDict)
-        print(resultingCubeDict)
-        myCube2._load(resultingCubeDict['cube'])
-        resultingCube = myCube2._getContent()
-        
-        bottomLayerResult = check.checkBottomLayerSolved(resultingCube)
-        middleLayerResult = check.checkMiddleLayerSolved(resultingCube)
-        
-        expectedResult = True
-        self.assertEqual(expectedResult, bottomLayerResult)
-        
-        self.assertEqual(expectedResult, middleLayerResult)
         
     def test_movecontroller_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
