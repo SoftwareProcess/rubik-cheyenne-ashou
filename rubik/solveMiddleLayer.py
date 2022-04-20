@@ -5,7 +5,6 @@ Created on Apr 17, 2022
 '''
 import rubik.check as check
 import rubik.solve as solve
-from rubik.solve import _rotateCubeClockwise, _movetranslator
 def _checkSolved(content):
     solved = True
     bottomSolved = check.checkBottomLayerSolved(content)
