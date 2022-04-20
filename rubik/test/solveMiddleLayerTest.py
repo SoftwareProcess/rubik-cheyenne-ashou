@@ -389,8 +389,8 @@ class SolveMiddleLayerTest(unittest.TestCase):
     def test_091_solve_NominalMixedCubeWithBottomLayerSolved(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        #inputDict['cube'] = 'yrooryrrryroggbgggbygyoooooygrybbbbbrryoybbggwwwwwwwww'
-        inputDict['cube'] = 'rggorbobgrobrbgryyrggrobbrywrwogwoywowyywgbywbwybyogwo'
+        inputDict['cube'] = 'yrooryrrryroggbgggbygyoooooygrybbbbbrryoybbggwwwwwwwww'
+        #inputDict['cube'] = 'rggorbobgrobrbgryyrggrobbrywrwogwoywowyywgbywbwybyogwo'
         myCube = cube.Cube()
         myCube._load(inputDict['cube'])
         content = myCube._getContent()
