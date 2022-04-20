@@ -97,7 +97,7 @@ def _solve(content):
         print(edgesPlaced)
         if(goToNextFace == True):
             solved = _checkSolved(content)
-            print(solved)
+            #print(solved)
             if(solved == True):
                 break
             face = (face + 1) % 4
@@ -107,6 +107,7 @@ def _solve(content):
         moves = _removeMisorientedEdges(content)
         totalMoves += solve._movetranslator(face, moves)
         solved = _checkSolved(content)
+        print(totalMoves)
         if(solved == False):
             face = (face + 1) % 4
             content = solve._rotateCubeClockwise(content)
