@@ -22,7 +22,8 @@ class SolveTest(unittest.TestCase):
         actualCheck = check._check(inputDict)
         self.assertEqual(expectedCheck, actualCheck)
         
-        rotations = solve._solve(inputDict)
+        solveResult = solve._solve(inputDict)
+        rotations = solveResult['solution']
         print(rotations)
         solveDict = {}
         solveDict['op'] = 'solve'
